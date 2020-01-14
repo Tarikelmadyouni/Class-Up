@@ -1,0 +1,107 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Create new questionnaire</div>
+
+                <div class="card-body">
+                <form action="/questionnaires/{{$questionnaire->id}}/questions" method="post">
+                        @csrf
+
+                        <div class="form-group">
+                                <label for="question">Title</label>
+                                <input name="question[question]" type="text" class="form-control" value="{{ old('question.question') }}" id="title" aria-describedby="titleHelp" placeholder="Enter title">
+                                <small id="questionHelp" class="form-text text-muted">Add a simple ask </small>
+
+                                @error('question.question')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+                              </div>
+
+                              <div class="form-group">
+                               
+                                <fieldset>
+                                     <legend>Choice</legend>
+                                     <small id="choiceHelp" class="form-text text-muted">Give a choice </small>
+                                     
+                                     <div>
+                                        <div class="form-group">
+                                        <label for="answer1">choice 1</label>
+                                <input name="answers[][answer]" type="text" class="form-control" id="answer1" value="{{ old('answer.0.answer') }}" aria-describedby="choiceHelp" placeholder="Enter choice 1">
+                               
+
+                                @error('answers.0.answer')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+
+
+
+                                     </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="form-group">
+                                        <label for="answer2">choice 2</label>
+                                <input name="answers[][answer]" type="text" class="form-control" id="answer2" value="{{ old('answer.1.answer') }}"  aria-describedby="choiceHelp" placeholder="Enter choice 2">
+                               
+
+                                @error('answers.1.answer')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+
+
+
+                                     </div>
+                                    </div>
+
+
+                                    <div>
+                                        <div class="form-group">
+                                        <label for="answer3">choice 3</label>
+                                <input name="answers[][answer]" type="text" class="form-control" id="answer3" value="{{ old('answer.2.answer') }}" aria-describedby="choiceHelp" placeholder="Enter choice 3">
+                               
+
+                                @error('answers.2.answer')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+
+
+
+                                     </div>
+                                    </div>
+                                
+
+                                    <div>
+                                        <div class="form-group">
+                                        <label for="answer4">choice 4</label>
+                                <input name="answers[][answer]" type="text" class="form-control" id="answer4" value="{{ old('answer.3.answer') }}" aria-describedby="choiceHelp" placeholder="Enter choice 4">
+                               
+
+                                @error('answers.3.answer')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
+
+
+
+                                     </div>
+                                    </div>
+    
+                                </fieldset>
+    
+    
+                            </div>
+                              
+
+                              <button type="submit" class="btn btn-primary">Add questionnaire</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
@@ -13,7 +14,7 @@ class Question extends Model
         return $this->belongsTo(Questionnaire::class);
     }
 
-    public function answer(){
+    public function answers(){
 
       return $this->hasMany(Answer::class);
 

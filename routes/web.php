@@ -19,7 +19,9 @@ Route::get('/email', function () {
     return new WelcomeMail();
 });
 */
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'HelloController@about' );
 
 Route::get('/service', 'ServiceController@index' );
@@ -38,11 +40,11 @@ Route::post('/questionnaires', 'QuestionnaireController@store');
 Route::get('/questionnaires/{questionnaire}','QuestionnaireController@show');
 
 
-Route::get('/questionnaires/{questionnaire}/question/create', 'questionController@create');
-Route::post('/questionnaires/{questionnaire}/question', 'questionController@store');
+Route::get('/questionnaires/{questionnaire}/questions/create', 'questionController@create');
+Route::post('/questionnaires/{questionnaire}/questions', 'questionController@store');
 
-Auth::routes();
+Route::get('/surveys/{questionnaire}-{slug}','SurveyController@show');
+Route::post('/surveys/{questionnaire}-{slug}','SurveyController@store');
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 

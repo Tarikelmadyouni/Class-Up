@@ -27,6 +27,7 @@ class QuestionController extends Controller
          $question = $questionnaire->questions()->create($data['question']);
          $question->answers()->createMany($data['answers']);
 
+         //use dot(.) 
          return redirect('/questionnaires/'.$questionnaire->id);
 
 

@@ -28,7 +28,7 @@ class SurveyController extends Controller
         ]);
 
         $survey = $questionnaire->surveys()->create($data['survey']);
-        $survey->responses()->createMany($data['reponses']);
+        $survey->responses()->createMany($data['responses']);
 
         return "Thank you";
 

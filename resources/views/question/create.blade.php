@@ -13,7 +13,7 @@
 
                         <div class="form-group">
                                 <label for="question">Title</label>
-                                <input name="question[question]" type="text" class="form-control" value="{{ old('question.question') }}" id="title" aria-describedby="titleHelp" placeholder="Enter title">
+                                <input name="question[question]" type="text" class="form-control" value="{{ old('question.question') }}" id="question" aria-describedby="questionHelp" placeholder="Enter question">
                                 <small id="questionHelp" class="form-text text-muted">Add a simple ask </small>
 
                                 @error('question.question')
@@ -22,16 +22,16 @@
                               </div>
 
                               <div class="form-group">
-                               
+
                                 <fieldset>
-                                     <legend>Choice</legend>
-                                     <small id="choiceHelp" class="form-text text-muted">Give a choice </small>
-                                     
+                                     <legend>Choices</legend>
+                                     <small id="choicesHelp" class="form-text text-muted">Give a choice </small>
+
                                      <div>
                                         <div class="form-group">
                                         <label for="answer1">choice 1</label>
-                                <input name="answers[][answer]" type="text" class="form-control" id="answer1" value="{{ old('answer.0.answer') }}" aria-describedby="choiceHelp" placeholder="Enter choice 1">
-                               
+                                <input name="answers[][answer]" type="text" class="form-control" id="answer1" value="{{ old('answers.0.answer') }}" aria-describedby="choicesHelp" placeholder="Enter choice 1">
+
 
                                 @error('answers.0.answer')
                                 <small class="text-danger">{{$message}}</small>
@@ -45,8 +45,8 @@
                                     <div>
                                         <div class="form-group">
                                         <label for="answer2">choice 2</label>
-                                <input name="answers[][answer]" type="text" class="form-control" id="answer2" value="{{ old('answer.1.answer') }}"  aria-describedby="choiceHelp" placeholder="Enter choice 2">
-                               
+                                <input name="answers[][answer]" type="text" class="form-control" id="answer2" value="{{ old('answers.1.answer') }}"  aria-describedby="choicesHelp" placeholder="Enter choice 2">
+
 
                                 @error('answers.1.answer')
                                 <small class="text-danger">{{$message}}</small>
@@ -61,8 +61,8 @@
                                     <div>
                                         <div class="form-group">
                                         <label for="answer3">choice 3</label>
-                                <input name="answers[][answer]" type="text" class="form-control" id="answer3" value="{{ old('answer.2.answer') }}" aria-describedby="choiceHelp" placeholder="Enter choice 3">
-                               
+                                <input name="answers[][answer]" type="text" class="form-control" id="answer3" value="{{ old('answers.2.answer') }}" aria-describedby="choicesHelp" placeholder="Enter choice 3">
+
 
                                 @error('answers.2.answer')
                                 <small class="text-danger">{{$message}}</small>
@@ -72,13 +72,13 @@
 
                                      </div>
                                     </div>
-                                
+
 
                                     <div>
                                         <div class="form-group">
                                         <label for="answer4">choice 4</label>
-                                <input name="answers[][answer]" type="text" class="form-control" id="answer4" value="{{ old('answer.3.answer') }}" aria-describedby="choiceHelp" placeholder="Enter choice 4">
-                               
+                                <input name="answers[][answer]" type="text" class="form-control" id="answer4" value="{{ old('answers.3.answer') }}" aria-describedby="choicesHelp" placeholder="Enter choice 4">
+
 
                                 @error('answers.3.answer')
                                 <small class="text-danger">{{$message}}</small>
@@ -88,12 +88,12 @@
 
                                      </div>
                                     </div>
-    
+
                                 </fieldset>
-    
-    
+
+
                             </div>
-                              
+
 
                               <button type="submit" class="btn btn-primary">Add questionnaire</button>
 

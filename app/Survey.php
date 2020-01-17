@@ -19,7 +19,7 @@ class Survey extends Model
 
     public function responses(){
 
-        return $this->belongsTo(SurveyResponse::class);
+        return $this->hasMany(SurveyResponse::class);
     }
 
 

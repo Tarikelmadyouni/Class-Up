@@ -10,13 +10,13 @@
                 <div class="card-body">
 
                 <a class="btn btn-dark" href="/questionnaires/{{ $questionnaire->id }}/questions/create">Add new question</a>
-                <a class="btn btn-dark" href="/surveys/{{ $questionnaire->id }}->{{ $slug ?? '' }}/questions/create">Take survey</a>
+                <a class="btn btn-dark" href="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title)}}">Take survey</a>
                 </div>
             </div>
 
             @foreach ($questionnaire->questions as $question)
             <div class="card">
-                <div class="card-header">{{$questionnaire->title}}</div>
+                <div class="card-header">{{$question->question}}</div>
 
                 <div class="card-body">
                 <ul class="list-group">

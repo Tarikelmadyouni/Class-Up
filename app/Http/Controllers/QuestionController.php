@@ -12,7 +12,7 @@ class QuestionController extends Controller
     public function create(Questionnaire $questionnaire){
 
         return view('question.create', compact('questionnaire'));
-             
+
 
     }
 
@@ -27,7 +27,7 @@ class QuestionController extends Controller
          $question = $questionnaire->questions()->create($data['question']);
          $question->answers()->createMany($data['answers']);
 
-         return redirect('/questionnaires/',$questionnaire->id);
+         return redirect('/questionnaire/',$questionnaire->id);
 
 
 

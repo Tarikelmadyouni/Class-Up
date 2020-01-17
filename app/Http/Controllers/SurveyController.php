@@ -8,15 +8,15 @@ use App\Questionnaire;
 class SurveyController extends Controller
 
 {
-    public function show(\App\Questionnaire $questionnaire, $slug){
+    public function show(Questionnaire $questionnaire, $slug){
 
        $questionnaire->load('questions.answers');
-     return view('surveys.show', compact('questionnaire'));
+     return view('survey.show', compact('questionnaire'));
 
 
     }
 
-    public function store(){
+    public function store(Questionnaire $questionnaire){
 
 
         $data = request()->validate([

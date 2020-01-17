@@ -26,9 +26,7 @@ class QuestionnaireController extends Controller
 
         ]);
 
-        //$data['user_id'] = auth()->user()->id;
-
-        //$questionnaire = \App\Questionnaire::create($data);
+       
 
         $questionnaire = auth()->user()->questionnaires()->create($data);
 

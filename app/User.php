@@ -41,4 +41,9 @@ class User extends Authenticatable
 
         return $this->hasMany(\App\Questionnaire::class);
     }
+
+    public function image(){
+
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

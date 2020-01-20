@@ -12,13 +12,7 @@ use Illuminate\Support\Facades\Mail;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/email', function () {
 
-    Mail::to('email@email.com')->send(new WelcomeMail());
-    return new WelcomeMail();
-});
-*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -47,5 +41,17 @@ Route::delete('/questionnaires/{questionnaire}/questions/{question}', 'questionC
 Route::get('/surveys/{questionnaire}-{slug}','SurveyController@show');
 Route::post('/surveys/{questionnaire}-{slug}','SurveyController@store');
 
+Route::get('pay', 'PayOrderController@store');
+
+Route::get('channels', 'ChannelController@index');
+
+Route::get('posts/create', 'PostController@create');
 
 
+/*
+Route::get('/email', function () {
+
+    Mail::to('email@email.com')->send(new WelcomeMail());
+    return new WelcomeMail();
+});
+*/

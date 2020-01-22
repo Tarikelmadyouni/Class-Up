@@ -23,7 +23,7 @@ class OrderDetails{
         return [
             'name'=>'victor',
             'address'=> 'rue lulu',
-        ]
+        ];
     }
 
 

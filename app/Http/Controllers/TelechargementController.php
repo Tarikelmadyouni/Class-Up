@@ -16,7 +16,7 @@ class TelechargementController extends Controller
     {
 
 
-            return view('video/dropzone');
+            return view('/dropzone');
         }
 
 

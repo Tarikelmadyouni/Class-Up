@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -46,6 +50,9 @@ Route::get('pay', 'PayOrderController@store');
 Route::get('channels', 'ChannelController@index');
 
 Route::get('posts/create', 'PostController@create');
+
+Route::get('/dropzone','TelechargementController@index');
+
 
 
 /*

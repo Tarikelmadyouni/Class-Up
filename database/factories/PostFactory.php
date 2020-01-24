@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'title'=>$faker->sentence,
-        'body'=>$faker->paragraph,
+        'title'=>$faker->sentence(2),
+        'active'=>$faker->random_int(0,1),
     ];
 });

@@ -14,12 +14,14 @@
                         </div>
                     @endif
 
-                    <a href="/questionnaires/create" class="btn btn-dark">Create a new Questionnaire</a>
+                    <a href="/questionnaires/create" class="btn btn-dark">Créez un nouveau questionnaire</a>
+                    <a href="/videos/create" class="btn btn-dark ml-2">Créez un nouveau tuto</a>
+                    <a href="/posts/create" class="btn btn-dark ml-2">Ajouter un cours</a>
                 </div>
             </div>
 
             <div class="card mt-4">
-                <div class="card-header">My questionnaire</div>
+                <div class="card-header">Vos cours déjà créés</div>
 
                      <ul class="list-group">
 

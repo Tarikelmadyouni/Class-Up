@@ -23,5 +23,11 @@ class Survey extends Model
     }
 
 
+    public function adminProfesseur(){
+
+        return $this->belongsTo(AccueilAdmin::class);
+    }
+
+
 
 }

@@ -45,6 +45,8 @@
          </div>
     </div>
 
+    <a href="/home" class="ml-5" style="color:blue;"><< Retour à l'accueil</a>
+
 
 
 

@@ -14,5 +14,10 @@ class SurveyResponse extends Model
         return $this->belongsTo(Survey::class);
     }
 
+    public function adminProfesseur(){
+
+        return $this->belongsTo(AccueilAdmin::class);
+    }
+
 
 }

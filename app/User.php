@@ -63,7 +63,13 @@ class User extends Authenticatable
 
         return $this->hasMany(\App\ImageUpload::class);
     }
-    
+
+
+    public function adminProfesseur(){
+
+        return $this->belongsTo(\App\AccueilAdmin::class);
+    }
+
 
 
 

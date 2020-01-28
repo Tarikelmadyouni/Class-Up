@@ -57,6 +57,8 @@ Route::get('/images', 'TelechargementController@index');
 //Route::post('/images','TelechargementController@store');
 Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
+Route::get('/accueil', 'AccueilAdminController@show');
+
 
 
 

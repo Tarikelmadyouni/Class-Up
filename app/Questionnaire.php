@@ -38,4 +38,10 @@ class Questionnaire extends Model
 
         return $this->hasMany(Survey::class);
     }
+
+    public function adminProfesseur(){
+
+        return $this->belongsTo(AccueilAdmin::class);
+    }
+
 }

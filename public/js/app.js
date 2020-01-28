@@ -1945,8 +1945,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1956,7 +1954,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.dropzone = new dropzone__WEBPACK_IMPORTED_MODULE_0___default.a(this.$refs.imageUpload, {
-      url: '/images'
+      url: '/api/images'
     });
   }
 });
@@ -23116,7 +23114,7 @@ var render = function() {
             staticClass:
               "col-12 bg-dark text-white rounded py-3 my-2 text-center"
           },
-          [_vm._v("DROPIMAGE(s) HERE")]
+          [_vm._v("+ Glissez vos documents/videos ici +")]
         )
       ]
     )
@@ -35443,8 +35441,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/XAMPP/xamppfiles/htdocs/webucator/ClassFiles/Class'up/Class-up/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Applications/XAMPP/xamppfiles/htdocs/webucator/ClassFiles/Class'up/Class-up/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\class-up\Class-up\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\class-up\Class-up\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

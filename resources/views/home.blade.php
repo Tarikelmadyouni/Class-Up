@@ -15,8 +15,7 @@
                     @endif
 
                     <a href="/questionnaires/create" class="btn btn-dark">Créez un nouveau questionnaire</a>
-                    <a href="/videos/create" class="btn btn-dark ml-2">Créez un nouveau tuto</a>
-                    <a href="/posts/create" class="btn btn-dark ml-2">Ajouter un cours</a>
+                    <a href="/images" class="btn btn-dark ml-2">Ajouter des documents ou vidéo</a>
                 </div>
             </div>
 

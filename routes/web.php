@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'HelloController@about' );
 
@@ -51,7 +52,11 @@ Route::get('channels', 'ChannelController@index');
 
 Route::get('posts/create', 'PostController@create');
 
-Route::get('/dropzone','TelechargementController@index');
+//route Dropzone
+Route::get('/images', 'TelechargementController@index');
+//Route::post('/images','TelechargementController@store');
+Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
+
 
 
 
@@ -62,3 +67,4 @@ Route::get('/email', function () {
     return new WelcomeMail();
 });
 */
+

@@ -47,15 +47,25 @@ class User extends Authenticatable
         return $this->morphOne(Image::class, 'imageable');
     }
 
-    public function videos()
+    /*public function videos()
     {
       return $this->hasMany(Video::class);
     }
+    */
 
     public function uploads()
     {
    return $this->hasMany(Upload::class);
     }
 
+
+    public function images(){
+
+        return $this->hasMany(\App\ImageUpload::class);
+    }
     
+
+
+
+
 }

@@ -53,6 +53,11 @@
                 </div>
             </div>
 
+            <div class="card-body">
+
+                <a href="/accueil" class="btn btn-dark mt-4">Vers ma vue d'ensemble</a>
+            </div>
+
         </div>
     </div>
 </div>

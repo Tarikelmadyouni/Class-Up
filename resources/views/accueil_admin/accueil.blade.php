@@ -5,6 +5,12 @@
 <h4>Professeur connecté: {{ Auth::user()->name }}</h4>
 <br>
 <h3><strong>Vue d'enssemble</strong></h3>
+
+<div class="card-body mt-2">
+
+    <a href="/home" class="btn btn-dark">Vers mon tableau de bord</a>
+</div>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
 

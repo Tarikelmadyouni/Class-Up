@@ -11,8 +11,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\mkdir;
-
-
+use Org_Heigl\Ghostscript\Device\Jpeg;
 
 class TelechargementController extends Controller
 {
@@ -52,6 +51,10 @@ class TelechargementController extends Controller
                 Image::make($image)
                 ->fit(250, 250)
                 ->save(public_path('/docs/' .$thumbnail));
+
+                
+
+
 
                 $image->move(public_path('/docs'), $original);
 

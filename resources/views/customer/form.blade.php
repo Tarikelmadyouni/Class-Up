@@ -1,18 +1,42 @@
-<h1>Add new customer</h1>
+@csrf
 
-<form action="/customers" method="post">
+    <div class="col-4 ml-2">
 
-    <div>
-            <label for="name">Name</label>
-            <input type="text" name="name" autocomplete="off" value="{{old('name') ?? $customer->name}}">
-            @error('name')<p>{{$message}}</p>@enderror
-            </div>
-            <div>
-            <label for="email">Email</label>
-            <input type="text" name="email" autocomplete="off" value="{{old('email') ?? $customer->email}}">
-            @error('email')<p>{{$message}}</p>@enderror
-            </div>
-        @csrf
+        <div class="form-group">
+            <label for="nom">Nom</label>
+        <input type="text" name="nom"  class="form-control">
 
-<button>Add new customer</button>
-</form>
+        </div>
+
+        <div class="form-group">
+            <label for="prenom">Prenom</label>
+        <input type="text" name="prenom"  class="form-control">
+
+        </div>
+
+
+       <div class="form-group">
+           <label for="email">Email</label>
+       <input type="text" name="email"  class="form-control">
+
+       </div>
+
+        <div class="form-group">
+          <label for="classe_id">Ta classe</label>
+           <input type="text" name="classe" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="ecole">Adresse de Ton ecole</label>
+        <input type="text" name="ecole"  class="form-control">
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+

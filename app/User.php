@@ -71,6 +71,12 @@ class User extends Authenticatable
     }
 
 
+    public function customer(){
+
+        return $this->belongsToMany(\App\Customer::class);
+    }
+
+
 
 
 

@@ -26,7 +26,7 @@ Route::get('/about', 'HelloController@about' );
 Route::get('/service', 'ServiceController@index' );
 Route::post('/service', 'ServiceController@store' );
 
-Route::get('/customers','CustomerController@index');
+//Route::get('/customers','CustomerController@index');
 Route::get('/customers/create','CustomerController@create');
 Route::post('/customers','CustomerController@store');
 Route::get('/customers/{customer}','CustomerController@show');
@@ -58,6 +58,9 @@ Route::get('/images', 'TelechargementController@index');
 Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
 Route::get('/accueil', 'AccueilAdminController@show');
+
+Route::get('/graphs', 'GraphiqueStudentController@store');
+
 
 
 

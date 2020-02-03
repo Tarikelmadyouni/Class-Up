@@ -59,7 +59,11 @@ Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
 Route::get('/accueil', 'AccueilAdminController@show');
 
-Route::get('/graphs', 'GraphiqueStudentController@store');
+Route::get('/customers/{customer}/graphs/create', 'GraphiqueStudentController@create');
+Route::post('/customers/{customer}/graphs', 'GraphiqueStudentController@store');
+Route::get('/graphs/{graph}','GraphiqueStudentController@show' );
+
+
 
 
 

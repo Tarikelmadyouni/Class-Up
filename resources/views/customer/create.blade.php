@@ -17,6 +17,8 @@
        <form action="/customers" method="post">
         @include('customer.form')
 
+
+
         <button type="submit" class="btn btn-primary ml-4 mt-4">Ajoute tes infos</button>
        </form>
        </div>

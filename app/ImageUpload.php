@@ -21,6 +21,11 @@ class ImageUpload extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function avatar(){
+
+        return $this->belongsToMany(\App\Customer::class);
+    }
+
 
 
 

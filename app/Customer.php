@@ -21,5 +21,11 @@ class Customer extends Model
         return $this->belongsToMany(\App\User::class);
     }
 
+    /*public function avatar(){
+
+        return $this->belongsToMany(\App\ImageUpload::class);
+    }
+    */
+
 
 }

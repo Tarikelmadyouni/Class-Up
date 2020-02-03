@@ -17,6 +17,9 @@ class CreateGraphiqueStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('customers_id');
             $table->bigInteger('notes');
+            $table->string('mois');
+            $table->string('matiere');
+            $table->string('date');
             $table->timestamps();
         });
     }

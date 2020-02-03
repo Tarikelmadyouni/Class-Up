@@ -11,6 +11,6 @@ class GraphiqueStudent extends Model
 
     public function customer(){
 
-        return $this->belongsToMany(\App\Customer::class);
+        return $this->hasMany(\App\Customer::class);
     }
 }

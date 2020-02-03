@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('email');
             $table->string('classe');
             $table->string('ecole');
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }

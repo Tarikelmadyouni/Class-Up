@@ -45,9 +45,9 @@ class CustomerController extends Controller
 
         ]);
 
-        //$data = auth()->user()->id;
+        //$customer = auth()->user()->id;
 
-        $customer = Customer::create($data);
+        Customer::create($data);
 
         return redirect('customers');
 

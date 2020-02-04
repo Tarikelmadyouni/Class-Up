@@ -4,7 +4,7 @@
 
 <h1>Entrez les nouvelles notes</h1>
 
-<form action="/graph" method="post">
+<form action="/graphs/create" method="post">
 @csrf
 
     <div class="col-4 ml-2">

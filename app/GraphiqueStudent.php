@@ -13,4 +13,10 @@ class GraphiqueStudent extends Model
 
         return $this->hasMany(\App\Customer::class);
     }
+
+
+    public function matiere(){
+
+        return $this->hasMany(\App\MatiereCustomers::class);
+    }
 }

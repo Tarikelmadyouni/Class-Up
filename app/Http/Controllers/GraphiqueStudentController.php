@@ -9,35 +9,37 @@ use App\GraphiqueStudent;
 class GraphiqueStudentController extends Controller
 {
 
-    public function create(Customer $graphs){
+    public function create(GraphiqueStudent $graphs){
 
         $graphs = Customer::all();
-
+   //dd($graphs);
         return view('graph.create', compact('graphs'));
+
+
     }
 
 
 
 
 
-    public function store(Customer $customer){
+    public function store(GraphiqueStudent $graph){
 
         $data = request()->validate([
 
-
-            'notes'=>'required',
-            'mois'=>'required',
+            'nom'=>'required',
             'matiere'=>'required',
-            'date'=>'required',
+
 
 
         ]);
 
-        $graphique = $customer->customer()->create($data['customers']);
-        $graphique->graphique()->createMany($data['graphs']);
+        dd($data);
+
+        $graphique = $graph->customer()->create($data['nom']);
+        $graphique->matiere()->createMany($data['matiere']);
 
 
-         return redirect('customers'.$customer->id);
+         return redirect('/graph/'.$graph->id);
     }
 
 
@@ -50,5 +52,6 @@ class GraphiqueStudentController extends Controller
 
 
     }
+
 
 }

@@ -16,6 +16,7 @@
 
                     <a href="/questionnaires/create" class="btn btn-dark">Créez un nouveau questionnaire</a>
                     <a href="/images" class="btn btn-dark ml-2">Ajouter des documents ou vidéo</a>
+                    <a href="/graphs/create" class="btn btn-dark ml-2">Entrer des résultats par élève</a>
                 </div>
             </div>
 

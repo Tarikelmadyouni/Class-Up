@@ -76,6 +76,21 @@ class User extends Authenticatable
         return $this->belongsToMany(\App\Customer::class);
     }
 
+    public function matiere(){
+
+        return $this->hasMany(\App\Matiere::class);
+    }
+
+    public function matiereCustomer(){
+
+        return $this->hasMany(\App\MatiereCustomers::class);
+    }
+
+    public function graphique(){
+
+        return $this->hasMany(\App\GraphiqueStudent::class);
+    }
+
 
 
 

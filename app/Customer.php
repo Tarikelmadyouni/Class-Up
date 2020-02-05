@@ -27,6 +27,7 @@ class Customer extends Model
         return $this->hasMany(\App\MatiereCustomers::class);
     }
 
+
     /*public function avatar(){
 
         return $this->belongsToMany(\App\ImageUpload::class);

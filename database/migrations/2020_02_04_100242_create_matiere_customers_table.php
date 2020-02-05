@@ -15,7 +15,7 @@ class CreateMatiereCustomersTable extends Migration
     {
         Schema::create('matiere_customers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('id_customer');
+            $table->bigInteger('id_customer');
             $table->string('matieres');
             $table->integer('notes');
             $table->string('commentaires');

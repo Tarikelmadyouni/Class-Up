@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MatiereCustomers extends Model
+class Matiere extends Model
 {
     protected $guarded=[];
 
@@ -20,11 +20,11 @@ class MatiereCustomers extends Model
 
     public function user(){
 
-        return $this->belongsTo(\App\User::class);
+        return $this->hasMany(\App\User::class);
     }
 
-    public function matiere(){
+    public function customerMatiere(){
 
-        return $this->hasMany(\App\Matiere::class);
+        return $this->hasMany(\App\MatiereCustomers::class);
     }
 }

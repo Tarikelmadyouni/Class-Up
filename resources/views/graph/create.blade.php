@@ -4,27 +4,31 @@
 
 <h1>Entrez les nouvelles notes</h1>
 
-<form action="/graphs/create" method="post">
+<form action="/graphs" method="post">
 @csrf
 
     <div class="col-4 ml-2">
-
+       @foreach ($graphs as $customer)
         <div class="form-group">
-            <label for="nom">Nom de l'élève</label>
-        <input type="text" name="nom"  class="form-control">
+
+            <label for="nom">Choisissez un élève</label>
+            <select name="nom[nom]" id="nom">
+            <option>{{ $customer->nom }}</option>
+            </select>
 
         </div>
+        @endforeach
 
         <div class="form-group">
             <label for="matiere">Matière</label>
-        <input type="text" name="matiere"  class="form-control">
+        <input type="text" name="matiere" id="matiere"  class="form-control">
 
         </div>
 
 
        <div class="form-group">
            <label for="note">note</label>
-       <input type="text" name="notes"  class="form-control">
+       <input type="text" name="notes" id="notes"  class="form-control">
 
        </div>
 

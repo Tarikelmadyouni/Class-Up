@@ -8,11 +8,12 @@
 @csrf
 
     <div class="col-4 ml-2">
+
        @foreach ($graphs as $customer)
         <div class="form-group">
 
             <label for="nom">Choisissez un élève</label>
-            <select name="nom[nom]" id="nom">
+        <select name="nom[]" id="nom">
             <option>{{ $customer->nom }}</option>
             </select>
 

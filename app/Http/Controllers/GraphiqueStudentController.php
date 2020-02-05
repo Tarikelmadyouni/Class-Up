@@ -9,9 +9,11 @@ use App\GraphiqueStudent;
 class GraphiqueStudentController extends Controller
 {
 
+
     public function create(GraphiqueStudent $graphs){
 
-
+        $graphs->load('customer');
+        //GraphiqueStudent::find('id');
    //dd($graphs);
         return view('graph.create', compact('graphs'));
 
@@ -45,7 +47,7 @@ class GraphiqueStudentController extends Controller
     }
 
 
-      /*
+   /*
     public function show(GraphiqueStudent $graph){
 
 

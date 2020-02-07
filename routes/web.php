@@ -30,9 +30,11 @@ Route::post('/service', 'ServiceController@store' );
 Route::get('/customers/create','CustomerController@create');
 Route::post('/customers','CustomerController@store');
 Route::get('/customers/{customer}','CustomerController@show');
+/*
 Route::get('/customers/{customer}/edit','CustomerController@edit');
 Route::patch('/customers/{customer}','CustomerController@update');
 Route::delete('/customers/{customer}','CustomerController@destroy');
+*/
 
 Route::get('/questionnaires/create', 'QuestionnaireController@create');
 Route::post('/questionnaires', 'QuestionnaireController@store');

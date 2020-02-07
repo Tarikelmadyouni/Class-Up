@@ -14,8 +14,9 @@
 
    <div class="row">
        <div class="col-12">
-       <form action="/customers" method="post">
+       <form action="/customers/create" method="post">
         @include('customer.form')
+        
 
 
 

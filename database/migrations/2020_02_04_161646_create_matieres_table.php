@@ -15,7 +15,9 @@ class CreateMatieresTable extends Migration
     {
         Schema::create('matieres', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id-customer')->nullable();
+            $table->unsignedBigInteger('customers_id');
+            $table->unsignedBigInteger('matiere_customers_id');
+            $table->unsignedBigInteger('graphique_student_id');
             $table->string('matiere');
             $table->timestamps();
         });

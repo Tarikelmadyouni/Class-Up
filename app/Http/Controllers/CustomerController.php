@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\User;
+use App\GraphiqueStudent;
+use App\MatiereCustomers;
 use App\Mail\WelcomeMail;
+use App\Matiere;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+
 
 class CustomerController extends Controller
 {
@@ -17,16 +22,21 @@ class CustomerController extends Controller
     }
     */
 
+    public function __construct()
+    {
+       $this->middleware('auth');
+    }
+
 
 
 
     public function create(){
 
 
-        $customer = Customer::all();
+        //Customer::all();
 
 
-        return view('customer.create', compact('customer'));
+        return view('customer.create');
     }
 
 
@@ -41,15 +51,17 @@ class CustomerController extends Controller
             'email'=>'required|email',
             'classe'=>'required',
             'ecole'=>'required',
+            'user_id'=>'required',
 
 
         ]);
 
-        //$customer = auth()->user()->id;
 
-        Customer::create($data);
+        $customers = auth()->user()->customer()->create($data);
 
-        return redirect('customers');
+
+
+        return redirect('/customers/'.$customers->id);
 
 
     }
@@ -66,7 +78,7 @@ class CustomerController extends Controller
 
 
 
-
+/*
     public function edit(Customer $customer){
 
         $customer = Customer::all();
@@ -107,6 +119,6 @@ class CustomerController extends Controller
 
     }
 
-
+*/
 
 }

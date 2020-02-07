@@ -18,13 +18,18 @@ class Customer extends Model
 
     public function user(){
 
-        return $this->belongsToMany(\App\User::class);
+        return $this->belongsTo(User::class);
     }
 
 
     public function matiere(){
 
         return $this->hasMany(\App\MatiereCustomers::class);
+    }
+
+    public function matieres(){
+
+        return $this->hasMany(\App\Matiere::class);
     }
 
 

@@ -27,4 +27,9 @@ class Matiere extends Model
 
         return $this->hasMany(\App\MatiereCustomers::class);
     }
+
+    public function matiere(){
+
+        return $this->hasMany(\App\Matiere::class);
+    }
 }

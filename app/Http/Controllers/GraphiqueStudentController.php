@@ -12,9 +12,8 @@ class GraphiqueStudentController extends Controller
 
     public function create(GraphiqueStudent $graphs){
 
-        $graphs->load('customer');
-        //GraphiqueStudent::find('id');
-   //dd($graphs);
+        $graphs=GraphiqueStudent::all();
+
         return view('graph.create', compact('graphs'));
 
 
@@ -28,9 +27,10 @@ class GraphiqueStudentController extends Controller
 
         $data = request()->validate([
 
-            'nom.nom'=>'required',
-            'matiere.matieres'=>'required',
-            'notes.notes'=>'required',
+            'nom'=>'required',
+            'matiere'=>'required',
+            'notes'=>'required',
+            'date'=>'required',
 
 
 
@@ -39,15 +39,15 @@ class GraphiqueStudentController extends Controller
 
 
 
-        $graphique = $graphs->graphique()->create($data['nom']);
-        $graphique->matiereCustomer()->createMany($data['matiere']['notes']);
+        $graphique = $graphs->graphique()->create($data);
+        //$graphique->matiereCustomer()->createMany($data['matiere']['notes']);
 
 
          return redirect('/graphs/'.$graphs->id);
     }
 
 
-   /*
+
     public function show(GraphiqueStudent $graph){
 
 
@@ -56,7 +56,7 @@ class GraphiqueStudentController extends Controller
 
 
     }
-    */
+
 
 
 }

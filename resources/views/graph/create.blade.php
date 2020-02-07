@@ -9,16 +9,19 @@
 
     <div class="col-4 ml-2">
 
-       @foreach ($graphs as $customer)
-        <div class="form-group">
 
+        <div class="form-group">
             <label for="nom">Choisissez un élève</label>
-        <select name="nom[]" id="nom">
-            <option>{{ $customer->nom }}</option>
+
+        <select name="nom" id="nom">
+@foreach ($graphs as $customer)
+        <option>{{$customer->nom}}</option>
+@endforeach
             </select>
 
+
         </div>
-        @endforeach
+
 
         <div class="form-group">
             <label for="matiere">Matière</label>
@@ -36,7 +39,7 @@
         <div class="form-group">
           <label for="start">date:</label>
 
-          <input type="date" id="start" name="trip-start"
+          <input type="date" id="start" name="date"
                  value="2018-07-22"
                  min="2018-01-01" max="2050-12-31">
         </div>

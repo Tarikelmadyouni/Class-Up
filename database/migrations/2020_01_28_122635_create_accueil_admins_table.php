@@ -15,9 +15,9 @@ class CreateAccueilAdminsTable extends Migration
     {
         Schema::create('accueil_admins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_questionnaire');
-            $table->bigInteger('id_surveys');
-            $table->bigInteger('id_image_upload');
+            $table->unsignedBigInteger('questionnaire_id');
+            $table->unsignedBigInteger('survey_id');
+            $table->unsignedBigInteger('image_upload_id');
             $table->timestamps();
         });
     }

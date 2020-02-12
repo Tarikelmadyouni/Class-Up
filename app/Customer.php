@@ -8,6 +8,10 @@ class Customer extends Model
 {
     protected $guarded = [];
 
+    
+
+
+
 
     public function graphique(){
 

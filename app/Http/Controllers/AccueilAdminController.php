@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 use App\AccueilAdmin;
 use App\ImageUpload;
 use App\Questionnaire;
+use App\Http\Middleware\Admin;
 
 class AccueilAdminController extends Controller
 
 
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
 

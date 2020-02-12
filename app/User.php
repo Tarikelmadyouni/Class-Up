@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','users_id',
+        'name', 'email', 'password','user_id', 'intitule', 'role_id'
     ];
 
     /**
@@ -73,7 +73,7 @@ class User extends Authenticatable
 
     public function customer(){
 
-        return $this->belongsTo(Customer::class);
+        return $this->hasMany(Customer::class);
     }
 
     public function matiere(){
@@ -89,6 +89,16 @@ class User extends Authenticatable
     public function graphique(){
 
         return $this->hasMany(\App\GraphiqueStudent::class);
+    }
+
+    public function role(){
+
+        return $this->belongsTo(\App\Role::class);
+    }
+
+    public function roles(){
+
+        return $this->belongsTo(\App\RoleUser::class);
     }
 
 

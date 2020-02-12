@@ -30,13 +30,13 @@ class CustomerController extends Controller
 
 
 
-    public function create(){
+    public function create(Customer $customer){
 
 
-        //Customer::all();
+        Customer::where('id',$customer)->first();
 
 
-        return view('customer.create');
+        return view('customer.create',compact('customer'));
     }
 
 
@@ -51,13 +51,15 @@ class CustomerController extends Controller
             'email'=>'required|email',
             'classe'=>'required',
             'ecole'=>'required',
-            'user_id'=>'required',
+            //'user_id'=>'required',
 
 
         ]);
 
-
+        //dd($data);
         $customers = auth()->user()->customer()->create($data);
+
+
 
 
 
@@ -71,7 +73,7 @@ class CustomerController extends Controller
     public function show(Customer $customer){
 
 
-        //$customer = Customer::where('id',$customer)->firstOrFail();
+        //Customer::where('id',$customer)->first();
 
        return view ('customer.show', compact('customer'));
     }

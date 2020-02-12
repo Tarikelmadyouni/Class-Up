@@ -17,7 +17,7 @@ class CreateMatiereCustomersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('matieres_id');
-            $table->unsignedBigInteger('graphique_student_id');
+            $table->unsignedBigInteger('graphique_students_id');
             $table->string('matieres');
             $table->integer('notes');
             $table->string('commentaires');

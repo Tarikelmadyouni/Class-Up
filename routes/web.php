@@ -59,11 +59,13 @@ Route::get('/images', 'TelechargementController@index');
 //Route::post('/images','TelechargementController@store');
 Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
-Route::get('/accueil', 'AccueilAdminController@show');
+Route::get('/accueil', 'AccueilAdminController@show')->name('admin')->middleware('admin');
+
+Route::get('/accueileleve', 'AccueilEleveController@show')->name('student')->middleware('student');
 
 Route::get('/graphs/create', 'GraphiqueStudentController@create');
 Route::post('/graphs', 'GraphiqueStudentController@store');
-//Route::get('/graphs/{graph}','GraphiqueStudentController@show' );
+Route::get('/graphs/{graph}','GraphiqueStudentController@show' );
 
 
 

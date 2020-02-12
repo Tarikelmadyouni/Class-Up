@@ -6,7 +6,7 @@
    <div class="row">
        <div class="col-12">
            <div class="ml-4">
-           <h1>Les details de ton profil, {{$customer->prenom}}</h1>
+           <h1>Les details de ton profil, {{ Auth::user()->name }}</h1>
            </div>
 
        </div>
@@ -15,7 +15,7 @@
 
    <div class="container">
     <div class="float-right mr-4 ">
-    <a href="/graphs"><button class="btn btn-primary pull-right">Vers mes statistiques</button></a>
+    <a href="/graph"><button class="btn btn-primary pull-right">Vers mes statistiques</button></a>
     </div>
    </div>
 

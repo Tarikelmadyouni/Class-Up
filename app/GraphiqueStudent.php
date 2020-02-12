@@ -8,6 +8,8 @@ class GraphiqueStudent extends Model
 {
     protected $guarded = [];
 
+   
+
 
     public function customer(){
 
@@ -27,6 +29,6 @@ class GraphiqueStudent extends Model
 
     public function user(){
 
-        return $this->hasMany(\App\User::class);
+        return $this->belongsTo(\App\User::class);
     }
 }

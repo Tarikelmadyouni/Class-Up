@@ -46,8 +46,10 @@
                             <div class="col-md-6">
 
                             <select id="intitule" type="text" class="form-control @error('intitule') is-invalid @enderror" name="intitule" value="{{ old('intitule') }}" required>
-                                <option>professeur</option>
-                                <option>student</option>
+
+                            <option>professeur</option>
+                            <option>student</option>
+
                                 </select>
 
                                 @error('intitule')

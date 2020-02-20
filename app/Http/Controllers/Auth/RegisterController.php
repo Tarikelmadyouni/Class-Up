@@ -71,7 +71,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+      $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'intitule'=>$data['intitule'],
@@ -82,12 +82,30 @@ class RegisterController extends Controller
 
 
 
-        $datas = DB::table('users')
-        ->join('roles','roles.id','=','users.role_id')
+        /*DB::table('users')
+        ->join('role_users','user_id','=','users.intitule')
+        ->join('roles','roles.intitule','=','users.role_id')
         ->select('users.role_id')
         ->get();
+        */
 
-    
+
+
+         DB::table('roles')->insertGetId([
+            'intitule'=>$data['intitule']
+            ]);
+
+            $role = auth()->user()->admin()->create($data);
+
+            return view('register', compact('role'));
+
+
+        /*
+        where($user, auth()->user()->id)->pluck('intitule');
+
+        $userName = User::findOrFail($data->assigned_to)->value('intitule');
+
+        */
 
 
     }

@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="http://srdevlop.wix.com/classup">Qu'est ce que tu vas faire avec Class'up</a>
+                    <a href="http://srdevlop.wix.com/classupassist">Qu'est ce que tu vas faire avec Class'up</a>
                     <a href="/about">A propos de nous</a>
 
                 </div>

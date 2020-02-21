@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use App\User;
 use App\Role;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\User;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -41,7 +42,9 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
     }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -80,32 +83,18 @@ class RegisterController extends Controller
         ]);
 
 
-
-
-        /*DB::table('users')
-        ->join('role_users','user_id','=','users.intitule')
-        ->join('roles','roles.intitule','=','users.role_id')
-        ->select('users.role_id')
-        ->get();
-        */
-
-
-
          DB::table('roles')->insertGetId([
             'intitule'=>$data['intitule']
             ]);
 
-            $role = auth()->user()->admin()->create($data);
-
-            return view('register', compact('role'));
 
 
-        /*
-        where($user, auth()->user()->id)->pluck('intitule');
 
-        $userName = User::findOrFail($data->assigned_to)->value('intitule');
+            return $user;
 
-        */
+
+
+
 
 
     }

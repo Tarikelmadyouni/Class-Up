@@ -1,73 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<div class="flex items-center justify-center h-full mx-auto bg-gray-300">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+    <div class="p-6 bg-blue-900 rounded-lg shadow-xl w-96">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+   <svg class='text-white fill-current ' height="90pt" viewBox="0 -102 512.005 512" width="90pt" xmlns="http://www.w3.org/2000/svg"><path d="m507.519531 111.746094-248.425781-111.082032c-1.96875-.882812-4.214844-.882812-6.183594 0l-100.71875 45.035157c-3.816406 1.707031-5.527344 6.183593-3.820312 10.003906 1.707031 3.820313 6.1875 5.53125 10.007812 3.824219l97.621094-43.652344 89.371094 39.960938v55.789062c-47.429688-17.34375-87.363282-18.660156-89.160156-18.710938-.140626-.003906-.28125-.003906-.421876 0-1.925781.050782-47.730468 1.5625-99.597656 22.746094-20.691406 8.445313-39.59375 18.960938-56.179687 31.25-1.242188.921875-2.148438 2.1875-2.640625 3.609375l-71.242188-31.859375 99.875-44.660156c3.820313-1.707031 5.53125-6.183594 3.820313-10.003906-1.707031-3.820313-6.1875-5.53125-10.003907-3.824219l-115.339843 51.574219c-2.726563 1.21875-4.480469 3.929687-4.480469 6.914062 0 2.988282 1.753906 5.695313 4.480469 6.914063l92.464843 41.351562v36.269531c0 4.183594 3.394532 7.574219 7.574219 7.574219 4.183594 0 7.574219-3.390625 7.574219-7.574219v-41.019531c0-.003906 0-.011719 0-.015625v-5.308594c14.828125-10.585937 31.570312-19.71875 49.824219-27.167968 47.46875-19.386719 90.707031-21.484375 94.085937-21.621094 3.308594.128906 43.691406 2.058594 89.367188 19.746094v75.265625c-11.074219 3.273437-19.183594 13.539062-19.183594 25.664062 0 11.140625 6.84375 20.710938 16.550781 24.730469l-5.296875 13.941406c-34.5625 5.949219-61.929687 14.136719-81.441406 24.394532-44.941406-23.609376-120.199219-30.28125-143.902344-31.847657v-21.246093c0-4.183594-3.394531-7.574219-7.574218-7.574219-4.183594 0-7.574219 3.390625-7.574219 7.574219v28.402343c0 4.050781 3.191406 7.386719 7.242187 7.566407.988282.042968 99.425782 4.640624 148.0625 32.339843 1.160156.660157 2.453125.992188 3.75.992188 1.292969 0 2.585938-.332031 3.75-.996094 16.351563-9.320313 40.871094-17.226563 71.40625-23.078125l-4.476562 11.789062c-.886719 2.328126-.570313 4.941407.84375 6.992188 1.414062 2.046875 3.746094 3.273438 6.234375 3.273438h38.375c2.492187 0 4.820312-1.226563 6.234375-3.273438 1.414062-2.050781 1.730468-4.664062.847656-6.992188l-6.847656-18.019531c20.609375-2.359375 35.273437-3.023437 35.441406-3.03125 4.050781-.175781 7.246094-3.511719 7.246094-7.566406v-28.402344c0-4.179687-3.394532-7.574219-7.574219-7.574219-4.183594 0-7.574219 3.394532-7.574219 7.574219v21.257813c-7.070312.476562-18.820312 1.417968-33.089844 3.140625l-3.660156-9.636719c9.703125-4.019531 16.550782-13.589844 16.550782-24.730469 0-12.128906-8.109376-22.390625-19.1875-25.664062v-68.847657c14.226562 6.527344 27.4375 14.09375 39.386718 22.625v5.308594.015625 41.019531c0 4.183594 3.390625 7.574219 7.574219 7.574219s7.574219-3.390625 7.574219-7.574219v-36.269531l92.464844-41.351562c2.726562-1.21875 4.480468-3.925781 4.480468-6.914063 0-2.984375-1.757812-5.695312-4.484375-6.914062zm-162.78125 179.097656 8.207031-21.597656 8.207032 21.597656zm19.820313-62.105469c0 6.402344-5.207032 11.609375-11.613282 11.609375-6.402343 0-11.609374-5.207031-11.609374-11.609375 0-6.40625 5.207031-11.613281 11.609374-11.613281 6.40625 0 11.613282 5.207031 11.613282 11.613281zm50.070312-78.21875c-.492187-1.421875-1.398437-2.6875-2.640625-3.609375-15.3125-11.347656-32.621093-21.160156-51.46875-29.25v-55.050781l125.351563 56.050781zm0 0"/></svg>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+    <h1 class="pt-8 text-3xl text-white">Bienvenue</h1>
+    <h2 class="text-blue-300">entrez vos identifiants ci-dessous</h2>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+    <form method="POST" action="{{ route('login') }}" class="pt-8">
+        @csrf
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+        <div class="relative">
+            <label for="email" class="absolute pt-2 pl-3 text-xs font-bold text-blue-500 uppercase">E-mail</label>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+            <div>
+                <input id="email" type="email" class="w-full p-3 pt-8 text-gray-100 bg-blue-800 rounded outline-none focus:bg-blue-700" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus placeholder="Ton@email.com">
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                @error('email')
+                    <span class="pt-1 text-sm text-red-600" role="alert"><strong>{{ $message }}</strong></span>
+                @enderror
             </div>
         </div>
+
+        <div class="relative pt-3">
+            <label for="password" class="absolute pt-2 pl-3 text-xs font-bold text-blue-500 uppercase">Mot de passe</label>
+
+            <div class="col-md-6">
+                <input id="password" type="password" class="w-full p-3 pt-8 text-gray-100 bg-blue-800 rounded outline-none focus:bg-blue-700" name="password" autocomplete="current-password" placeholder="Mot de passe">
+
+                @error('password')
+                    <span class="pt-1 text-sm text-red-600" role="alert"><strong>{{ $message }}</strong></span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="pt-2">
+                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                 <label class="text-white" for="remember">Se souvenir de moi</label>
+        </div>
+
+          <div class="pt-8">
+            <button type="submit" class="w-full px-3 py-2 font-bold text-left text-blue-800 uppercase bg-gray-400 rounded">
+                Login
+              </button>
+
+        </div>
+
+        <div class="flex justify-between pt-8 text-sm font-bold text-white">
+
+            <a class="" href="{{ route('password.request') }}">
+                Mot de passe oublié ?
+            </a>
+
+            <a class="" href="{{ route('register') }}">
+                S'inscrire
+            </a>
+        </div>
+    </form>
+
     </div>
 </div>
 @endsection

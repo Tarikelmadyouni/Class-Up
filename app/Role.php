@@ -11,13 +11,16 @@ class Role extends Model
 
     public function admin(){
 
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsToMany(\App\User::class);
     }
+
+    /*
 
     public function admins(){
 
-        return $this->belongsTo(\App\RoleUser::class);
+        return $this->belongsToMany(\App\RoleUser::class);
     }
+    */
 
 
 }

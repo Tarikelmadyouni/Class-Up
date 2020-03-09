@@ -77,20 +77,19 @@ class RegisterController extends Controller
       $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'intitule'=>$data['intitule'],
+            //'intitule'=>$data['intitule'],
             'password' => Hash::make($data['password']),
 
         ]);
 
 
-         DB::table('roles')->insertGetId([
-            'intitule'=>$data['intitule']
-            ]);
+        $role = Role::select('id')->where('name','user')->first();
+
+        $user->roles()->attach($role);
+
+        return $user;
 
 
-
-
-            return $user;
 
 
 

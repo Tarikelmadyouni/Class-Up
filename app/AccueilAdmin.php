@@ -34,5 +34,12 @@ class AccueilAdmin extends Model
         return $this->hasMany(ImageUpload::class);
     }
 
+    public function accueil(){
+
+        return $this->hasMany(Role::class);
+    }
+
+
+
 
 }

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+
 class LoginController extends Controller
 {
     /*
@@ -32,33 +33,50 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo;/**=RouteServiceProvider::HOME;*/
+    protected $redirectTo='/home';
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
 
     public function redirectTo(){
 
-        switch(Auth::user()->role){
-            case 'professeur':
-            $this->redirectTo = '/admin';
+        if(Auth::user()->hasRoles('admin')){
+            $this->redirectTo = route('accueil_admin.accueil');
             return $this->redirectTo;
-                break;
 
-            case 'student':
-                    $this->redirectTo = '/student';
-                return $this->redirectTo;
-                break;
+        }elseif(Auth::user()->hasRoles('professeur')){
+            $this->redirectTo = route('accueil_admin.accueil');
+            return $this->redirectTo;
 
-                default:
-                $this->redirectTo = '/login';
-                return $this->redirectTo;
-       }
+        }elseif(Auth::user()->hasRoles('student')){
+            $this->redirectTo = route('accueilEleve.accueileleve');
+            return $this->redirectTo;
+
+        }
+
+        $this->redirectTo = route('home');
+        return $this->redirectTo;
+
     }
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+     /*
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
+    */
 }

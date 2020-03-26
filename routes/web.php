@@ -59,18 +59,26 @@ Route::get('/images', 'TelechargementController@index');
 //Route::post('/images','TelechargementController@store');
 Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
-Route::get('/accueil', 'AccueilAdminController@show');
+Route::get('/accueil', 'AccueilAdminController@show')->name('accueil');
 
-Route::get('/accueileleve', 'AccueilEleveController@show');
+Route::get('/accueileleve', 'AccueilEleveController@show')->name('accueileleve');
 
 Route::get('/graphs/create', 'GraphiqueStudentController@create');
 Route::post('/graphs', 'GraphiqueStudentController@store');
 Route::get('/graphs/{graph}','GraphiqueStudentController@show' );
 
+/*
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('users','UsersController',['except'=>['show'.'create'.'store']]);
 });
+*/
 
+
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
+    Route::resource('/users', 'UsersController', ['except'=>['show','create', 'store']]);
+
+});
 
 
 

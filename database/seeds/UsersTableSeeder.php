@@ -16,21 +16,23 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-        User::truncate();
-        DB::table('role_user')->truncate();
+       User::truncate();
+       DB::table('role_user')->truncate();
 
-        $adminRole = Role::where('name','admin')->first();
-        $professeurRole = Role::where('name','professeur')->first();
-        $studentRole = Role::where('name','student')->first();
+        $adminRole = Role::where('role','Admin')->first();
+        $professeurRole = Role::where('role','Professeur')->first();
+        $studentRole = Role::where('role','Student')->first();
 
         $professeur = User::create([
             'name'=>'Professeur User',
+            'role'=>'Professeur',
             'email'=> 'professeur@professeur.com',
             'password'=> Hash::make('passeword')
         ]);
 
         $student = User::create([
             'name'=>'Student User',
+            'role'=>'Student',
             'email'=> 'student@student.com',
             'password'=> Hash::make('student')
         ]);
@@ -39,6 +41,7 @@ class UsersTableSeeder extends Seeder
 
         $admin = User::create([
             'name'=>'Admin User',
+            'role'=>'Admin',
             'email'=> 'Admin@admin.com',
             'password'=> Hash::make('adminadmin')
         ]);

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@can('manage-users')
+<a class="dropdown-item" href="{{route('admin.users.index')}}">User Management</a>
+@endcan
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -24,7 +24,7 @@
                 </div>
                 <hr>
                 <ul class="list-group list-group-flush">
-                    @foreach($AccueilEleve as $Accueil)
+                    @foreach($AccueilEleves as $Accueil)
                   <li class="list-group-item"> {{$Accueil->title}}  </li>
                      @endforeach
                 </ul>

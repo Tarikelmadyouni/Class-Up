@@ -9,10 +9,11 @@ class Role extends Model
     protected $guarded=[];
 
 
-    public function admin(){
+    public function users(){
 
         return $this->belongsToMany(\App\User::class);
     }
+
 
     /*
 
@@ -23,4 +24,6 @@ class Role extends Model
     */
 
 
+
 }
+

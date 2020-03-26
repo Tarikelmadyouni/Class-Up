@@ -33,7 +33,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo='/home';
+    //protected $redirectTo='/home';
 
 
     /**
@@ -49,18 +49,15 @@ class LoginController extends Controller
 
     public function redirectTo(){
 
-        if(Auth::user()->hasRoles('admin')){
-            $this->redirectTo = route('accueil_admin.accueil');
+        if(Auth::user()->hasRole('Professeur')){
+            $this->redirectTo = route('admin.users.index');
             return $this->redirectTo;
 
-        }elseif(Auth::user()->hasRoles('professeur')){
-            $this->redirectTo = route('accueil_admin.accueil');
-            return $this->redirectTo;
 
-        }elseif(Auth::user()->hasRoles('student')){
-            $this->redirectTo = route('accueilEleve.accueileleve');
+        }elseif(Auth::user()->hasRole('Student')){
+            $this->redirectTo = route('accueileleve');
             return $this->redirectTo;
-
+         
         }
 
         $this->redirectTo = route('home');

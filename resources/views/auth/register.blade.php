@@ -45,14 +45,14 @@
 
                             <div class="col-md-6">
 
-                            <select id="intitule" type="text" class="form-control @error('intitule') is-invalid @enderror" name="intitule" value="{{ old('intitule') }}" required>
+                            <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required>
 
-                            <option>professeur</option>
-                            <option>student</option>
+                            <option>Professeur</option>
+                            <option>Student</option>
 
                                 </select>
 
-                                @error('intitule')
+                                @error('role')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

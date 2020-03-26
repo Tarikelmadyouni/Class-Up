@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\AccueilAdmin;
+use App\User;
 use App\ImageUpload;
+use App\AccueilAdmin;
 use App\Questionnaire;
+use Illuminate\Http\Request;
 use App\Http\Middleware\Admin;
 
 class AccueilAdminController extends Controller
@@ -20,6 +21,7 @@ class AccueilAdminController extends Controller
 
 
         public function show(){
+
 
 
 

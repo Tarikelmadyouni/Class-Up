@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\User;
+use Gate;
 use App\Role;
-use Illuminate\Support\Facades\Gate;
+use App\User;
 use Illuminate\Http\Request;
+//use Illuminate\Support\Facades\Gate;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class UsersController extends Controller
 {
@@ -24,11 +28,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.index')->with('users', $users);
-        
-    }
+       $users = User::all();
 
+        return view('admin.users.index')->with('user',$users);
+
+
+    }
 
 
     /**
@@ -39,10 +44,21 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
+        
         if(Gate::denies('edit-users')){
             return redirect(route('admin.users.index'));
 
         }
+
+
+        /*
+        if(Auth::user()->cannot('edit-users')){
+
+            return redirect(route('admin.users.index'));
+
+        }
+        */
+
 
 
 
@@ -50,7 +66,7 @@ class UsersController extends Controller
 
         return view('admin.users.edit')->with([
                'user'=>$user,
-               'roles'=>$role
+               'role'=>$role
 
                ]);
 
@@ -65,7 +81,8 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->roles()->sync($request->roles);
+        $user->roles()->sync($request->role);
+
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -102,4 +119,9 @@ class UsersController extends Controller
 
         return redirect()->route('admin.users.index');
     }
+
+
+
+
 }
+

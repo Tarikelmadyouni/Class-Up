@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role',
+        'name', 'email', 'password', 'role','user_id','role_id'
     ];
 
     /**
@@ -47,11 +47,6 @@ class User extends Authenticatable
         return $this->morphOne(Image::class, 'imageable');
     }
 
-    /*public function videos()
-    {
-      return $this->hasMany(Video::class);
-    }
-    */
 
     public function uploads()
     {
@@ -93,15 +88,8 @@ class User extends Authenticatable
 
     public function roles(){
 
-        return $this->belongsToMany(\App\Role::class);
+        return $this->belongsToMany('App\Role', 'role_user','role_id','user_id');
     }
-
-     /*
-    public function role(){
-
-        return $this->belongsToMany(\App\RoleUser::class);
-    }
-    */
 
 
 

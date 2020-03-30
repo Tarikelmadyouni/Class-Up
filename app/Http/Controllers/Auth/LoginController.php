@@ -57,7 +57,7 @@ class LoginController extends Controller
         }elseif(Auth::user()->hasRole('Student')){
             $this->redirectTo = route('accueileleve');
             return $this->redirectTo;
-         
+
         }
 
         $this->redirectTo = route('home');

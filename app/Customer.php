@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Customer extends Model
 {
     protected $guarded = [];
 
-    
+
 
 
 
@@ -34,6 +35,11 @@ class Customer extends Model
     public function matieres(){
 
         return $this->hasMany(\App\Matiere::class);
+    }
+
+    public function roleOfuser(){
+
+        return $this->belongsTo(\App\Role::class);
     }
 
 

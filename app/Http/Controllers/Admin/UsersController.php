@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Gate;
 use App\Role;
 use App\User;
+use App\Customer;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
@@ -26,11 +27,13 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Customer $customer)
     {
+        $customer = Customer::all();
+
        $users = User::all();
 
-        return view('admin.users.index')->with('user',$users);
+        return view('admin.users.index', compact('customer'))->with('user',$users);
 
 
     }
@@ -44,7 +47,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        
+
         if(Gate::denies('edit-users')){
             return redirect(route('admin.users.index'));
 

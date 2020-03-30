@@ -93,30 +93,21 @@ class RegisterController extends Controller
 
         ]);
 
-        $user = new User();
-
-
-        //$role=$roleTable->role_id = DB::table('roles')->select('id')->where('role','Professeur')->orWhere('role','Student')->first()->id;
-        $user = User::find(1);
-        //$roleTable = Role::find($data);
-        $user->roles()->attach($user->id);
-
-        /*
-        $role = User::find(1)->roles;
-
-        $user->roles()->attach($role);
+/*
+      $user = new User;
+      $user->save();
+      $roleNew = new Role;
+*/
 
         $user->save();
-        */
 
 
-         /*
-        $role = Role::select('id')->where('role', 'Professeur')->first();
-        $roleStudent = Role::select('id')->where('role','Student')->first();
+        $user->roles()->attach($roleTable);
 
 
-        $user->roles()->attach($roleStudent);
-         */
+
+
+
 
         return $user;
 

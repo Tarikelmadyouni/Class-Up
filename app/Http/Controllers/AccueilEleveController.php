@@ -44,7 +44,7 @@ class AccueilEleveController extends Controller
 
         $survey = Survey::all();
 
-        return view('AccueilEleve.dashboardeleve', compact('questionnaires', 'survey'));
+        return view('AccueilEleve.dashboardeleve', compact('questionnaire', 'survey'));
     }
 
 

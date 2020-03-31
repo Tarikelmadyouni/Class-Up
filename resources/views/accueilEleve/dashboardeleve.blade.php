@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            
 
 
 
@@ -25,7 +25,7 @@
 
                      <ul class="list-group">
 
-                        @foreach($questionnaires as $questionnaire)
+                        @foreach($questionnaire as $questionnaire)
 
                            <li class="list-group-item">
 
@@ -48,14 +48,13 @@
                      </ul>
 
 
-                </div>
+
             </div>
 
             <div class="card-body">
 
                 <a href="/accueileleve" class="btn btn-dark mt-4">Vers ma vue d'ensemble</a>
             </div>
-
 
         </div>
     </div>

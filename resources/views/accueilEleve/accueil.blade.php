@@ -8,7 +8,7 @@
 
 <div class="card-body mt-2">
 
-    <a href="/home" class="btn btn-dark">Vers mon tableau de bord</a>
+    <a href="/dashboardeleve" class="btn btn-dark">Vers ma zone de travail</a>
 </div>
 
     <div class="row justify-content-center">
@@ -29,7 +29,7 @@
                      @endforeach
                 </ul>
                 <div class="card-body">
-                  <a href="/home" class="card-link">Vers mes travaux</a>
+                  <a href="/dashboardeleve" class="card-link">Voir mes travaux en cours</a>
 
                 </div>
               </div>

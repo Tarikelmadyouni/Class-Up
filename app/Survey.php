@@ -28,6 +28,11 @@ class Survey extends Model
         return $this->belongsTo(AccueilAdmin::class);
     }
 
+    public function accueilEleve(){
+
+        return $this->hasMany(AccueilEleve::class);
+    }
+
 
 
 }

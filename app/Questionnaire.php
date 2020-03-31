@@ -44,4 +44,9 @@ class Questionnaire extends Model
         return $this->belongsTo(AccueilAdmin::class);
     }
 
+    public function accueilEleve(){
+
+        return $this->hasManyTo(AccueilEleve::class);
+    }
+
 }

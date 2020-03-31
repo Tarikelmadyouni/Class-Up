@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ImageUpload;
 use App\Questionnaire;
+use App\Survey;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
@@ -18,7 +19,7 @@ class AccueilEleveController extends Controller
     }
 
 
-    public function show(){
+    public function index(){
 
 
 
@@ -34,9 +35,21 @@ class AccueilEleveController extends Controller
 
     }
 
+    public function show(Questionnaire $questionnaires, Survey $survey){
 
 
-    
+        $questionnaires = auth()->user()->questionnaires;
+
+        $questionnaire  = Questionnaire::all();
+
+        $survey = Survey::all();
+
+        return view('AccueilEleve.dashboardeleve', compact('questionnaires', 'survey'));
+    }
+
+
+
+
 
 
 

@@ -45,6 +45,16 @@ class RegisterController extends Controller
 
     }
 
+    protected function redirectTo()
+    {
+        if (auth()->user()->hasRole('Professeur')) {
+            return route('admin.users.index');
+        }elseif(auth()->user()->hasRole('Student')){
+            return '/accueileleve';
+        }
+        return '/home';
+    }
+
 
     /**
      * Get a validator for an incoming registration request.

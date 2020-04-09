@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Dropzone-files</title>
 
         <!-- Fonts -->
@@ -23,6 +23,7 @@
 
             <example-component></example-component>
 
+
      <div class="container">
          <div class="row">
 
@@ -33,7 +34,7 @@
                 <a href="{{ $item->original }}">
                 <img src="{{ $item->thumbnail }}" class="w-100">
                 </a>
-                <form action="/images/{{ $item->id }}" method="post">
+                <form action="/images/{{ $item->id }}" method="post" >
                    @method('DELETE')
 
                    @csrf
@@ -49,10 +50,12 @@
 
 
 
-
          </div>
 
-        <script src="{{mix('/js/app.js')}}"></script>
+        <script src="{{mix('/js/app.js')}}">
+
+
+        </script>
     </body>
 </html>
 

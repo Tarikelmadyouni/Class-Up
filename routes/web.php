@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
+use App\Http\Controllers\TelechargementController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -56,7 +58,7 @@ Route::get('posts/create', 'PostController@create');
 
 //route Dropzone
 Route::get('/images', 'TelechargementController@index');
-//Route::post('/images','TelechargementController@store');
+//Route::post('/images','TelechargementController@fileupload');
 Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
 Route::get('/accueil', 'AccueilAdminController@show')->name('accueil');

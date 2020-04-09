@@ -4,19 +4,25 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
+
 class ImageUpload extends Model
 {
-    protected $guarded = [];
+
+    protected $guarded=[];
+
+
+
 
 
     public function path(){
 
-        return url('/docs' .$this->id);
+        return url('/files' .$this->id);
      }
 
 
 
-     public function user(){
+     public function uploadForFile(){
 
         return $this->belongsTo(User::class);
     }
@@ -25,6 +31,12 @@ class ImageUpload extends Model
 
         return $this->belongsToMany(\App\Customer::class);
     }
+
+
+
+
+
+
 
 
 

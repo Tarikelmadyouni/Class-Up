@@ -22,8 +22,17 @@ import Dropzone from 'dropzone';
         mounted() {
             this.dropzone = new Dropzone(this.$refs.imageUpload, {
 
-                url:'/api/images'
+
+                url:'/api/images',
+
             });
+
+
         }
+
+
+
+
+
     }
 </script>

@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Carbon\Carbon;
 use App\ImageUpload;
-use App\Telechargement;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
+use Illuminate\Http\Request;
+use Illuminate\Support\mkdir;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\mkdir;
-use Org_Heigl\Ghostscript\Device\Jpeg;
+use Illuminate\Auth\Middleware\Authenticate;
+
+
+
+
+
+
 
 class TelechargementController extends Controller
 {
+
+
 
 
      public function index(){
@@ -29,48 +37,102 @@ class TelechargementController extends Controller
 
 
 
+     public function store(Request $request){
 
 
 
-    public function store(){
 
-           if(! is_dir(public_path('/docs'))){
-
-             mkdir(public_path('/docs'), 0777  );
-            }
+          if($request->hasFile('file')){
 
 
-            $images = Collection::wrap( request()->file('file'));
+          $file = $request->file('file')->getClientOriginalName();
 
-            $images->each(function($image){
+          $filePath = pathInfo($file, PATHINFO_FILENAME);
 
-                $basename = Str::random();
-                $original= $basename. '.' .$image->getClientOriginalExtension();
-                $thumbnail= $basename. '_thumb.' .$image->getClientOriginalExtension();
+          $fileExt = $request->file('file')->getClientOriginalExtension();
 
-                Image::make($image)
-                ->fit(250, 250)
-                ->save(public_path('/docs/' .$thumbnail));
+          $newFile = $filePath.'_'.time().'.'.$fileExt;
 
-                
+         $path = $request->file('file')->storeAs('files', $newFile);
 
+         Storage::disk('public')
 
+                ->put('files', $path);
 
-                $image->move(public_path('/docs'), $original);
+                //$filePath->move(storage_path('/files'), $newFile);
 
                 ImageUpload::create([
+                    'original'=>'/files/'.$path,
+                    'thumbnail'=>'/files/'.$path,
 
-                    'original'=> '/docs/' .$original,
-                    'thumbnail'=> '/docs/' .$thumbnail,
                 ]);
 
 
-            });
+
+     }else{
+            $newFile = 'nofile.pdf';
+          }
+
+
+
+
+
+        return redirect('/images');
+
+
+
+
+
+     }
+
+
+
+
+/*
+public function store(Request $request){
+
+    if(! is_dir(public_path('/docs'))){
+
+        mkdir(public_path('/docs'), 0777  );
+       }
+
+      // Get file extension
+      $extension = $request->file('file')->getClientOriginalExtension();
+
+      // Valid extensions
+      $validextensions = array("jpeg","jpg","png","pdf");
+
+      // Check extension
+      if(in_array(strtolower($extension), $validextensions)){
+
+        // Rename file
+        $fileName = Carbon::now()->toDayDateTimeString().rand(11111, 99999) .'.' . $extension;
+
+        Image::make($fileName)
+                ->fit(250, 250)
+                ->save(public_path('/docs/' .$fileName));
+
+
+        // Uploading file to given path
+
+        $request->file('file')->move(public_path('/docs/'), $fileName);
+
+        ImageUpload::create([
+
+            'original'=> '/docs/' .$fileName,
+            'thumbnail'=> '/docs/' .$fileName,
+        ]);
+      }
+
+
+
+
 
 
 
             return redirect ('/images');
-        }
+    }
+*/
 
 
 
@@ -95,6 +157,7 @@ class TelechargementController extends Controller
 
 
 
-    }
+
+}
 
 

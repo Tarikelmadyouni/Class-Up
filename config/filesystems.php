@@ -46,6 +46,7 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
+            
         ],
 
         'public' => [
@@ -62,6 +63,16 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+        ],
+
+        'pdf' => [
+            'driver' => 'local',
+            'root' => storage_path("app"),
+        ],
+
+        'photos' => [
+            'driver' => 'local',
+            'root' => storage_path("REPERTOIRE_PHOTOS"),
         ],
 
     ],

@@ -35,7 +35,7 @@ class AccueilEleveController extends Controller
 
     }
 
-    public function show(Questionnaire $questionnaires, Survey $survey){
+    public function show(Questionnaire $questionnaires, Survey $survey, ImageUpload $path){
 
 
         $questionnaires = auth()->user()->questionnaires;
@@ -44,7 +44,17 @@ class AccueilEleveController extends Controller
 
         $survey = Survey::all();
 
-        return view('AccueilEleve.dashboardeleve', compact('questionnaire', 'survey'));
+        $path = imageUpload::all();
+
+        //$video = Video::all();
+
+        $maj= 'Tu es à jour';
+
+        return view('AccueilEleve.dashboardeleve', compact('questionnaire',
+                                                           'survey',
+                                                           'path',
+                                                           'maj',
+                                                           ));
     }
 
 

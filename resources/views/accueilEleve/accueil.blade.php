@@ -52,7 +52,7 @@
                      @endforeach
                 </ul>
                 <div class="card-body">
-                  <a href="/home" class="card-link">Vers mes documents</a>
+                  <a href="/dashboardeleve" class="card-link">Vers mes documents</a>
 
                 </div>
               </div>

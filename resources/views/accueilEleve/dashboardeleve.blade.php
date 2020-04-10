@@ -37,7 +37,7 @@
                         @foreach($questionnaire as $questionnaire)
 
                            <li class="list-group-item">
-
+                        @if($questionnaire)
                            <a href="{{$questionnaire->path() }}">{{$questionnaire->title}}</a>
 
                            <div class="mt-2">
@@ -46,6 +46,10 @@
                             <p>
                                 <a href="{{$questionnaire->publicPath()}}">{{$questionnaire->publicPath()}}</a>
                             </p>
+                        @else
+                            {{ $maj }}<p style="font-size:40px">&#x1F389</p>
+
+                        @endif
 
                            </div>
 
@@ -68,20 +72,22 @@
 
                            <li class="list-group-item">
 
-                           <a href="">doc pdf,txt,... à traiter</a>
-
                            <div class="mt-2">
-
-
+                        @foreach($path as $paths)
+                        @if ( $paths )
                             <p>
-                                <a href="">//document à traiter</a>
+                                <a href="">{{ $paths->original }}</a>
                             </p>
+                            <hr>
+                        @else
+                        {{ $maj }}<p style="font-size:40px">&#x1F389</p>
 
+                        @endif
+                        @endforeach
                            </div>
 
 
                            </li>
-
 
 
                      </ul>
@@ -98,14 +104,16 @@
 
                            <li class="list-group-item">
 
-                           <a href="">ici la vidéo</a>
-
                            <div class="mt-2">
 
 
                             <p>
-                                <a href="">//video</a>
+                                <a href=""></a>
                             </p>
+                            
+
+                        {{ $maj }}<p style="font-size:40px">&#x1F389</p>
+
 
                            </div>
 

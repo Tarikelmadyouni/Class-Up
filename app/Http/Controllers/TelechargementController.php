@@ -55,15 +55,15 @@ class TelechargementController extends Controller
 
          $path = $request->file('file')->storeAs('files', $newFile);
 
-         Storage::disk('public')
+         Storage::disk('local')
 
-                ->put('files', $path);
+                ->put($file, $path);
 
                 //$filePath->move(storage_path('/files'), $newFile);
 
                 ImageUpload::create([
-                    'original'=>'/files/'.$path,
-                    'thumbnail'=>'/files/'.$path,
+                    'original'=>$path,
+                    'thumbnail'=>$path,
 
                 ]);
 
@@ -85,54 +85,6 @@ class TelechargementController extends Controller
 
      }
 
-
-
-
-/*
-public function store(Request $request){
-
-    if(! is_dir(public_path('/docs'))){
-
-        mkdir(public_path('/docs'), 0777  );
-       }
-
-      // Get file extension
-      $extension = $request->file('file')->getClientOriginalExtension();
-
-      // Valid extensions
-      $validextensions = array("jpeg","jpg","png","pdf");
-
-      // Check extension
-      if(in_array(strtolower($extension), $validextensions)){
-
-        // Rename file
-        $fileName = Carbon::now()->toDayDateTimeString().rand(11111, 99999) .'.' . $extension;
-
-        Image::make($fileName)
-                ->fit(250, 250)
-                ->save(public_path('/docs/' .$fileName));
-
-
-        // Uploading file to given path
-
-        $request->file('file')->move(public_path('/docs/'), $fileName);
-
-        ImageUpload::create([
-
-            'original'=> '/docs/' .$fileName,
-            'thumbnail'=> '/docs/' .$fileName,
-        ]);
-      }
-
-
-
-
-
-
-
-            return redirect ('/images');
-    }
-*/
 
 
 

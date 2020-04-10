@@ -50,7 +50,7 @@ class RegisterController extends Controller
         if (auth()->user()->hasRole('Professeur')) {
             return route('admin.users.index');
         }elseif(auth()->user()->hasRole('Student')){
-            return '/accueileleve';
+            return '/dashboardeleve';
         }
         return '/home';
     }

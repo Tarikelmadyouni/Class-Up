@@ -64,7 +64,7 @@ Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 Route::get('/accueil', 'AccueilAdminController@show')->name('accueil');
 
 Route::get('/accueileleve', 'AccueilEleveController@index')->name('accueileleve');
-Route::get('/dashboardeleve', 'AccueilEleveController@show');
+Route::get('/dashboardeleve', 'AccueilEleveController@show')->name('dashboardeleve');
 
 Route::get('/graphs/create', 'GraphiqueStudentController@create');
 Route::post('/graphs', 'GraphiqueStudentController@store');

@@ -57,16 +57,22 @@
                     </span>
                 </a>
             </li>
-           
+
 
             <ul class="logout">
                 <li>
-                   <a href="#">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+
+                                    
                          <i class="fa fa-power-off fa-2x"></i>
                         <span class="nav-text">
-                            Logout
+                            {{ __('Logout') }}
+
                         </span>
                     </a>
+
                 </li>
             </ul>
         </nav>

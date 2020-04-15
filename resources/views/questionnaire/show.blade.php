@@ -8,8 +8,9 @@
             <div class="card-header">{{$questionnaire->title}}</div>
 
                 <div class="card-body">
-
+                    @can('manage-users')
                 <a class="btn btn-dark" href="/questionnaires/{{ $questionnaire->id }}/questions/create">Add new question</a>
+                    @endcan
                 <a class="btn btn-dark" href="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title)}}">Take survey</a>
                 </div>
             </div>

@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -55,17 +56,24 @@ class TelechargementController extends Controller
 
          $path = $request->file('file')->storeAs('files', $newFile);
 
+
+
          Storage::disk('local')
 
-                ->put($file, $path);
+                ->put('file',$path);
+
 
                 //$filePath->move(storage_path('/files'), $newFile);
 
-                ImageUpload::create([
+               ImageUpload::create([
                     'original'=>$path,
                     'thumbnail'=>$path,
 
                 ]);
+
+
+
+
 
 
 
@@ -84,6 +92,18 @@ class TelechargementController extends Controller
 
 
      }
+
+/*
+     public function download($download){
+
+        return response()->download('storage/files'.$download);
+
+
+     }
+     */
+
+
+
 
 
 

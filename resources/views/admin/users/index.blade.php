@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="card-body mt-2">
+
+    <a href="/home" class="btn btn-dark">Vers mon tableau de bord</a>
+</div>
+
 
 <div class="container">
     <div class="row justify-content-center col-ml-2 py-ml-3 mt-4">

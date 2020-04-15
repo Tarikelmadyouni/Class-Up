@@ -31,6 +31,8 @@ class AccueilAdminController extends Controller
 
 
 
+
+
         return view('accueil_admin.accueil', compact('AccueilAdmin', 'AccueilAdmins' ));
 
 

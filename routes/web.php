@@ -58,7 +58,7 @@ Route::get('posts/create', 'PostController@create');
 
 //route Dropzone
 Route::get('/images', 'TelechargementController@index');
-//Route::post('/images','TelechargementController@fileupload');
+Route::get('/images/{download}','TelechargementController@download');
 Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
 Route::get('/accueil', 'AccueilAdminController@show')->name('accueil');

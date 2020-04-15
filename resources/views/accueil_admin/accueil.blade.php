@@ -47,6 +47,12 @@
                           <li class="list-group-item">
                              <a href="{{ $Accueil->thumbnail }}">
                                 <img src="{{$Accueil->thumbnail}}" class="w-25 h-25">
+
+                                <a href="{{ Storage::url('app/'.$Accueil->original) }}" download="{{ 'file' }}">
+                                    <button type="button" class="btn btn-light ml-4">
+                                        <img src="https://img.icons8.com/ios-glyphs/30/000000/download-2.png"/> download
+                                    </button>
+                                </a>
                              </a>
                           </li>
                      @endforeach

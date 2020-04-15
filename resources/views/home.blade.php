@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
-@can('manage-users')
-<a class="dropdown-item" href="{{route('admin.users.index')}}">User Management</a>
-@endcan
+
 
 @section('content')
+
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-1">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header text-center">Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,15 +16,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <a href="/questionnaires/create" class="btn btn-dark">Créez un nouveau questionnaire</a>
-                    <a href="/images" class="btn btn-dark ml-2">Ajouter des documents ou vidéo</a>
-                    <a href="/graphs/create" class="btn btn-dark ml-2">Entrer des résultats par élève</a>
+                   <div class=" d-flex justify-content-around ">
+                    <a href="/questionnaires/create" class="badge badge-pill badge-primary p-2">Créez un nouveau questionnaire</a>
+                    <a href="/images" class="badge badge-pill badge-primary p-2">Ajouter des documents ou vidéo</a>
+                    <a href="/graphs/create" class="badge badge-pill badge-primary p-2">Entrer des résultats par élève</a>
+                   </div>
                 </div>
             </div>
 
             <div class="card mt-4">
-                <div class="card-header">Vos cours déjà créés</div>
+                <div class="card-header text-center">Vos cours déjà créés</div>
 
                      <ul class="list-group">
 
@@ -58,9 +58,9 @@
                 </div>
             </div>
 
-            <div class="card-body">
+            <div class="card-body  d-flex justify-content-around " >
 
-                <a href="/accueil" class="btn btn-dark mt-4">Vers ma vue d'ensemble</a>
+                <a href="/accueil" class="badge badge-pill badge-primary h-50 p-3  ">Vers ma vue d'ensemble</a>
             </div>
 
         </div>

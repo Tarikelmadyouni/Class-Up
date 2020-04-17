@@ -23,6 +23,11 @@
 
             <example-component></example-component>
 
+            @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
 
      <div class="container">
          <div class="row">
@@ -46,7 +51,11 @@
          </div>
     </div>
 
-    <a href="/home" class="ml-5" style="color:blue;"><< Retour à l'accueil</a>
+    <a href="/home" class="ml-5" style="color:blue;">
+        <button class="btn btn-primary">
+        << Retour à l'accueil
+        </button>
+    </a>
 
 
 

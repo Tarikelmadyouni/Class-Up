@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -27,9 +28,14 @@ class TelechargementController extends Controller
 
 
 
+
      public function index(){
 
         $images_id = ImageUpload::latest()->get();
+
+
+
+
 
         return view('drop.dropzone', compact('images_id'));
 
@@ -73,31 +79,15 @@ class TelechargementController extends Controller
                 ]);
 
 
-
-
-
-
-
      }else{
             $newFile = 'nofile.pdf';
           }
 
 
-
-
-
         return redirect('/images');
 
 
-
-
-
      }
-
-
-
-
-
 
 
 

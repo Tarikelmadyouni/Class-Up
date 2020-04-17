@@ -51,6 +51,7 @@
 
                         @endif
 
+
                            </div>
 
 
@@ -75,14 +76,20 @@
                            <div class="mt-2">
                         @foreach($path as $paths)
                         @if ( $paths )
-                            <p>
+
                                 <a href="">{{ $paths->original }}</a>
-                            </p>
+
+                            <a href="{{ route('download', $paths->id)}}" download="{{ $paths->original}}" >
+                                <button type="button" class="btn btn-light ml-4">
+                                    <img src="https://img.icons8.com/nolan/64/download-2.png" style="width:35px; height:35px;"/> download
+                                </button>
+                            </a>
                             <hr>
                         @else
                         {{ $maj }}<p style="font-size:40px">&#x1F389</p>
 
                         @endif
+
                         @endforeach
                            </div>
 
@@ -110,7 +117,7 @@
                             <p>
                                 <a href=""></a>
                             </p>
-                            
+
 
                         {{ $maj }}<p style="font-size:40px">&#x1F389</p>
 
@@ -128,7 +135,14 @@
 
             <div class="card-body">
 
-                <a href="/accueileleve" class="btn btn-dark mt-4">Vers ma vue d'ensemble</a>
+                <a href="/accueileleve" >
+                    <button type="button" class="btn btn-outline-primary">
+                    <strong>
+                    Vers ma tool box <img src="https://img.icons8.com/nolan/64/toolbox.png" style="width:45px; height:45px;"/>
+                    </strong>
+                    </button>
+                </a>
+
             </div>
 
         </div>

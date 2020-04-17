@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Role;
+use App\User;
+use App\Survey;
 use App\ImageUpload;
 use App\Questionnaire;
-use App\Survey;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
-use App\Role;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class AccueilEleveController extends Controller
 {
@@ -56,6 +57,31 @@ class AccueilEleveController extends Controller
                                                            'maj',
                                                            ));
     }
+
+
+
+
+    public function download(ImageUpload $path, $id){
+
+        /*
+       if(! is_dir(storage_path(('app/files')))){
+           mkdir(storage_path('app/files'), 0777);
+       }
+        */
+
+        $path = ImageUpload::find($id);
+
+
+
+        //$download = storage_path('files',$idFile->original);
+
+        //return response()->download($download);
+        return Storage::disk('files')->download($path->original);
+
+        //return redirect('/accueil/'.$idFile, $download);
+
+
+     }
 
 
 

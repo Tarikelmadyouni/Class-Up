@@ -25,11 +25,17 @@
                 <hr>
                 <ul class="list-group list-group-flush">
                     @foreach($AccueilAdmin as $Accueil)
+                    <a href=" questionnaires/{{$Accueil->id}}">
                   <li class="list-group-item"> {{$Accueil->title}}  </li>
+                    </a>
                      @endforeach
                 </ul>
                 <div class="card-body">
-                  <a href="/home" class="card-link">Vers mes questionnaires</a>
+                  <a href="/questionnaires/create" class="card-link">
+                    <button type="button" class="btn btn-outline-primary">
+                    Créer un nouveau questionnaire
+                    </button>
+                  </a>
 
                 </div>
               </div>
@@ -63,7 +69,11 @@
 
                 </ul>
                 <div class="card-body">
-                  <a href="/home" class="card-link">Vers mes documents</a>
+                  <a href="/images" class="card-link">
+                    <button type="button" class="btn btn-outline-primary">
+                    insérer un nouveau document
+                    </button>
+                </a>
 
                 </div>
               </div>

@@ -43,19 +43,21 @@
                 </div>
                 <hr>
                 <ul class="list-group list-group-flush">
-                    @foreach($AccueilAdmins as $Accueil)
+                    @foreach($idFile as $file)
                           <li class="list-group-item">
-                             <a href="{{ $Accueil->thumbnail }}">
-                                <img src="{{$Accueil->thumbnail}}" class="w-25 h-25">
+                             <a href="{{ $file->thumbnail }}">
+                                <img src="https://img.icons8.com/nolan/64/file.png" style="width:45px; height:45px;"/>
 
-                                <a href="{{ Storage::url('app/'.$Accueil->original) }}" download="{{ 'file' }}">
-                                    <button type="button" class="btn btn-light ml-4">
-                                        <img src="https://img.icons8.com/ios-glyphs/30/000000/download-2.png"/> download
-                                    </button>
-                                </a>
                              </a>
+                             <a href="{{ route('download', $file->id)}}" download="{{ $file->original}}" >
+                                <button type="button" class="btn btn-light ml-4">
+                                    <img src="https://img.icons8.com/nolan/64/download-2.png" style="width:35px; height:35px;"/> download
+                                </button>
+                            </a>
                           </li>
                      @endforeach
+
+
 
 
 

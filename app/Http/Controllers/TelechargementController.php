@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\User;
 use Carbon\Carbon;
 use App\ImageUpload;
+use Ramsey\Uuid\Uuid;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\mkdir;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Auth\Middleware\Authenticate;
-use Illuminate\Support\Facades\DB;
 
 
 
@@ -46,6 +47,7 @@ class TelechargementController extends Controller
           if($request->hasFile('file')){
 
 
+
           $file = $request->file('file')->getClientOriginalName();
 
           $filePath = pathInfo($file, PATHINFO_FILENAME);
@@ -58,10 +60,9 @@ class TelechargementController extends Controller
 
 
 
-         Storage::disk('local')
+         Storage::disk('files')
 
-                ->put('file',$path);
-
+                ->put($file, $path);
 
                 //$filePath->move(storage_path('/files'), $newFile);
 
@@ -93,14 +94,6 @@ class TelechargementController extends Controller
 
      }
 
-/*
-     public function download($download){
-
-        return response()->download('storage/files'.$download);
-
-
-     }
-     */
 
 
 

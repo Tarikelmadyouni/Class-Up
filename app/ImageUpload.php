@@ -32,6 +32,11 @@ class ImageUpload extends Model
         return $this->belongsToMany(\App\Customer::class);
     }
 
+    public function admin(){
+
+        return $this->belongsTo(AccueilAdmin::class);
+    }
+
 
 
 

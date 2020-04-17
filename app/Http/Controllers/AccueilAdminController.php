@@ -8,6 +8,7 @@ use App\AccueilAdmin;
 use App\Questionnaire;
 use Illuminate\Http\Request;
 use App\Http\Middleware\Admin;
+use Illuminate\Support\Facades\Storage;
 
 class AccueilAdminController extends Controller
 
@@ -26,18 +27,41 @@ class AccueilAdminController extends Controller
 
 
         $AccueilAdmin = Questionnaire::all();
-        $AccueilAdmins = ImageUpload::all();
+        $idFile = ImageUpload::all();
 
 
 
 
 
 
-        return view('accueil_admin.accueil', compact('AccueilAdmin', 'AccueilAdmins' ));
+        return view('accueil_admin.accueil', compact('AccueilAdmin', 'idFile' ));
 
 
 
     }
+
+
+    public function download(ImageUpload $idFile, $id){
+
+        /*
+       if(! is_dir(storage_path(('app/files')))){
+           mkdir(storage_path('app/files'), 0777);
+       }
+        */
+
+        $idFile = ImageUpload::find($id);
+
+
+
+        //$download = storage_path('files',$idFile->original);
+
+        //return response()->download($download);
+        return Storage::disk('files')->download($idFile->original);
+
+        //return redirect('/accueil/'.$idFile, $download);
+
+
+     }
 
 
 }

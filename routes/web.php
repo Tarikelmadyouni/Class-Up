@@ -58,10 +58,11 @@ Route::get('posts/create', 'PostController@create');
 
 //route Dropzone
 Route::get('/images', 'TelechargementController@index');
-Route::get('/images/{download}','TelechargementController@download');
+//Route::get('/download/{id}','TelechargementController@download');
 Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
 Route::get('/accueil', 'AccueilAdminController@show')->name('accueil');
+Route::get('accueil/{id}/download','AccueilAdminController@download')->name('download');
 
 Route::get('/accueileleve', 'AccueilEleveController@index')->name('accueileleve');
 Route::get('/dashboardeleve', 'AccueilEleveController@show')->name('dashboardeleve');

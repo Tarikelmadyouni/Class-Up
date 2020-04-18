@@ -72,6 +72,9 @@ Route::get('/graphs/create', 'GraphiqueStudentController@create');
 Route::post('/graphs', 'GraphiqueStudentController@store');
 Route::get('/graphs/{graph}','GraphiqueStudentController@show' );
 
+
+Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
+
 /*
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('users','UsersController',['except'=>['show'.'create'.'store']]);

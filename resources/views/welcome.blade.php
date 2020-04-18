@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Class'up
+                     <div><img src="/logo/titre.png"  alt="titre"></div>
                 </div>
 
                 <div class="links">
@@ -92,7 +92,7 @@
 
 
                 <div style="margin-top:80px;">
-                <h1 style="bold">La nouvelle école</h1>
+                <h1 style="bold text-truncate">La nouvelle école</h1>
                 </div>
 
 

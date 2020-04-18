@@ -8,7 +8,7 @@
     <div class="row justify-content-center mt-1">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">Dashboard</div>
+                <div class="card-header text-center">Que souhaitez vous faire</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -60,7 +60,7 @@
 
             <div class="card-body  d-flex justify-content-around " >
 
-                <a href="/accueil" class="badge badge-pill badge-primary h-50 p-3  ">Vers ma vue d'ensemble</a>
+                <a href="/accueil" class="badge badge-pill badge-primary h-50 p-3  ">Vue d'ensemble et cours</a>
             </div>
 
         </div>

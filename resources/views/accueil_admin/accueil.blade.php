@@ -69,14 +69,14 @@
 
                 </ul>
                 <div class="card-body">
-                  <a href="/images" class="card-link">
+                   <a href="/images" class="card-link">
                     <button type="button" class="btn btn-outline-primary">
                     insérer un nouveau document
                     </button>
-                </a>
+                   </a>
 
                 </div>
-              </div>
+            </div>
 
         </div>
 

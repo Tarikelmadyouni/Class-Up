@@ -31,7 +31,7 @@ class UsersController extends Controller
     {
         $customer = Customer::all();
 
-       $users = User::all();
+       $users = User::where('role','Student')->get();
 
         return view('admin.users.index', compact('customer'))->with('user',$users);
 

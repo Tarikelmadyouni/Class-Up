@@ -8,7 +8,7 @@
     <div class="row justify-content-center mt-1">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">Dashboard</div>
+                <div class="card-header text-center font-weight-bold text-primary">Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,15 +17,15 @@
                         </div>
                     @endif
                    <div class=" d-flex justify-content-around ">
-                    <a href="/questionnaires/create" class="badge badge-pill badge-primary p-2">Créez un nouveau questionnaire</a>
-                    <a href="/images" class="badge badge-pill badge-primary p-2">Ajouter des documents ou vidéo</a>
-                    <a href="/graphs/create" class="badge badge-pill badge-primary p-2">Entrer des résultats par élève</a>
+                    <a href="/questionnaires/create" class="btn btn-primary p-2 m-2 rounded-pill">Créez un nouveau questionnaire</a>
+                    <a href="/images" class="btn btn-primary p-2 m-2 rounded-pill">Ajouter des documents ou vidéo</a>
+                    <a href="/graphs/create" class="btn btn-primary p-2 m-2 rounded-pill">Entrer des résultats par élève</a>
                    </div>
                 </div>
             </div>
 
             <div class="card mt-4">
-                <div class="card-header text-center">Vos cours déjà créés</div>
+                <div class="card-header text-center font-weight-bold text-primary">Vos cours déjà créés</div>
 
                      <ul class="list-group">
 
@@ -60,7 +60,7 @@
 
             <div class="card-body  d-flex justify-content-around " >
 
-                <a href="/accueil" class="badge badge-pill badge-primary h-50 p-3  ">Vers ma vue d'ensemble</a>
+                <a href="/accueil" class="badge badge-pill badge-danger h-50 p-3  ">Vers ma vue d'ensemble</a>
             </div>
 
         </div>

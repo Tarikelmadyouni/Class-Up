@@ -3,27 +3,66 @@
 
 
 @section('content')
-   <div class="row">
-       <div class="col-12">
-       <h1>Ton profil {{$user->name}}</h1>
-       </div>
-   </div>
+   <div class="row justify-content-center">
+      <div class="col-md-8">
+         <div class="card">
 
-      <div class="card-body">
-      <form action="{{ route('admin.users.update', $user) }}" method="POST">
-        @csrf
-              {{ method_field('PUT') }}
-              @foreach($role as $roles)
-                <div class="form-check">
-                <input type="checkbox" name="roles[]" value="{{ $roles->id }}">
-                <label>{{$roles->name}}</label>
+                <div class="card-header">
+                    <h2>Les infos de {{$user->name}}</h2>
+                    <p><em>Que voulez vous modifier/ajouter ?</em></p>
+
                 </div>
-              @endforeach
 
-        <button type="submit" class="btn btn-primary">Ajoute tes infos</button>
 
-       </form>
-       </div>
-   </div>
 
+                    <div class="card-body">
+                    <form action="{{ route('admin.users.update', $user) }}" method="POST">
+                        @csrf
+                            {{ method_field('PUT') }}
+
+                                <div class="form-group w-50">
+                                    <div class="input-group">
+                                    <label>prenom
+                                    <input class="form-control" type="text" name="users[]" value="{{ $user->name }}">
+                                    </label>
+
+                                    <label>nom
+                                    <input class="form-control ml-3" type="text" name="users[]" value="{{ $user->surname }}">
+                                    </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group w-25">
+                                <label>role
+                                <select value="{{ $user->id}}" class="form-control">
+                                    <option>professeur</option>
+                                    <option>student</option>
+                                </select>
+                                </label>
+                                </div>
+
+                                <div class="form-group w-50">
+                                    <div class="input-group">
+                                @foreach ($info as $infos)
+                                <label>classe
+                                <input class="form-control" type="text" name="customers[]" value="{{ $infos->classe}}">
+                                </label>
+                                <label>Tel
+                                <input class="form-control ml-3" type="text" name="customers[]" value="{{ $infos->telephone}}">
+                                </label>
+                                    </div>
+                                @endforeach
+                                </div>
+
+
+                        <button type="submit" class="btn btn-primary mt-4">
+                            Ajoute tes infos
+                        </button>
+
+                    </form>
+                    </div>
+         </div>
+
+        </div>
+    </div>
 @endsection

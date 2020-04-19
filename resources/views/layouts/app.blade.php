@@ -81,7 +81,8 @@
                                         </button>
                                     </a>
                                     @endcan
-                                </li>
+                                </div>
+
 
                                 @can('manage-users')
                                 <a class="dropdown-item" href="{{ route('admin.users.index') }}">

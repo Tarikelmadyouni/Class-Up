@@ -54,23 +54,14 @@ class UsersController extends Controller
         }
 
 
-        /*
-        if(Auth::user()->cannot('edit-users')){
 
-            return redirect(route('admin.users.index'));
-
-        }
-        */
-
-
-
-
+       $info = Customer::all();
         $role = Role::all();
 
         return view('admin.users.edit')->with([
                'user'=>$user,
-               'role'=>$role
-
+               'role'=>$role,
+               'info'=>$info
                ]);
 
     }
@@ -82,9 +73,10 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, Customer $info)
     {
         $user->roles()->sync($request->role);
+
 
 
         $user->name = $request->name;

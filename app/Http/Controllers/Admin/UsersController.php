@@ -8,6 +8,7 @@ use App\User;
 use App\Customer;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,11 +30,11 @@ class UsersController extends Controller
      */
     public function index(Customer $customer)
     {
-        $customer = Customer::all();
+        //$info = Customer::all();
 
        $users = User::where('role','Student')->get();
 
-        return view('admin.users.index', compact('customer'))->with('user',$users);
+        return view('admin.users.index')->with('user',$users);
 
 
     }
@@ -43,6 +44,7 @@ class UsersController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\User  $user
+     * @param \App\Customer  $info
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -53,14 +55,12 @@ class UsersController extends Controller
 
         }
 
+        $info = Customer::all();
 
 
-       $info = Customer::all();
-        $role = Role::all();
 
         return view('admin.users.edit')->with([
                'user'=>$user,
-               'role'=>$role,
                'info'=>$info
                ]);
 
@@ -73,22 +73,27 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user, Customer $info)
+    public function update(Request $request, User $user)
     {
-        $user->roles()->sync($request->role);
 
-
+        $user->customer()->sync($request->customers);
 
         $user->name = $request->name;
+        $user->surname = $request->surname;
         $user->email = $request->email;
+        
 
-        if($user->save()){
+
+        $user->save();
+
+        /*
+
+        {
             $request->session()->flash('success',$user->name . ' has been updated');
         }else{
             $request->session()->flash('error', 'Mmmmh... Une erreur à eu lieu lors de la mise à jour');
         }
-
-
+        */
 
         return redirect()->route('admin.users.index');
     }

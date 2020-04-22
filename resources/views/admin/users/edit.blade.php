@@ -16,50 +16,50 @@
 
 
                     <div class="card-body">
-                    <form action="{{ route('admin.users.update', $user) }}" method="POST">
+                      <form action="{{ route('admin.users.update', $user) }}" method="POST">
                         @csrf
-                            {{ method_field('PUT') }}
+
 
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                     <label>prenom
-                                    <input class="form-control" type="text" name="users[]" value="{{ $user->name }}">
+                                    <input class="form-control" type="text" name="name" value="{{ $user->name }}">
                                     </label>
 
                                     <label>nom
-                                    <input class="form-control ml-3" type="text" name="users[]" value="{{ $user->surname }}">
+                                    <input class="form-control ml-3" type="text" name="surname" value="{{ $user->surname }}">
+                                    </label>
+
+                                    <label>email
+                                    <input class="form-control" type="text" name="email" value="{{ $user->email }}">
                                     </label>
                                     </div>
                                 </div>
 
-                                <div class="form-group w-25">
-                                <label>role
-                                <select value="{{ $user->id}}" class="form-control">
-                                    <option>professeur</option>
-                                    <option>student</option>
-                                </select>
-                                </label>
-                                </div>
-
-                                <div class="form-group w-50">
-                                    <div class="input-group">
+                                {{ method_field('PUT') }}
                                 @foreach ($info as $infos)
-                                <label>classe
-                                <input class="form-control" type="text" name="customers[]" value="{{ $infos->classe}}">
-                                </label>
-                                <label>Tel
-                                <input class="form-control ml-3" type="text" name="customers[]" value="{{ $infos->telephone}}">
-                                </label>
-                                    </div>
-                                @endforeach
-                                </div>
+                                <div class="form-group w-50">
 
+                                  <label >classe
+                                  <input class="form-control" type="text" name="classe[]" value="{{ $infos->classe}}"
+                                  @if ($user->customer->pluck('classe')->contains($infos->id)) @endif>
+                                  </label>
+
+
+
+                                  <label >telephone
+                                  <input class="form-control" type="text" name="classe[]" value="{{ $infos->telephone}}"
+                                  @if ($user->customer->pluck('telephone')->contains($infos->id)) @endif>
+                                  <label>
+
+                                </div>
+                                @endforeach
 
                         <button type="submit" class="btn btn-primary mt-4">
-                            Ajoute tes infos
+                            mettre à jour
                         </button>
 
-                    </form>
+                      </form>
                     </div>
          </div>
 

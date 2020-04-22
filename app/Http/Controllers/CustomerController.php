@@ -48,8 +48,8 @@ class CustomerController extends Controller
 
             'nom'=>'required',
             'prenom'=>'required',
-            'email'=>'required|email',
             'classe'=>'required',
+            'telephone'=>'required',
             'ecole'=>'required',
             //'user_id'=>'required',
 

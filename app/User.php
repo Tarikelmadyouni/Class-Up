@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname','email', 'password', 'role','user_id','role_id'
+        'name', 'surname','email', 'password', 'role','user_id','role_id', 'customer_id',
     ];
 
     /**
@@ -68,7 +68,7 @@ class User extends Authenticatable
 
     public function customer(){
 
-        return $this->hasMany(Customer::class);
+        return $this->belongsToMany(Customer::class,'customer_user','user_id');
     }
 
     public function matiere(){

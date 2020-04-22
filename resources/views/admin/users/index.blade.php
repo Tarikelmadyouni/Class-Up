@@ -23,6 +23,7 @@
     <p class="card-text">{{ implode(',' ,$users->customer()->get()->pluck('telephone')->toArray() ) }}</p>
 
 
+
     @can('edit-users')
        <a href='{{ route('admin.users.edit', $users->id)}}'>
         <button type="submit" class="btn btn-light w-1 h-1">

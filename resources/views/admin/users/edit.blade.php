@@ -41,14 +41,14 @@
                                 <div class="form-group w-50">
 
                                   <label >classe
-                                  <input class="form-control" type="text" name="classe[]" value="{{ $infos->classe}}"
+                                  <input class="form-control" type="text" name="classe" value="{{ $infos->classe}}"
                                   @if ($user->customer->pluck('classe')->contains($infos->id)) @endif>
                                   </label>
 
 
 
                                   <label >telephone
-                                  <input class="form-control" type="text" name="classe[]" value="{{ $infos->telephone}}"
+                                  <input class="form-control" type="text" name="classe" value="{{ $infos->telephone}}"
                                   @if ($user->customer->pluck('telephone')->contains($infos->id)) @endif>
                                   <label>
 

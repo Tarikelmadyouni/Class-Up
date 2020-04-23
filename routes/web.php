@@ -77,6 +77,7 @@ Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
 
 // Route poste
 Route::get('/p/create', 'PostsController@create');
+Route::post('/p', 'PostsController@store');
 /*
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('users','UsersController',['except'=>['show'.'create'.'store']]);

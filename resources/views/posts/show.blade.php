@@ -17,7 +17,7 @@
 
           <h1>{{$post->user->surname}}</h1>
 
-          <p>{{ $post->légende}}</p>
+          <p>{{ $post->légende  }}</p>
 
           </div>
 

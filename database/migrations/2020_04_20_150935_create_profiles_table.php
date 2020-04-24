@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('adresse');
-            $table->mediumInteger('numeroTelephone')->unique();
+            $table->integer('numeroTelephone')->unique();
             $table->string('classe');
             $table->text('description')->nullable();
             $table->string('url')->nullable();

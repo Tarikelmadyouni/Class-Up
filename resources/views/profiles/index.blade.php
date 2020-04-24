@@ -44,7 +44,7 @@
 <div class="container">
     <div class="row justify-content-center mt-5   pl-4 d-flex">
         <div class="col-3 p-5">
-            <img src="/image-profile/face.png" style="max-height:200px;" alt="face" class="rounded-circle"></<img>
+        <img src="/storage/{{ $user->profile->image}}" style="max-height:200px;" alt="face" class="rounded-circle w-100"></<img>
               @can ('update', $user->profile)
             <a href="/p/create" class=" btn btn-outline-danger  mt-5 ml-4 rounded-pill align-baseline" role="button"
                 aria-pressed="true">Rajoute un nouveau Poste</a>

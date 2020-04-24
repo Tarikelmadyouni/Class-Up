@@ -37,6 +37,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+      protected static function boot()
+      {
+
+          parent::boot();
+
+          static::created( function($user) {
+
+               $user->profile()->create([
+
+                     'classe'=>$user->surname,
+               ]);
+          });
+
+      }
+
+
     public function questionnaires(){
 
         return $this->hasMany(\App\Questionnaire::class);

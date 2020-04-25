@@ -17,21 +17,24 @@ class ProfilesController extends Controller
     }
 
 
-    public function index(User $user){
 
-
-
+    public function index(User $user)
+    {
     return view('profiles.index',compact('user'));
-
 
     }
 
+
+
     public function edit(User $user)
+
     {
             $this->authorize('update',$user->profile);
 
             return view('profiles.edit', compact('user'));
     }
+
+
 
     public function update(User $user)
     {
@@ -64,11 +67,15 @@ class ProfilesController extends Controller
              ));
 
             return redirect("/profile/{$user->id}");
+      }
 
-    }
 
 
-    public function download(ImageUpload $idFile, $id){
+
+
+      public function download(ImageUpload $idFile, $id)
+
+      {
 
         /*
        if(! is_dir(storage_path(('app/files')))){
@@ -86,9 +93,7 @@ class ProfilesController extends Controller
         return Storage::disk('files')->download($idFile->original);
 
         //return redirect('/accueil/'.$idFile, $download);
-
-
-     }
+    }
 
 
 

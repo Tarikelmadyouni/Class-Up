@@ -44,20 +44,27 @@
 <div class="container">
     <div class="row justify-content-center mt-5   pl-4 d-flex">
         <div class="col-3 p-5">
-        <img src="/storage/{{ $user->profile->image}}" style="max-height:200px;" alt="face" class="rounded-circle w-100"></<img>
-              @can ('update', $user->profile)
-            <a href="/p/create" class=" btn btn-outline-danger  mt-5 ml-4 rounded-pill align-baseline" role="button"
-                aria-pressed="true">Rajoute un nouveau Poste</a>
-                @endcan
+        <img src="{{$user->profile->profileImage()}}" style="max-height:200px;" alt="face" class="rounded-circle w-100"></<img>
+
 
         </div>
 
         <div class="col-9 p-5 pt-5 border-3 mr-20 card text-center  ">
-            <div class="d-flex flex-row-reverse">
+            <div class="d-flex justify-content-between">
+                <div class="col-2">
               @can ('update', $user->profile)
-                  <a href="/profile/{{ $user->id }}/edit" class="float-right btn btn-primary">Editer Actu</a>
+                  <a href="/profile/{{ $user->id }}/edit" class="float-right btn btn-outline-info rounded-pill  align-text-bottom">Editer Actu</a>
              @endcan
+                </div>
+
+            <div class="col-1">
+                     @can ('update', $user->profile)
+            <a href="/p/create" class=" float-right btn btn-outline-success rounded-pill   align-text-bottom" role="button"
+                aria-pressed="true">Rajoute Poste</a>
+                @endcan
+           </div>
             </div>
+
             <div>
                 <h1>Profile</h1>
 
@@ -67,12 +74,15 @@
                 <div><strong>Nom: </strong><span class='ml-2'>{{$user->name}}</div></span>
                 <div><strong>Email: </strong><span class='ml-2'>{{$user->email}}</div></span>
             </div>
-            <div class="pt-5 font-weight-bold">Actu</div>
-            <div>
-                <p class="text-center pt-2">{{$user->profile->description}}</p>
+            <form>
+
+            <div class="form-group">
+                  <label for="exampleFormControlTextarea1" class="pt-5 font-weight-bold text-left">Actu </label>
+                   <textarea class="form-control text-center" style="font-weight: 900;" id="exampleFormControlTextarea1" rows="3"> {{$user->profile->description}}</textarea>
             </div>
             <div><a href="#">{{$user->profile->url ?? 'N/A'}}</a></div><br>
-            <div><strong>{{$user->posts->count()}}</strong> post</div>
+
+            </form>
         </div>
     </div>
 

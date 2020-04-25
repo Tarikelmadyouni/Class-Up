@@ -47,7 +47,7 @@ class User extends Authenticatable
 
                $user->profile()->create([
 
-                     'classe'=>$user->surname,
+                     'titre'=>$user->surname,
                ]);
           });
 

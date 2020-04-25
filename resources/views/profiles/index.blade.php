@@ -73,6 +73,7 @@
                 <div><strong>Prenom:</strong><span class="ml-2">{{$user->surname}}</div></span>
                 <div><strong>Nom: </strong><span class='ml-2'>{{$user->name}}</div></span>
                 <div><strong>Email: </strong><span class='ml-2'>{{$user->email}}</div></span>
+                <div><strong>Classe: </strong><span class='ml-2'>{{$user->profile->classe}}</div></span>
             </div>
             <form>
 

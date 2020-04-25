@@ -42,6 +42,7 @@ class ProfilesController extends Controller
           $data = request()->validate([
 
             'description'=> 'required',
+            'classe'=>'required',
              'url'=> 'url',
              'image'=>'',
          ]);

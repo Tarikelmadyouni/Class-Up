@@ -45,6 +45,11 @@
                     @enderror
                 </div>
 
+                  <div class="form-group row">
+                         <label for="classe" class="col-md-4 col-form-label "> Classe</label>
+                          <input id="	classe" type="text" class="form-control @error('	classe') is-invalid @enderror"
+                        name="classe" value="{{ old('classe') ?? $user->profile->classe}} " required autocomplete="classe" autofocus>
+
                 <div class="row">
                     <label for="image" class="col-md-4 col-form-label "> Profile Image</label>
                     <input type="file" , class="form-control-file" id="image" name="image">

@@ -24,7 +24,7 @@ class GraphiqueStudentController extends Controller
 
 
     public function store(Customer $graphs){
-
+   
         $data = request()->validate([
 
             'nom'=>'required',

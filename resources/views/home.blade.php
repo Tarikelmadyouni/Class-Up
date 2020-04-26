@@ -68,7 +68,7 @@
 
 
             </div>
-             <a href="/profile/">ici</a>
+       
         </div>
     </div>
 </div>

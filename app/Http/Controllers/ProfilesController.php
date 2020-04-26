@@ -38,13 +38,15 @@ class ProfilesController extends Controller
 
     public function update(User $user)
     {
+
         $this->authorize('update', $user->profile);
           $data = request()->validate([
 
             'description'=> 'required',
             'classe'=>'required',
-             'url'=> 'url',
-             'image'=>'',
+            'date_de_naissance' => 'required',
+            'url'=> 'url',
+            'image'=>'',
          ]);
 
 

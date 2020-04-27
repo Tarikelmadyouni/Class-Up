@@ -37,6 +37,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+      protected static function boot()
+      {
+
+          parent::boot();
+
+          static::created( function($user) {
+
+               $user->profile()->create([
+
+                     'titre'=>$user->surname,
+               ]);
+          });
+
+      }
+
+
     public function questionnaires(){
 
         return $this->hasMany(\App\Questionnaire::class);
@@ -116,5 +133,13 @@ class User extends Authenticatable
     {
       return $this->hasOne(Profile::class);
     }
+
+    public function posts()
+    {
+          return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
+
+    }
+
+
 
 }

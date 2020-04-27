@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 
 
@@ -34,17 +36,20 @@ class UsersController extends Controller
 
        $users = User::where('role','Student')->get();
 
+
+
         return view('admin.users.index')->with('user',$users);
 
 
     }
 
 
+
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\User  $user
-     * @param \App\Customer  $info
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -55,13 +60,15 @@ class UsersController extends Controller
 
         }
 
-        $info = Customer::all();
+
+       $info = Customer::all();
 
 
 
         return view('admin.users.edit')->with([
                'user'=>$user,
-               'info'=>$info
+               'info'=>$info,
+
                ]);
 
     }
@@ -76,13 +83,12 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
 
-        $user->customer()->sync($request->customers);
+        $user->customer()->sync($request->custsomers);
+
 
         $user->name = $request->name;
         $user->surname = $request->surname;
         $user->email = $request->email;
-
-
 
         $user->save();
 
@@ -98,6 +104,10 @@ class UsersController extends Controller
         return redirect()->route('admin.users.index');
     }
 
+
+
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -112,9 +122,6 @@ class UsersController extends Controller
 
         }
 
-
-
-        $user->roles()->detach();
         $user->delete();
 
         return redirect()->route('admin.users.index');

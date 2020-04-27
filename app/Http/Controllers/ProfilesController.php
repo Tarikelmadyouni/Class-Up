@@ -24,4 +24,8 @@ class ProfilesController extends Controller
 
     ]);
     }
+
+
+
+    
 }

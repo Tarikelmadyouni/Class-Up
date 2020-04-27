@@ -19,8 +19,10 @@
       @foreach($user as $users)
     <p class="card-text">{{$users->name}} {{$users->surname}}</p>
     <p class="card-text">{{$users->email}}</p>
-    <p class="card-text">{{ implode(',' ,$users->customer()->get()->pluck('classe')->toArray() )}}</p>
-    <p class="card-text">{{ implode(',' ,$users->customer()->get()->pluck('telephone')->toArray() ) }}</p>
+    <p class="card-text">{{ implode(',',$users->customer()->get()->pluck('classe')->toArray()) }}
+    <p class="card-text">{{ implode(',',$users->customer()->get()->pluck('telephone')->toArray()) }}
+
+
 
 
 
@@ -32,18 +34,6 @@
        </a>
        @endcan
 
-       @can('delete-users')
-       <form action="{{ route('admin.users.destroy',$users)}}" method="POST">
-        @csrf
-        {{ method_field('DELETE') }}
-
-        <button type="submit" class="btn btn-light w-1 h-1">
-        <img src="https://img.icons8.com/nolan/64/trash.png" style="width:20px"/>
-        </button>
-       </form>
-
-
-       @endcan
     <hr class="bg-warning">
 
       @endforeach
@@ -57,8 +47,8 @@
     <div class="card-body">
       <h5 class="card-title">Success card title</h5>
       <p class="card-text">
-        @foreach($user as $users)
-        <p class="card-text">{{$users->name}}</p>
+
+        <p class="card-text"></p>
         @can('edit-users')
         <a href='{{ route('admin.users.edit', 'admin.users.edit')}}'>
             <button type="button" class="btn btn-light w-1 h-1">
@@ -78,7 +68,7 @@
 
         <hr class="bg-warning">
 
-           @endforeach
+
 
       </p>
 
@@ -91,8 +81,8 @@
       <h5 class="card-title">Warning card title</h5>
       <p class="card-text">
 
-        @foreach($user as $users)
-        <p class="card-text">{{$users->name}}</p>
+
+        <p class="card-text"></p>
         @can('edit-users')
         <a href='{{ route('admin.users.edit', 'admin.users.edit')}}'>
             <button type="button" class="btn btn-light">
@@ -112,7 +102,7 @@
 
         <hr class="bg-warning">
 
-           @endforeach
+
 
       </p>
 

@@ -2,9 +2,11 @@
 
 namespace App;
 
+use App\Mail\NewUserWelcomMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -68,7 +70,7 @@ class User extends Authenticatable
 
     public function customer(){
 
-        return $this->belongsToMany(Customer::class,'customer_user','user_id');
+        return $this->belongsToMany(\App\Customer::class,'customer_user','user_id');
     }
 
     public function matiere(){
@@ -111,10 +113,11 @@ class User extends Authenticatable
 
 
 
-
     public function profile()
     {
       return $this->hasOne(Profile::class);
+
+      
     }
 
 }

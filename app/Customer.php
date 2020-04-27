@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Customer extends Model
 {
-    protected $guarded = [];
+
+    protected $fillable = ['classe', 'telephone', 'customer_id','user_id'];
 
 
 
@@ -23,7 +24,7 @@ class Customer extends Model
 
     public function user(){
 
-        return $this->belongsToMany(User::class,'customer_user','customer_id');
+        return $this->belongsToMany(\App\User::class,'customer_user','customer_id');
     }
 
 

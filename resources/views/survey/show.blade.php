@@ -12,7 +12,7 @@
 
             @foreach ($questionnaire->questions as $key => $question)
             <div class="card mt=4">
-                <div class="card-header"><strong>{{ $key + 1 }}  </strong>$questionnaire->question}}</div>
+                <div class="card-header"><strong>{{ $key + 1 }}  </strong>{{ $questionnaire->question}}</div>
 
                 <div class="card-body">
 

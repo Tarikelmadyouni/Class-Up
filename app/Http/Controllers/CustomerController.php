@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\User;
 use App\GraphiqueStudent;
+use App\Mail\NewUserWelcomMail;
 use App\MatiereCustomers;
 use App\Mail\WelcomeMail;
 use App\Matiere;
@@ -55,6 +56,8 @@ class CustomerController extends Controller
 
 
         ]);
+
+        Mail::to($customer->email)->send(new NewUserWelcomMail());
 
         //dd($data);
         $customers = auth()->user()->customer()->create($data);

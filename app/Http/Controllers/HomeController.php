@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Profile;
+use App\User;
 use Illuminate\Http\Request;
 
 
@@ -30,5 +31,14 @@ class HomeController extends Controller
         $questionnaires = auth()->user()->questionnaires;
 
         return view('home', compact('questionnaires'));
+    }
+
+
+    public function user(User $user)
+    {
+
+       $user=auth()->user()->profile;
+       return view('home', compact('user'));
+
     }
 }

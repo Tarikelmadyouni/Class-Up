@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
+
 class ProfilesController extends Controller
 {
 
@@ -39,12 +40,13 @@ class ProfilesController extends Controller
     public function update(User $user)
     {
 
-        $this->authorize('update', $user->profile);
+
+        $this->authorize('update', $user->profile ,);
           $data = request()->validate([
 
             'description'=> 'required',
             'classe'=>'required',
-            'date_de_naissance' => 'required',
+            'date_de_naissance' =>'required',
             'url'=> 'url',
             'image'=>'',
          ]);

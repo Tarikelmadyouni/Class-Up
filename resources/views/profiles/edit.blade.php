@@ -64,7 +64,7 @@
 
                    <label for="date_de_naissance" class="col-md-4 col-form-label">Date De Naissance</label>
 
-                <input id="date_de_naissance" class="form-control" type="date" data-date-format="mm/dd/yy"name="date_de_naissance"  >
+                <input id="date_de_naissance" class="form-control" type="date"  data-date-format="dd-mm-yyy"name="date_de_naissance"  >
                   </div>
 
                     </div>

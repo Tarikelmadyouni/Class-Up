@@ -64,11 +64,10 @@
             <div class="card-body  d-flex justify-content-around " >
 
 
-                <a href="/accueil" class="badge badge-pill badge-danger h-50 p-3  ">Vue d'ensemble et cours</a>
+                <a href="/accueil" class="badge badge-pill badge-danger h-50 p-3">Vue d'ensemble et cours</a>
 
 
             </div>
-
         </div>
     </div>
 </div>

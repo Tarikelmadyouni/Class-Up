@@ -40,13 +40,12 @@ class ProfilesController extends Controller
     public function update(User $user)
     {
 
-
         $this->authorize('update', $user->profile ,);
           $data = request()->validate([
 
             'description'=> 'required',
             'classe'=>'required',
-            'date_de_naissance' =>'required',
+           'date_de_naissance' =>'required|date',
             'url'=> 'url',
             'image'=>'',
          ]);
@@ -56,8 +55,8 @@ class ProfilesController extends Controller
 
              $imagePath = request('image')->store('profile', 'public');
 
-             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
-             $image->save();
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(900,900);
+            $image->save();
 
                  $imageArray =['image'=> $imagePath];
 

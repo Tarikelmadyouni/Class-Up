@@ -29,11 +29,11 @@ class PostsController extends Controller
                   'légende'=>'required',
                   'image'=>['required','image'],
             ]);
-             
+
                  $imagePath =request('image')->store('uploads','public');
 
-                 $image =Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
-                 $image->save();
+                  $image =Image::make(public_path("storage/{$imagePath}"))->fit(350, 197);
+                  $image->save();
 
 
 

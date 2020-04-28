@@ -26,7 +26,7 @@ class AccueilAdminController extends Controller
 
 
 
-        $AccueilAdmin = Questionnaire::all();
+        $AccueilAdmin =auth()->user()->questionnaires;
         $idFile = ImageUpload::all();
 
 

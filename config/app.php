@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Intervention\Image\ImageServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         //Spatie\MediaLibrary\ImageGenerators\FileTypes\Pdf::class,
         //Spatie\MediaLibrary\Models\Media::class,
@@ -231,6 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\ImageManagerStatic::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
 
 

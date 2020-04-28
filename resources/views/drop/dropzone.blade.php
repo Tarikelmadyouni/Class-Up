@@ -36,8 +36,8 @@
 
 
                 <div class="col-2 mb-4">
-                <a href="{{ $item->original }}">
-                <img src="{{ $item->thumbnail }}" class="w-100">
+                <a href="{{ route('download', $item->id)}}" download="{{ $item->original }}">
+                   {{ Str::limit( $item->thumbnail, 35 )}}
                 </a>
                 <form action="/images/{{ $item->id }}" method="post" >
                    @method('DELETE')
@@ -51,11 +51,13 @@
          </div>
     </div>
 
-    <a href="/home" class="ml-5" style="color:blue;">
-        <button class="btn btn-primary">
-        << Retour à l'accueil
+    <div class="d-flex justify-content-center mt-5 ">
+    <a href="/accueil" class="ml-5" style="color:blue;">
+        <button class="btn btn-primary w-40">
+            <img src="https://img.icons8.com/ios/50/000000/hand-left.png" style="width:35px; height:35px; padding-bottom:5px"/> Retrouvez tous vos docs
         </button>
     </a>
+    </div>
 
 
 

@@ -29,7 +29,7 @@ class PostsController extends Controller
                   'légende'=>'required',
                   'image'=>['required','image'],
             ]);
-
+             
                  $imagePath =request('image')->store('uploads','public');
 
                  $image =Image::make(public_path("storage/{$imagePath}"))->fit(210, 118);

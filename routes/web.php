@@ -49,6 +49,7 @@ Route::delete('/questionnaires/{questionnaire}/questions/{question}', 'questionC
 
 Route::get('/surveys/{questionnaire}-{slug}','SurveyController@show');
 Route::post('/surveys/{questionnaire}-{slug}','SurveyController@store');
+Route::get('/surveys/merci', 'SurveyController@merci');
 
 Route::get('pay', 'PayOrderController@store');
 

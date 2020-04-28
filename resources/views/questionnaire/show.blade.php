@@ -9,14 +9,14 @@
 
                 <div class="card-body">
                     @can('manage-users')
-                <a class="btn btn-dark" href="/questionnaires/{{ $questionnaire->id }}/questions/create">Add new question</a>
+                <a class="btn btn-info" href="/questionnaires/{{ $questionnaire->id }}/questions/create">Rajouter Nouvelle Question</a>
                     @endcan
-                <a class="btn btn-dark" href="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title)}}">Take survey</a>
+                <a class="btn btn-info" href="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title)}}">Réponde à l'enquête</a>
                 </div>
             </div>
 
             @foreach ($questionnaire->questions as $question)
-            <div class="card">
+            <div class="card mt-4">
                 <div class="card-header">{{$question->question}}</div>
 
                 <div class="card-body">

@@ -40,8 +40,8 @@
           <label for="start">date:</label>
 
           <input type="date" id="start" name="date"
-                 value="2018-07-22"
-                 min="2018-01-01" max="2050-12-31">
+                 value="22-07-2005"
+                 min="1-01-1980" max="1-01-2050">
         </div>
 
 

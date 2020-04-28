@@ -5,16 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create new questionnaire</div>
+                <div class="card-header">Creation Nouvelle Question</div>
 
                 <div class="card-body">
                 <form action="/questionnaires/{{$questionnaire->id}}/questions" method="post">
                         @csrf
 
                         <div class="form-group">
-                                <label for="question">Title</label>
+                                <label for="question">Question</label>
                                 <input name="question[question]" type="text" class="form-control" value="{{ old('question.question') }}" id="question" aria-describedby="questionHelp" placeholder="Enter question">
-                                <small id="questionHelp" class="form-text text-muted">Add a simple ask </small>
+                                <small id="questionHelp" class="form-text text-muted">Posez une question simple et précise
+                                    pour un meilleurs résultats. </small>
 
                                 @error('question.question')
                                 <small class="text-danger">{{$message}}</small>
@@ -24,12 +25,12 @@
                               <div class="form-group">
 
                                 <fieldset>
-                                     <legend>Choices</legend>
-                                     <small id="choicesHelp" class="form-text text-muted">Give a choice </small>
+                                     <legend>Les choix</legend>
+                                     <small id="choicesHelp" class="form-text text-muted">Proposer des choix </small>
 
                                      <div>
                                         <div class="form-group">
-                                        <label for="answer1">choice 1</label>
+                                        <label for="answer1">choix 1</label>
                                 <input name="answers[][answer]" type="text" class="form-control" id="answer1" value="{{ old('answers.0.answer') }}" aria-describedby="choicesHelp" placeholder="Enter choice 1">
 
 
@@ -44,7 +45,7 @@
 
                                     <div>
                                         <div class="form-group">
-                                        <label for="answer2">choice 2</label>
+                                        <label for="answer2">choix 2</label>
                                 <input name="answers[][answer]" type="text" class="form-control" id="answer2" value="{{ old('answers.1.answer') }}"  aria-describedby="choicesHelp" placeholder="Enter choice 2">
 
 
@@ -60,7 +61,7 @@
 
                                     <div>
                                         <div class="form-group">
-                                        <label for="answer3">choice 3</label>
+                                        <label for="answer3">choix 3</label>
                                 <input name="answers[][answer]" type="text" class="form-control" id="answer3" value="{{ old('answers.2.answer') }}" aria-describedby="choicesHelp" placeholder="Enter choice 3">
 
 
@@ -76,7 +77,7 @@
 
                                     <div>
                                         <div class="form-group">
-                                        <label for="answer4">choice 4</label>
+                                        <label for="answer4">choix 4</label>
                                 <input name="answers[][answer]" type="text" class="form-control" id="answer4" value="{{ old('answers.3.answer') }}" aria-describedby="choicesHelp" placeholder="Enter choice 4">
 
 
@@ -95,7 +96,7 @@
                             </div>
 
 
-                              <button type="submit" class="btn btn-primary">Add questionnaire</button>
+                        <button type="submit" class="btn btn-primary">Rajouter Question</button>
 
 
                     </form>

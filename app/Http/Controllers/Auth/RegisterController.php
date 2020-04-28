@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Role;
 use App\User;
+use App\Customer;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -105,16 +106,20 @@ class RegisterController extends Controller
 
         ]);
 
-/*
-      $user = new User;
-      $user->save();
-      $roleNew = new Role;
-*/
+        $info = Customer::create([
+
+            'name'=>$data['name'],
+            'surname'=>$data['surname'],
+
+        ]);
+
+
 
         $user->save();
 
-
         $user->roles()->attach($roleTable);
+
+        $user->customer()->attach($info);
 
 
 

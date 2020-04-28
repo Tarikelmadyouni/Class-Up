@@ -1,7 +1,7 @@
 <?php
-/*
+
 use App\Mail\WelcomeMail;
-use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserWelcomMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +13,24 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\TelechargementController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
+
+/*
+Route::get('/email', function () {
+    Mail::to('email@email.com')->send(new NewUserWelcomMail());
+
+    return new NewUserWelcomMail();
+});
+*/
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -59,7 +70,7 @@ Route::get('posts/create', 'PostController@create');
 
 //route Dropzone
 Route::get('/images', 'TelechargementController@index');
-//Route::get('/download/{id}','TelechargementController@download');
+Route::get('/download/{id}','TelechargementController@download');
 Route::delete('/images/{imageUpload}', 'TelechargementController@destroy');
 
 Route::get('/accueil', 'AccueilAdminController@show')->name('accueil');
@@ -92,18 +103,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
-Route::resource('/users', 'UsersController', ['except'=>['show','create', 'store']]);
+Route::resource('/users', 'UsersController', ['except'=>['show','create','store']]);
 
 });
 
-
-
-
-/*
-Route::get('/email', function () {
-
-    Mail::to('email@email.com')->send(new WelcomeMail());
-    return new WelcomeMail();
-});
-*/
 

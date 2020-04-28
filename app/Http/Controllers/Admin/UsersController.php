@@ -8,8 +8,11 @@ use App\User;
 use App\Customer;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 
 
@@ -29,14 +32,18 @@ class UsersController extends Controller
      */
     public function index(Customer $customer)
     {
-        $customer = Customer::all();
+        //$info = Customer::all();
 
        $users = User::where('role','Student')->get();
 
-        return view('admin.users.index', compact('customer'))->with('user',$users);
+
+
+        return view('admin.users.index')->with('user',$users);
 
 
     }
+
+
 
 
     /**
@@ -54,22 +61,13 @@ class UsersController extends Controller
         }
 
 
-        /*
-        if(Auth::user()->cannot('edit-users')){
-
-            return redirect(route('admin.users.index'));
-
-        }
-        */
+       $info = Customer::all();
 
 
-
-
-        $role = Role::all();
 
         return view('admin.users.edit')->with([
                'user'=>$user,
-               'role'=>$role
+               'info'=>$info,
 
                ]);
 
@@ -84,22 +82,31 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->roles()->sync($request->role);
+
+        $user->customer()->sync($request->custsomers);
 
 
         $user->name = $request->name;
+        $user->surname = $request->surname;
         $user->email = $request->email;
 
-        if($user->save()){
+        $user->save();
+
+        /*
+
+        {
             $request->session()->flash('success',$user->name . ' has been updated');
         }else{
             $request->session()->flash('error', 'Mmmmh... Une erreur à eu lieu lors de la mise à jour');
         }
-
-
+        */
 
         return redirect()->route('admin.users.index');
     }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -115,9 +122,6 @@ class UsersController extends Controller
 
         }
 
-
-
-        $user->roles()->detach();
         $user->delete();
 
         return redirect()->route('admin.users.index');

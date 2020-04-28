@@ -11,9 +11,15 @@
                 @csrf
                 @foreach ($questionnaire->questions as $key => $question)
 
+
                 <div class="card mt-4">
                     <div class="card-header"><strong class="text-primary">{{ $key + 1 }}</strong>
                         {{$question->question}}</div>
+
+            @foreach ($questionnaire->questions as $key => $question)
+            <div class="card mt=4">
+                <div class="card-header"><strong>{{ $key + 1 }}  </strong>{{ $questionnaire->question}}</div>
+
 
                     <div class="card-body">
 

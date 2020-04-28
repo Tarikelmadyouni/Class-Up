@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
 
+
     protected $guarded =[];
 
      public function profileImage()
@@ -16,8 +17,11 @@ class Profile extends Model
     return'/storage/'.$imagePath;
      }
 
+
     public function user()
     {
        return $this->belongsTo(User::class);
+
+
     }
 }

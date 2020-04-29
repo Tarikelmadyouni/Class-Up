@@ -84,6 +84,11 @@ class User extends Authenticatable
         return $this->belongsTo(\App\AccueilAdmin::class);
     }
 
+    public function student(){
+
+        return $this->belongsTo(\App\AccueilEleve::class);
+    }
+
 
     public function customer(){
 
@@ -134,7 +139,7 @@ class User extends Authenticatable
     {
       return $this->hasOne(Profile::class);
 
-      
+
     }
 
     public function posts()

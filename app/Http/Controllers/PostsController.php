@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
+
 
 class PostsController extends Controller
 {
@@ -29,7 +31,7 @@ class PostsController extends Controller
                   'légende'=>'required',
                   'image'=>['required','image'],
             ]);
-             
+
                  $imagePath =request('image')->store('uploads','public');
 
                  $image =Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);

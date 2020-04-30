@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-@include('nav')
 
 @can('manage-users')
 <a class="dropdown-item" href="{{route('admin.users.index')}}">User Management</a>

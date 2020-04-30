@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use DB as GlobalDB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
@@ -60,14 +61,26 @@ class UsersController extends Controller
 
         }
 
-
+       /*
        $info = Customer::all();
+
+       $infoCust = Customer::select('classe', 'telephone')
+                             ->where('id',$info)
+                             ->get();
+
+       //dd($infoCust);
+       */
+      $info = Customer::all();
+
+      //$info = Customer::where('id',5)->first(); // or whatever, just get one log
+      //$infoCust = $info->user;
 
 
 
         return view('admin.users.edit')->with([
                'user'=>$user,
                'info'=>$info,
+               //'infoCust' => $infoCust
 
                ]);
 
@@ -83,7 +96,21 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
 
-        $user->customer()->sync($request->custsomers);
+        $data = Customer::request()->validate([
+
+            'classe'=>'required',
+            'telephopne'=>'required'
+
+        ]);
+
+        $info = $user->customer()->sync($request->custsomers);
+
+        $info->customer()->user()->update([
+
+            'classe'=>$data('classe'),
+            'telephone'=>$data('telephone')
+
+        ]);
 
 
         $user->name = $request->name;

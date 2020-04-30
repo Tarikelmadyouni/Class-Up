@@ -77,7 +77,7 @@
                         @foreach($path as $paths)
                         @if ( $paths )
 
-                                <a href="">{{ $paths->original }}</a>
+                                <a href="">{{ Str::limit($paths->original, 35) }}</a>
 
                             <a href="{{ route('download', $paths->id)}}" download="{{ $paths->original}}" >
                                 <button type="button" class="btn btn-light ml-4">

@@ -16,9 +16,7 @@
                     <div class="card-header"><strong class="text-primary">{{ $key + 1 }}</strong>
                         {{$question->question}}</div>
 
-            @foreach ($questionnaire->questions as $key => $question)
-            <div class="card mt=4">
-                <div class="card-header"><strong>{{ $key + 1 }}  </strong>{{ $questionnaire->question}}</div>
+            
 
 
                     <div class="card-body">
@@ -51,7 +49,7 @@
 
 
                 <div class="card mt-4">
-                    <div class="card-header">Votre Information</div>
+                    <div class="card-header">Vos Informations</div>
 
                     <div class="card-body">
                         <div class="form-group">
@@ -77,7 +75,7 @@
                         </div>
 
                         <div>
-                            <button class="btn btn-secondary" type="submit">Question complète</button>
+                            <button class="btn btn-secondary" type="submit">Questionnaire completé</button>
                         </div>
                     </div>
                 </div>

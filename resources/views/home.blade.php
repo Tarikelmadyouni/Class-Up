@@ -82,7 +82,7 @@
             </div>
         </div>
 
-    <a href="{{ route('profile.show', Auth::user())}}">ici</a>
+    
     </div>
 </div>
 @endsection

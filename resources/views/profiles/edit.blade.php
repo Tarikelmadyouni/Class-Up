@@ -62,9 +62,10 @@
 
                     <div class="form-group row">
 
-                   <label for="date_de_naissance" class="col-md-4 col-form-label">Date De Naissance</label>
+                <label for="date_de_naissance" class="col-md-4 col-form-label">Date De Naissance</label>
 
-                <input id="date_de_naissance" class="form-control" type="date"  data-date-format="dd-mm-yyy"name="date_de_naissance"  >
+         <input id="date_de_naissance" class="form-control" type="date"   name="date_de_naissance"   value="{{ old('date_de_naissance') ?? $user->profile->date_de_naissance}}"  required
+         autocomplete="date_de_naissance" autofocus>  
                   </div>
 
                     </div>

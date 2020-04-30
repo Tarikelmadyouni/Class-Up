@@ -9,6 +9,8 @@
         <div class="col-md-8">
             <div class="card">
 
+
+
                 <div class="card-header text-center text-primary">Que souhaitez vous faire</div>
 
 
@@ -79,6 +81,8 @@
 
             </div>
         </div>
+
+    <a href="{{ route('profile.show', Auth::user())}}">ici</a>
     </div>
 </div>
 @endsection

@@ -44,13 +44,14 @@
                                 {{ method_field('PUT') }}
 
 
+
                                   @foreach ($info as $infos)
 
 
                                   <label>classe
 
                                   <input class="form-control" type="text" name="classe" value="{{ $infos->classe}}"
-                                  @if($user->customer->pluck('id')->contains($infos->id)) @endif>
+                                  @if($user->customer->pluck('id')) @endif>
 
                                   </label>
 
@@ -58,13 +59,14 @@
 
                                   <label >telephone
                                   <input class="form-control" type="text" name="telephone" value="{{ $infos->telephone}}"
-                                  @if($user->customer->pluck('id')->contains($infos->id)) @endif>
+                                  @if($user->customer->pluck('id')) @endif>
 
                                   </label>
 
 
 
                                     @endforeach
+
 
                                 </div>
 

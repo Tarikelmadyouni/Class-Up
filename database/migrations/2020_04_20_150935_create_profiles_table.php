@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('date_de_naissance')->nullable();
-            $table->integer('numeroTelephone')->unique()->nullable();
+            $table->tinyInteger('numeroTelephone')->unique()->nullable();
             $table->string('classe');
             $table->string('titre');
             $table->text('description')->nullable();

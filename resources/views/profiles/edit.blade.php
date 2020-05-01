@@ -53,41 +53,45 @@
                     <input id="	classe" type="text" class="form-control @error('	classe') is-invalid @enderror"
                         name="classe" value="{{ old('classe') ?? $user->profile->classe}} " required
                         autocomplete="classe" autofocus>
-                         @error('classe')
+                    @error('classe')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message->first('classe') }}</strong>
                     </span>
                     @enderror
-                    </div>
-
-                    <div class="form-group row">
-
-                <label for="date_de_naissance" class="col-md-4 col-form-label">Date De Naissance</label>
-
-         <input id="date_de_naissance" class="form-control" type="date"   name="date_de_naissance"   value="{{ old('date_de_naissance') ?? $user->profile->date_de_naissance}}"  required
-         autocomplete="date_de_naissance" autofocus>  
-                  </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <label for="image" class="col-md-4 col-form-label "> Profile Image</label>
-                        <input type="file" , class="form-control-file" id="image" name="image">
-
-                        @if ($errors->has('image'))
-                        <strong class="text-danger">{{ $errors->first('image') }}</strong>
-
-                        @endif
-                    </div>
-                    <div class="row pt-4">
-                        <button class="btn btn-danger">Save Profile</button>
-                    </div>
                 </div>
+                <div class="form-group row">
+                    <label for="numeroTelephone" class="col-md-4 col-form-label">Telephone</label>
+
+                <input class="form-control" type="tel" name="numeroTelephone" maxlength="10" value="{{old('numeroTelephone')?? $user->profile->numeroTelephone}}" id="numeroTelephone">
+                </div>
+                <div class="form-group row">
+
+                    <label for="date_de_naissance" class="col-md-4 col-form-label">Date De Naissance</label>
+
+                    <input id="date_de_naissance" class="form-control" type="date" name="date_de_naissance"
+                        value="{{ old('date_de_naissance') ?? $user->profile->date_de_naissance}}"  >
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <label for="image" class="col-md-4 col-form-label "> Profile Image</label>
+                <input type="file" , class="form-control-file" id="image" name="image">
+
+                @if ($errors->has('image'))
+                <strong class="text-danger">{{ $errors->first('image') }}</strong>
+
+                @endif
+            </div>
+            <div class="row pt-4">
+                <button class="btn btn-danger">Save Profile</button>
             </div>
         </div>
+</div>
+</div>
 
-    </form>
+</form>
 
 </div>
 

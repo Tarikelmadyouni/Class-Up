@@ -10,6 +10,8 @@ class Profile extends Model
 
     protected $guarded =[];
 
+    protected $dates =['date_de_naissance'];
+
      public function profileImage()
      {
      $imagePath = ($this->image) ? $this->image : 'avatar/BkQ0jzUe0E7VBBOye6xf9ZwbMaGlLRDMvotwt00e.png';
@@ -24,4 +26,8 @@ class Profile extends Model
 
 
     }
+
+
+
+
 }

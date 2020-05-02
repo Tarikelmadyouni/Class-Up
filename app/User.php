@@ -40,6 +40,9 @@ class User extends Authenticatable
     ];
 
 
+
+
+
       protected static function boot()
       {
 

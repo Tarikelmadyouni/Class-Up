@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
+
 class ProfilesController extends Controller
 {
 
@@ -45,10 +46,13 @@ class ProfilesController extends Controller
 
             'description'=> 'required',
             'classe'=>'required',
-           'date_de_naissance' =>'required|date',
+            'numeroTelephone'=> 'required|digits_between:9,10',
+            'date_de_naissance' => 'required',
             'url'=> 'url',
             'image'=>'',
          ]);
+
+
 
 
          if (request('image')){

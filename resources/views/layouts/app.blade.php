@@ -44,29 +44,35 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto ">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item  pr-3">
+                         <button type="submit" style="border-radius:12px 0 12px 0;background: #478bf9;border:none;
+                         font:bold 12px Verdana; padding:6px 0 6px 0;">
+                                <a class="nav-link" style="color:#fff" href="{{ route('login') }}">SE CONNECTER</a>
+                                  </button>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                       <button type="submit" style="border-radius:12px 0 12px 0;background:#478bf9 ;border:none;font:bold 12px Verdana; padding:6px 0 6px 0;">
+                                    <a class="nav-link"  style="color:#fff" href="{{ route('register') }}"> S'INSCRIRE</a>
+                                       </button>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <div class="nav-item dropdown">
+                                <button type="button" class="btn btn-primary rounded-pill dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="color:#fff ;font-family: cursive">
                                     {{ Auth::user()->surname }} <span class="caret"></span>
                                 </a>
-
+                                </button>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{ route('profile.show', Auth::user()) }}">
                                         Mon profil
                                     </a>
- 
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -90,7 +96,7 @@
 
 
 
-                            </li>
+                            </div>
                         @endguest
                     </ul>
                 </div>

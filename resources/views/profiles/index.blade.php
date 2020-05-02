@@ -82,7 +82,7 @@
 
             <div class="form-group">
                   <label for="exampleFormControlTextarea1" class="pt-5 font-weight-bold text-left">Actu </label>
-                   <textarea class="form-control text-center" style="font-weight: 900;" id="exampleFormControlTextarea1" rows="3"> {{$user->profile->description}}</textarea>
+                   <textarea class="form-control text-center" style="font-weight: 900; color:DodgerBlue; font-family: cursive; font-size: 150%;" id="exampleFormControlTextarea1" rows="3"> {{$user->profile->description}}</textarea>
             </div>
         <div><a href="{{$user->profile->url}}" target="_blank">{{$user->profile->url ?? 'N/A'}}</a></div><br>
 

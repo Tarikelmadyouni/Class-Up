@@ -9,9 +9,9 @@
 
                 <div class="card-body">
                     @can('manage-users')
-                <a class="btn btn-info" href="/questionnaires/{{ $questionnaire->id }}/questions/create">Rajouter Nouvelle Question</a>
+                <a class="btn btn-info" href="/questionnaires/{{ $questionnaire->id }}/questions/create">Ajouter une nouvelle Question</a>
                     @endcan
-                <a class="btn btn-info" href="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title)}}">Réponde à l'enquête</a>
+                <a class="btn btn-info" href="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title)}}">Répondre au questionnaire</a>
                 </div>
             </div>
 

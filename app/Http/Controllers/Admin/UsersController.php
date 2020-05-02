@@ -53,7 +53,7 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $user, Customer $info)
     {
 
         if(Gate::denies('edit-users')){
@@ -61,26 +61,18 @@ class UsersController extends Controller
 
         }
 
-       /*
-       $info = Customer::all();
 
-       $infoCust = Customer::select('classe', 'telephone')
-                             ->where('id',$info)
-                             ->get();
+       //$info = Customer::all();
 
-       //dd($infoCust);
-       */
-      $info = Customer::all();
+       $this->authorize('edit-users',$user->customer);
 
-      //$info = Customer::where('id',5)->first(); // or whatever, just get one log
-      //$infoCust = $info->user;
-
+      //$info = Customer::where('classe')->where('telephone')->first(); // or whatever, just get one log
 
 
         return view('admin.users.edit')->with([
                'user'=>$user,
                'info'=>$info,
-               //'infoCust' => $infoCust
+
 
                ]);
 
@@ -93,24 +85,8 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, Customer $info)
     {
-
-        $data = Customer::request()->validate([
-
-            'classe'=>'required',
-            'telephopne'=>'required'
-
-        ]);
-
-        $info = $user->customer()->sync($request->custsomers);
-
-        $info->customer()->user()->update([
-
-            'classe'=>$data('classe'),
-            'telephone'=>$data('telephone')
-
-        ]);
 
 
         $user->name = $request->name;
@@ -118,6 +94,21 @@ class UsersController extends Controller
         $user->email = $request->email;
 
         $user->save();
+
+        $data = request()->validate([
+
+            'classe'=>'required',
+            'telephone'=>'required'
+
+        ]);
+
+        //$info = new Customer;
+
+        $user->customer()->update([
+
+            'classe'=>$data['classe'],
+            'telephone'=>$data['telephone'],
+         ]);
 
         /*
 

@@ -45,27 +45,25 @@
 
 
 
-                                  @foreach ($info as $infos)
 
+                                  
 
                                   <label>classe
 
-                                  <input class="form-control" type="text" name="classe" value="{{ $infos->classe}}"
-                                  @if($user->customer->pluck('id')) @endif>
+                                  <input class="form-control" type="text" name="classe" value="{{ $info->classe }}">
 
                                   </label>
 
 
 
                                   <label >telephone
-                                  <input class="form-control" type="text" name="telephone" value="{{ $infos->telephone}}"
-                                  @if($user->customer->pluck('id')) @endif>
+                                  <input class="form-control" type="text" name="telephone" value="{{ $info->telephone }}">
 
                                   </label>
 
 
 
-                                    @endforeach
+
 
 
                                 </div>

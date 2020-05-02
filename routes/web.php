@@ -14,7 +14,9 @@ use App\Mail\NewUserWelcomMail;
 */
 
 use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Console\Input\Input;
 use App\Http\Controllers\TelechargementController;
+use App\User;
 
 
 
@@ -104,6 +106,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
 Route::resource('/users', 'UsersController', ['except'=>['show','create','store']]);
+
 
 });
 

@@ -73,7 +73,8 @@
                 <div><strong>Prenom:</strong><span class="ml-2">{{$user->surname}}</div></span>
                 <div><strong>Nom: </strong><span class='ml-2'>{{$user->name}}</div></span>
                 <div><strong>Email: </strong><span class='ml-2'>{{$user->email}}</div></span>
-                <div><strong>Date de Naissance: </strong><span class='ml-2'>{{$user->profile->date_de_naissance}}</div></span>
+                <div><strong>Telephone: </strong><span class='ml-2'>{{$user->profile->numeroTelephone}}</div></span>
+                <div><strong>Date de Naissance: </strong><span class='ml-2'>{{(new DateTime($user->profile->date_de_naissance))->format('d.m.Y')}}</div></span>
                 <div><strong>Classe: </strong><span class='ml-2'>{{$user->profile->classe}}</div></span>
 
             </div>
@@ -81,7 +82,7 @@
 
             <div class="form-group">
                   <label for="exampleFormControlTextarea1" class="pt-5 font-weight-bold text-left">Actu </label>
-                   <textarea class="form-control text-center" style="font-weight: 900;" id="exampleFormControlTextarea1" rows="3"> {{$user->profile->description}}</textarea>
+                   <textarea class="form-control text-center" style="font-weight: 900; color:DodgerBlue; font-family: cursive; font-size: 150%;" id="exampleFormControlTextarea1" rows="3"> {{$user->profile->description}}</textarea>
             </div>
         <div><a href="{{$user->profile->url}}" target="_blank">{{$user->profile->url ?? 'N/A'}}</a></div><br>
 

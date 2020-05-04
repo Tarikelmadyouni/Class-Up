@@ -41,7 +41,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Choisis qui tu veux contacter</h5>
                   <p class="card-text">Acceder au Chat &#x1F447</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="{{ route('message.show',) }}" class="btn btn-primary">Go somewhere</a>
                 </div>
                 <div class="card-footer text-muted">
                   <em>dernier message: il ya...</em>

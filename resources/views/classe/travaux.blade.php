@@ -4,8 +4,8 @@
 
 <div class="container row justify-content-center ">
     <div class="card-header col-6 d-flex justify-content-center">
-        
-        <h2>Ma classe: {{ Auth::user() }}</h2>
+
+        <h2>Ma classe: {{ Auth::user()->surname }} | {{ $classe->classe_travaux }}</h2>
 
     </div>
 </div>

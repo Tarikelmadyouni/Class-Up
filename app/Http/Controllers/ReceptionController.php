@@ -17,19 +17,17 @@ class ReceptionController extends Controller
     }
 
 
-    public function travaux(User $user, $id)
+    public function travaux( $id)
     {
-
-        //$classe = Reception::find($id);
 
         $idFile = ImageUpload::all();
 
-        $classe = Reception::where('classe_travaux')->find($user);
+        $user = User::all();
 
-        $user = User::where('surname')->first();
+        $classe = Reception::find($id);
 
 
-        return view('classe.travaux' ,compact('idFile', 'classe','user'));
+        return view('classe.travaux' ,compact('idFile', 'classe','user'))->with($id);
     }
 
 

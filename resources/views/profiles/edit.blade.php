@@ -16,6 +16,11 @@
 
                 <div class="row">
                     <h1> Editer le Profile</h1>
+
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-danger">Save Profile</button>
                 </div>
 
                 <div class="form-group row">
@@ -24,13 +29,12 @@
 
                     <input id="	description" type="text"
                         class="form-control @error('	description') is-invalid @enderror" name="description"
-                        value="{{ old('description') ?? $user->profile->description }}" required
-                        autocomplete="	description" autofocus>
+                        value="{{ old('description') ?? $user->profile->description }}" autocomplete="	description"
+                        autofocus>
+
 
                     @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message->first('description')   }}</strong>
-                    </span>
+                    <small class="text-danger"> <strong>{{$message}}</strong></small>
                     @enderror
                 </div>
                 <div class="form-group row">
@@ -41,9 +45,7 @@
                         value="{{ old('url') ?? $user->profile->url}} " required autocomplete="	url" autofocus>
 
                     @error('url')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message->first('url') }}</strong>
-                    </span>
+                    <small class="text-danger"><strong>{{$message}}</strong></small>
                     @enderror
                 </div>
 
@@ -53,43 +55,50 @@
                     <input id="	classe" type="text" class="form-control @error('	classe') is-invalid @enderror"
                         name="classe" value="{{ old('classe') ?? $user->profile->classe}} " required
                         autocomplete="classe" autofocus>
-                         @error('classe')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message->first('classe') }}</strong>
-                    </span>
+                    @error('classe')
+                    <small class="text-danger"> <strong>{{$message}}</strong></small>
                     @enderror
-                    </div>
-
-                    <div class="form-group row">
-
-                <label for="date_de_naissance" class="col-md-4 col-form-label">Date De Naissance</label>
-
-         <input id="date_de_naissance" class="form-control" type="date"   name="date_de_naissance"   value="{{ old('date_de_naissance') ?? $user->profile->date_de_naissance}}"  required
-         autocomplete="date_de_naissance" autofocus>  
-                  </div>
-
-                    </div>
-
-
-                    <div class="row">
-                        <label for="image" class="col-md-4 col-form-label "> Profile Image</label>
-                        <input type="file" , class="form-control-file" id="image" name="image">
-
-                        @if ($errors->has('image'))
-                        <strong class="text-danger">{{ $errors->first('image') }}</strong>
-
-                        @endif
-                    </div>
-                    <div class="row pt-4">
-                        <button class="btn btn-danger">Save Profile</button>
-                    </div>
                 </div>
+                <div class="form-group row">
+                    <label for="numeroTelephone" class="col-md-4 col-form-label">Telephone</label>
+
+                    <input class="form-control" type="tel" name="numeroTelephone" maxlength="10"
+                        value="{{old('numeroTelephone')?? $user->profile->numeroTelephone}}" id="numeroTelephone">
+
+                    @error('numeroTelephone')
+                    <small class="text-danger"><strong>{{$message}}</strong></small>
+                    @enderror
+                </div>
+                <div class="form-group row">
+
+                    <label for="date_de_naissance" class="col-md-4 col-form-label">Date De Naissance</label>
+
+                    <input id="date_de_naissance" class="form-control" type="date" name="date_de_naissance"
+                        value="{{ old('date_de_naissance') ?? $user->profile->date_de_naissance}}">
+                </div>
+                @error('date_de_naissance')
+                <small class="text-danger"><strong>{{$message}}</strong></small>
+                @enderror
+
+            </div>
+
+
+
+            <div class="custom-file  form-group row mt-4 ">
+                <label class=" custom-file-label" for="image">choisir un Avatar</label>
+                <input type="file" class=" custom-file-input" id="image" name="image">
+
             </div>
         </div>
-
-    </form>
-
 </div>
+
+
+
+
+
+</form>
+
+
 
 
 @endsection

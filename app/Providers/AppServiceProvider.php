@@ -46,10 +46,9 @@ class AppServiceProvider extends ServiceProvider
 
         //option 2 - Granular views whith wildcards
         //view()->composer( ['post.*','channel.index'], function ($view) {
-           //$view->with('channels', Channel::orderBy('name')->get());
+        //$view->with('channels', Channel::orderBy('name')->get());
 
-
-
+  
         //});
 
         //option 3 - dedicated Class

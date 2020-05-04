@@ -82,6 +82,12 @@ Route::get('/accueileleve', 'AccueilEleveController@index')->name('accueileleve'
 Route::get('/dashboardeleve', 'AccueilEleveController@show')->name('dashboardeleve');
 Route::get('dashboardeleve/{id}/download','AccueilEleveController@download')->name('download');
 
+// Route Contacte
+Route::get('/message', 'MessageController@show')->name('message.show');
+
+
+
+
 Route::get('/graphs/create', 'GraphiqueStudentController@create');
 Route::post('/graphs', 'GraphiqueStudentController@store');
 Route::get('/graphs/{graph}','GraphiqueStudentController@show' );

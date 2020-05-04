@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container">
-<h4>Que veux tu faire <p style="color:royalblue; display:inline;">{{ Auth::user()->name }}</p> <span style='font-size:40px;'>&#128526;</span></h4>
+<h4>Que veux tu faire <p style="color:royalblue; display:inline;">{{ Auth::user()->surname }}</p> <span style='font-size:40px;'>&#128526;</span></h4>
 <br>
 <h3><strong>Choisis une action dans ta toolbox <img src="https://img.icons8.com/nolan/64/toolbox.png" style="width:45px; height:45px;"/></strong></h3>
 
 <div class="card-body mt-2">
 
-    <a href="/dashboardeleve" class="btn btn-dark">Vers ma zone de travail</a>
+    <a href="/dashboardeleve" class="btn btn-danger">Vers ma zone de travail</a>
 </div>
 
     <div class="row justify-content-center">
@@ -41,7 +41,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Choisis qui tu veux contacter</h5>
                   <p class="card-text">Acceder au Chat &#x1F447</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="{{ route('message.show',) }}" class="btn btn-primary">Go somewhere</a>
                 </div>
                 <div class="card-footer text-muted">
                   <em>dernier message: il ya...</em>

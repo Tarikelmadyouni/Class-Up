@@ -2327,6 +2327,8 @@
                 "media",
                 "spatie"
             ],
+<<<<<<< HEAD
+=======
             "funding": [
                 {
                     "url": "https://spatie.be/open-source/support-us",
@@ -2337,6 +2339,7 @@
                     "type": "github"
                 }
             ],
+>>>>>>> 768f27f198d1e01456aca44937e7184d3e9b746a
             "time": "2020-05-01T09:38:50+00:00"
         },
         {
@@ -7189,6 +7192,7 @@
                 "parser",
                 "validator"
             ],
+
             "funding": [
                 {
                     "url": "https://github.com/Seldaek",
@@ -7199,6 +7203,7 @@
                     "type": "tidelift"
                 }
             ],
+
             "time": "2020-04-30T19:05:18+00:00"
         },
         {

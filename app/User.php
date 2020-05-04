@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname','email', 'password', 'role','user_id','role_id', 'customer_id',
+        'name', 'surname','email', 'password', 'role','user_id','role_id', 'customer_id', 'classe', 'telephone'
     ];
 
     /**
@@ -149,6 +149,15 @@ class User extends Authenticatable
     {
           return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
 
+    }
+
+
+    //relation model vers Reception.phpdebugbar
+
+    public function reception()
+    {
+
+        return $this->belongsToMany(\App\Reception::class,'reception_user','user_id');
     }
 
 

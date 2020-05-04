@@ -60,6 +60,14 @@
     </div>
 
 
+    <div class="d-flex justify-content-center mt-5 ">
+        <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Vers ma classe
+          </button>
+
+    </div>
+
+
 
          </div>
 

@@ -81,7 +81,7 @@
 
             </div>
         </div>
-
+  @can('manage-user')
       <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
   new Crate({
     server: '706499274338336800',
@@ -89,6 +89,7 @@
     shard: 'https://e.widgetbot.io'
   })
 </script>
+ @endcan
     </div>
 </div>
 @endsection

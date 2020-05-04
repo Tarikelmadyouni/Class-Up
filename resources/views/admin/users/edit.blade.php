@@ -46,11 +46,11 @@
 
 
 
-                                  
+
 
                                   <label>classe
 
-                                  <input class="form-control" type="text" name="classe" value="{{ $info->classe }}">
+                                  <input class="form-control" type="text" name="classe"  value="{{ $info->classe}}">
 
                                   </label>
 

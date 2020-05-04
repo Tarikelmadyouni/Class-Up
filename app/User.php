@@ -152,5 +152,14 @@ class User extends Authenticatable
     }
 
 
+    //relation model vers Reception.phpdebugbar
+
+    public function reception()
+    {
+
+        return $this->belongsToMany(\App\Reception::class,'reception_user','user_id');
+    }
+
+
 
 }

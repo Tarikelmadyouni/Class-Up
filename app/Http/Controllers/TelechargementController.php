@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Reception;
 use Carbon\Carbon;
 use App\ImageUpload;
 use Ramsey\Uuid\Uuid;
@@ -12,9 +13,9 @@ use Illuminate\Support\mkdir;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Auth\Middleware\Authenticate;
-use Illuminate\Support\Facades\Session;
 
 
 
@@ -32,9 +33,6 @@ class TelechargementController extends Controller
      public function index(){
 
         $images_id = ImageUpload::latest()->get();
-
-
-
 
 
         return view('drop.dropzone', compact('images_id'));

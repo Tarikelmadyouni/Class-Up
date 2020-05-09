@@ -118,9 +118,16 @@ Route::resource('/users', 'UsersController', ['except'=>['show','create','store'
 
 
 //route vers vue intermediaire - reception des docs par classe
-
 Route::get('/reception/{id}', 'ReceptionController@travaux')->name('classe');
 Route::get('accueil/{id}/download','AccueilAdminController@download')->name('download');
+
+
+//route choix classe et matiere
+Route::get('/classeprof', 'classeMatiereController@create')->name('classeprof');
+Route::post('/classeprof', 'classeMatiereController@store');
+//Route::get('/classeprof/{user}', 'ClasseMatiereController@show');
+
+
 
 
 

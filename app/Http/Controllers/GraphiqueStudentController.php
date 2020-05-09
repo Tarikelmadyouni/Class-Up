@@ -14,7 +14,7 @@ class GraphiqueStudentController extends Controller
 
         $graphs=GraphiqueStudent::all();
 
-        return view('graph.create', compact('graphs'));
+        return view('graph.graphique', compact('graphs'));
 
 
     }
@@ -24,7 +24,7 @@ class GraphiqueStudentController extends Controller
 
 
     public function store(Customer $graphs){
-   
+
         $data = request()->validate([
 
             'nom'=>'required',

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Customer extends Model
 {
 
-    protected $fillable = [];
+    protected $fillable = ['name', 'surname','classe','telephone'];
 
 
 

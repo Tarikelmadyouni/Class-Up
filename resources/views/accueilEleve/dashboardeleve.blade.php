@@ -41,7 +41,7 @@
 
                            <div class="mt-2">
 
-                            <small class="font-weight-bold">Share url</small>
+                            <small class="font-weight-bold">Partagez le lien</small>
                             <p>
                                 <a href="{{$questionnaire->publicPath()}}">{{$questionnaire->publicPath()}}</a>
                             </p>

@@ -19,7 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'surname','email', 'password', 'role','user_id','role_id', 'customer_id', 'classe', 'telephone',
-    'reception_id', 'classe_travaux'];
+    'reception_id', 'classe_travaux','original', 'classe', 'matiere'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -78,7 +78,7 @@ class User extends Authenticatable
 
     public function imageFileUpload(){
 
-        return $this->hasMany(\App\ImageUpload::class);
+        return $this->hasMany(\App\ImageUpload::class,'image_upload_user','user_id');
     }
 
 
@@ -152,12 +152,10 @@ class User extends Authenticatable
     }
 
 
-    //relation model vers Reception.phpdebugbar
 
-    public function reception()
+    public function usertoClasseMatiere()
     {
-
-        return $this->belongsToMany(\App\Reception::class,'reception_user','user_id');
+        return $this->hasMany(\App\ClasseMatiere::class);
     }
 
 

@@ -44,6 +44,16 @@ class AccueilAdmin extends Model
         return $this->hasMany(ImageUpload::class);
     }
 
+    public function showClasseProf()
+    {
+        return $this->hasMany(\App\Reception::class);
+    }
+
+    public function ProfFromClasseStudent()
+    {
+        return $this->hasMany(\App\ClasseStudent::class);
+    }
+
 
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReceptionsTable extends Migration
+class CreateClasseMatiereUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateReceptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('receptions', function (Blueprint $table) {
+        Schema::create('classe_matiere_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('classe_travaux');
+            $table->bigInteger('classe_matiere_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
-
         });
     }
 
@@ -28,6 +28,6 @@ class CreateReceptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('receptions');
+        Schema::dropIfExists('classe_matiere_user');
     }
 }

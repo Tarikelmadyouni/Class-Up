@@ -24,7 +24,7 @@ class ImageUpload extends Model
 
      public function uploadForFile(){
 
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class,'image_upload_user','image_upload_id');
     }
 
     public function avatar(){
@@ -35,6 +35,11 @@ class ImageUpload extends Model
     public function admin(){
 
         return $this->belongsTo(AccueilAdmin::class);
+    }
+
+    public function Classe()
+    {
+        return $this->hasMany(\App\Reception::class,'image_upload_user','image_upload_id');
     }
 
 

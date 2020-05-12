@@ -49,7 +49,7 @@ class RegisterController extends Controller
     protected function redirectTo()
     {
         if (auth()->user()->hasRole('Professeur')) {
-            return route('admin.users.index');
+            return '/classeprof';
         }elseif(auth()->user()->hasRole('Student')){
             return '/dashboardeleve';
         }

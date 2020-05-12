@@ -14,7 +14,9 @@ use App\Mail\NewUserWelcomMail;
 */
 
 use Illuminate\Support\Facades\Mail;
+use Symfony\Component\Console\Input\Input;
 use App\Http\Controllers\TelechargementController;
+use App\User;
 
 
 
@@ -80,6 +82,12 @@ Route::get('/accueileleve', 'AccueilEleveController@index')->name('accueileleve'
 Route::get('/dashboardeleve', 'AccueilEleveController@show')->name('dashboardeleve');
 Route::get('dashboardeleve/{id}/download','AccueilEleveController@download')->name('download');
 
+// Route Contacte
+Route::get('/message', 'MessageController@show')->name('message.show');
+
+
+
+
 Route::get('/graphs/create', 'GraphiqueStudentController@create');
 Route::post('/graphs', 'GraphiqueStudentController@store');
 Route::get('/graphs/{graph}','GraphiqueStudentController@show' );
@@ -105,6 +113,21 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
 Route::resource('/users', 'UsersController', ['except'=>['show','create','store']]);
 
+
 });
+
+
+//route vers vue intermediaire - reception des docs par classe
+Route::get('/reception/{id}', 'ReceptionController@travaux')->name('classe');
+Route::get('accueil/{id}/download','AccueilAdminController@download')->name('download');
+
+
+//route choix classe et matiere
+Route::get('/classeprof', 'classeMatiereController@create')->name('classeprof');
+Route::post('/classeprof', 'classeMatiereController@store');
+//Route::get('/classeprof/{user}', 'ClasseMatiereController@show');
+
+
+
 
 

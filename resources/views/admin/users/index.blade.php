@@ -19,12 +19,6 @@
       @foreach($user as $users)
     <p class="card-text">{{$users->name}} {{$users->surname}}</p>
     <p class="card-text">{{$users->email}}</p>
-    <p class="card-text">{{ implode(',',$users->customer()->get()->pluck('classe')->toArray()) }}
-    <p class="card-text">{{ implode(',',$users->customer()->get()->pluck('telephone')->toArray()) }}
-
-
-
-
 
     @can('edit-users')
        <a href='{{ route('admin.users.edit', $users->id)}}'>

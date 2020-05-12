@@ -18,8 +18,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname','email', 'password', 'role','user_id','role_id', 'customer_id',
-    ];
+        'name', 'surname','email', 'password', 'role','user_id','role_id', 'customer_id', 'classe', 'telephone',
+    'reception_id', 'classe_travaux','original', 'classe', 'matiere'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -78,7 +78,7 @@ class User extends Authenticatable
 
     public function imageFileUpload(){
 
-        return $this->hasMany(\App\ImageUpload::class);
+        return $this->hasMany(\App\ImageUpload::class,'image_upload_user','user_id');
     }
 
 
@@ -149,6 +149,13 @@ class User extends Authenticatable
     {
           return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
 
+    }
+
+
+
+    public function usertoClasseMatiere()
+    {
+        return $this->hasMany(\App\ClasseMatiere::class);
     }
 
 

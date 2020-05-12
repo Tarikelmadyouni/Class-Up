@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Creation Nouveau questionnaire</div>
+                <div class="card-header">Créez nouveau questionnaire</div>
 
                 <div class="card-body">
                     <form action="/questionnaires" method="post">
@@ -24,14 +24,14 @@
                         <div class="form-group">
                                 <label for="propose">L'objet</label>
                                 <input name="propose" type="text" class="form-control" id="propose" aria-describedby="proposeHelp" placeholder="Entrer un objet">
-                                <small id="proposeHelp" class="form-text text-muted">donner un l'objet a la question</small>
+                                <small id="proposeHelp" class="form-text text-muted">donner un objet a la question</small>
 
                                 @error('propose')
                                 <small class="text-danger">{{$message}}</small>
                                 @enderror
                               </div>
 
-                              <button type="submit" class="btn btn-primary">Creation Question </button>
+                              <button type="submit" class="btn btn-primary">Creation du Questionnaire </button>
 
 
                     </form>

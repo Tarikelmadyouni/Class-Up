@@ -22,4 +22,9 @@ class AccueilEleve extends Model
 
         return $this->hasMany(Survey::class);
     }
+
+    public function showClasse()
+    {
+        return $this->hasMany(\App\Reception::class);
+    }
 }

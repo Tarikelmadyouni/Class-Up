@@ -73,6 +73,10 @@
                                         Mon profil
                                     </a>
 
+                                    <a class="dropdown-item" href="{{ route('classe', Auth::user()) }}">
+                                        Ma classe
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

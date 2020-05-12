@@ -86,7 +86,7 @@
 
             <div class="custom-file  form-group row mt-4 ">
                 <label class=" custom-file-label" for="image">choisir un Avatar</label>
-                <input type="file" class=" custom-file-input" id="image" name="image">
+                <input type="file" class=" custom-file-input" id="image" name="image" enctype="multipart/form-data">
 
             </div>
         </div>

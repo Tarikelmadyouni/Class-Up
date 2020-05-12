@@ -33,6 +33,8 @@ class QuestionnaireController extends Controller
         return redirect('/questionnaires/'.$questionnaire->id);
     }
 
+    
+
     public function show( \App\Questionnaire $questionnaire){
 
         $questionnaire->load('questions.answers.responses');
@@ -43,4 +45,6 @@ class QuestionnaireController extends Controller
 
 
     }
+
+
 }

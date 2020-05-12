@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImageUploadUserTable extends Migration
+class CreateChoixClasseElevesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateImageUploadUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_upload_user', function (Blueprint $table) {
+        Schema::create('choix_classe_eleves', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('image_upload_id')->unsigned();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id');
+            $table->string('classe_eleve');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateImageUploadUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_upload_user');
+        Schema::dropIfExists('choix_classe_eleves');
     }
 }

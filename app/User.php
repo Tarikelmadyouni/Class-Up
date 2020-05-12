@@ -159,5 +159,11 @@ class User extends Authenticatable
     }
 
 
+    public function userToClasseEleve()
+    {
+        return $this->hasMany(\App\ChoixClasseEleve::class);
+    }
+
+
 
 }

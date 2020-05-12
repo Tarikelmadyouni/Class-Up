@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\ChoixClasseEleve;
 use App\Role;
 use App\User;
 use App\Survey;
 use App\ImageUpload;
+use App\ClasseMatiere;
 use App\Questionnaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 
 class AccueilEleveController extends Controller
@@ -36,12 +40,14 @@ class AccueilEleveController extends Controller
 
     }
 
-    public function show(Questionnaire $questionnaires, Survey $survey, ImageUpload $path){
+    public function show(User $user, Questionnaire $questionnaires, Survey $survey, ImageUpload $path, ClasseMatiere $classe, ChoixClasseEleve $eleve){
 
 
         $questionnaires = auth()->user()->questionnaires;
 
         $questionnaire  = Questionnaire::all();
+
+
 
         $survey = Survey::all();
 
@@ -55,6 +61,7 @@ class AccueilEleveController extends Controller
                                                            'survey',
                                                            'path',
                                                            'maj',
+
                                                            ));
     }
 
@@ -63,30 +70,13 @@ class AccueilEleveController extends Controller
 
     public function download(ImageUpload $path, $id){
 
-        /*
-       if(! is_dir(storage_path(('app/files')))){
-           mkdir(storage_path('app/files'), 0777);
-       }
-        */
 
         $path = ImageUpload::find($id);
 
 
-
-        //$download = storage_path('files',$idFile->original);
-
-        //return response()->download($download);
         return Storage::disk('files')->download($path->original);
 
-        //return redirect('/accueil/'.$idFile, $download);
-
-
      }
-
-
-
-
-
 
 
 

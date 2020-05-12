@@ -20,9 +20,6 @@ class ClasseMatiereController extends Controller
     public function create()
     {
 
-
-
-
         return view('classeMatiereProf.choix');
 
     }
@@ -43,6 +40,29 @@ class ClasseMatiereController extends Controller
 
 
         return redirect('home');
+
+    }
+
+
+    // choix de classe de l'élève sans matiere
+
+    public function eleve()
+    {
+        return view('classeMatiereProf.choixClasseEleve');
+
+    }
+
+    public function valid()
+    {
+        $dataEleve = request()->validate([
+
+            'classe_eleve'=>'required',
+        ]);
+
+        $user = auth()->user()->userToClasseEleve()->create($dataEleve);
+
+        return redirect()->route('dashboardeleve');
+
 
     }
 

@@ -125,7 +125,10 @@ Route::get('accueil/{id}/download','AccueilAdminController@download')->name('dow
 //route choix classe et matiere
 Route::get('/classeprof', 'classeMatiereController@create')->name('classeprof');
 Route::post('/classeprof', 'classeMatiereController@store');
-//Route::get('/classeprof/{user}', 'ClasseMatiereController@show');
+
+//route choix classe eleve
+Route::get('/classeEleve', 'ClasseMatiereController@eleve')->name('classeEleve');
+Route::post('/classeEleve', 'ClasseMatiereController@valid');
 
 
 

@@ -27,4 +27,19 @@ class AccueilEleve extends Model
     {
         return $this->hasMany(\App\Reception::class);
     }
+
+    public function studentToClasseProf()
+    {
+        return $this->hasMany(\App\ClasseMatiere::class);
+    }
+
+    public function studentToProf()
+    {
+        return $this->hasMany(\App\AccueilAdmin::class);
+    }
+
+    public function eleveToClasseEleve()
+    {
+        return $this->belongsTo(\App\AccueilEleve::class);
+    }
 }

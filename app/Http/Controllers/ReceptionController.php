@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\ImageUpload;
 use App\User;
 use AApp\Role;
-use App\Questionnaire;
+use App\Classe;
 use App\Reception;
+use App\ImageUpload;
+use App\ClasseMatiere;
+use App\Questionnaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,7 +20,7 @@ class ReceptionController extends Controller
     }
 
 
-    public function travaux(Reception $classe, $id)
+    public function travaux(ClasseMatiere $classe, $id)
     {
 
 
@@ -26,7 +28,7 @@ class ReceptionController extends Controller
 
         $idFile = ImageUpload::with('uploadForFile')->where('user_id',$user->id)->get();
 
-        $classe = Reception::with('userReception')->where('user_id', $id)->get();
+        $classe = ClasseMatiere::with('userReception')->where('user_id', $id)->get();
 
         $AccueilAdmin = Questionnaire::with('user')->where('user_id', $user->id)->get();
 

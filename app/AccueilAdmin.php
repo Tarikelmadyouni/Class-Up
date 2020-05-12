@@ -49,9 +49,19 @@ class AccueilAdmin extends Model
         return $this->hasMany(\App\Reception::class);
     }
 
-    public function ProfFromClasseStudent()
+    public function ProfToClasseStudent()
     {
-        return $this->hasMany(\App\ClasseStudent::class);
+        return $this->hasMany(\App\AccueilEleve::class);
+    }
+
+    public function profToClasseProf()
+    {
+        return $this->hasMany(\App\ClasseMatiere::class);
+    }
+
+    public function profToClasseEleve()
+    {
+        return $this->hasMany(\App\ChoixClasseEleve::class);
     }
 
 

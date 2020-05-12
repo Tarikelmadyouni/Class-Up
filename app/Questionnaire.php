@@ -49,4 +49,14 @@ class Questionnaire extends Model
         return $this->hasManyTo(AccueilEleve::class);
     }
 
+    public function questionnaireToClasseProf()
+    {
+        return $this->belongsToMany(\App\ClasseMatiere::class,'user_id');
+    }
+
+    public function questionnaireToClasseEleve()
+    {
+        return $this->belongsToMany(\App\ChoixClasseEleve::class);
+    }
+
 }

@@ -14,15 +14,15 @@
             <label for="nom">Choisissez un élève</label>
 
         <select name="nom" id="nom">
-@foreach ($graphs as $customer)
-        <option>{{$customer->nom}}</option>
+@foreach ($student as $students)
+        <option>{{$students->name}} {{ $students->surname }}</option>
 @endforeach
             </select>
 
 
         </div>
 
-
+        <input type="hidden" name="user_id" id="user_id">
         <div class="form-group">
             <label for="matiere">Matière</label>
         <input type="text" name="matiere" id="matiere"  class="form-control">

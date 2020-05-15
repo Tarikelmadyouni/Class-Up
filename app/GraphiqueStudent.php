@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class GraphiqueStudent extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['user_id','notes','matiere','date'];
 
-   
+
 
 
     public function customer(){
@@ -29,6 +29,6 @@ class GraphiqueStudent extends Model
 
     public function user(){
 
-        return $this->belongsTo(\App\User::class);
+        return $this->hasMany(\App\User::class,'user_id');
     }
 }

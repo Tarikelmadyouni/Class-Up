@@ -40,27 +40,41 @@ class AccueilEleveController extends Controller
 
     }
 
-    public function show(User $user, Questionnaire $questionnaires, Survey $survey, ImageUpload $path, ClasseMatiere $classe, ChoixClasseEleve $eleve){
+    public function show(User $user, Questionnaire $question, ClasseMatiere $classe){
 
 
-        $questionnaires = auth()->user()->questionnaires;
+        //$questionnaires = auth()->user()->questionnaires;
 
-        $questionnaire  = Questionnaire::all();
+        //$questionnaire  = Questionnaire::all();
+        $prof = ClasseMatiere::first();
+        $student = ChoixClasseEleve::first();
+        $user = User::first();
+
+        $questionnaire = Questionnaire::with('questionnaireToClasseProf','questionnaireToClasseEleve')
+                                        ->where('user_id',$prof)
+                                        ->where('user_id', $student)
+
+                                         ->get();
+
+
+                                         //dd($prof);
+
 
 
 
         $survey = Survey::all();
 
-        $path = imageUpload::all();
+        //$path = imageUpload::all();
+        $path = ImageUpload::with('imageToProfClasse','imageToClasseEleve')->find($prof);
 
         //$video = Video::all();
 
-        $maj= 'Tu es à jour';
+
 
         return view('AccueilEleve.dashboardeleve', compact('questionnaire',
                                                            'survey',
                                                            'path',
-                                                           'maj',
+                                                           'prof'
 
                                                            ));
     }

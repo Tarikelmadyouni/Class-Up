@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\User;
 use App\Customer;
 use App\GraphiqueStudent;
+use Illuminate\Http\Request;
 
 class GraphiqueStudentController extends Controller
 {
 
+    public function __construct()
+    {
+       $this->middleware('auth');
+    }
+
 
     public function create(GraphiqueStudent $graphs){
 
-        $graphs=GraphiqueStudent::all();
 
-        return view('graph.graphique', compact('graphs'));
+        $student = User::where('role','student')->get();
+
+        return view('graph.create', compact('graphs','student'));
 
 
     }
@@ -23,7 +30,7 @@ class GraphiqueStudentController extends Controller
 
 
 
-    public function store(Customer $graphs){
+    public function store(GraphiqueStudent $graphs){
 
         $data = request()->validate([
 
@@ -33,14 +40,11 @@ class GraphiqueStudentController extends Controller
             'date'=>'required',
 
 
-
         ]);
+        
 
 
-
-
-        $graphique = $graphs->graphique()->create($data);
-        //$graphique->matiereCustomer()->createMany($data['matiere']['notes']);
+        $graphs = auth()->user()->graphique()->create($data);
 
 
          return redirect('/graphs/'.$graphs->id);
@@ -48,9 +52,11 @@ class GraphiqueStudentController extends Controller
 
 
 
-    public function show(GraphiqueStudent $graph){
+    public function show($graph, User $user){
 
 
+
+        $graph = GraphiqueStudent::all();
 
         return view('graph.graphique', compact('graph'));
 

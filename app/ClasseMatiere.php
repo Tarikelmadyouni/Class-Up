@@ -27,7 +27,7 @@ class ClasseMatiere extends Model
 
     public function classeProftoClasseStudent()
     {
-        return $this->belongsToMany(\App\ChoixClasseEleve::class);
+        return $this->belongsToMany(\App\ChoixClasseEleve::class,'user_id','classe_eleve');
     }
 
     public function classeProfToQuestionnaire()

@@ -15,9 +15,7 @@ class CreateGraphiqueStudentsTable extends Migration
     {
         Schema::create('graphique_students', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('customers_id');
-            $table->unsignedBigInteger('matiere_customers_id');
-            $table->unsignedBigInteger('matieres_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('nom');
             $table->bigInteger('notes');
             $table->string('matiere');

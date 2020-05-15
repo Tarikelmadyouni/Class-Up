@@ -41,7 +41,7 @@ class GraphiqueStudentController extends Controller
 
 
         ]);
-        
+
 
 
         $graphs = auth()->user()->graphique()->create($data);

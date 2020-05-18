@@ -20,10 +20,17 @@
 
 <h1>Graphique</h1>
 
+<a href="/graphs/create">
+<button  class="btn btn-primary float-right mr-5">Ajouter une nouvelle note</button>
+</a>
+
 <div class="container">
 <canvas id="myChart"></canvas>
 </div>
 
+
+
+@foreach($graph as $graphs)
 <script>
 
 let myChart = document.getElementById('myChart').getContext('2d');
@@ -34,12 +41,14 @@ Chart.defaults.global.defaultFontColor = '#777';
 
 let massPopChart = new Chart(myChart,{
 
+
 type:'bar',
+
 data:{
-    labels:['debut','Janvier', 'Fevrier', 'Mars', 'Avril', 'mai', 'Juin'],
+    labels:[{{ $graphs->date }},'Janvier', 'Fevrier', 'Mars', 'Avril', 'mai', 'Juin'],
     datasets:[{
-        label:'note /40',
-        data:[0,15,12,20,30,25,15],
+        label:'note /20 - {{ $graphs->nom }}',
+        data:[  {{ $graphs->notes }},  ],
         backgroundColor:['green','pink','grey','purple','blue','yellow','black'],
 
     }]
@@ -48,7 +57,7 @@ data:{
 options:{
     title:{
         display:true,
-        text:'Ton évolution dans la matière',
+        text:'évolution dans la matière de vos élèves',
         fontSize:25
     },
     legend:{
@@ -70,6 +79,9 @@ options:{
 });
 
 </script>
+@endforeach
+
+
 
 
 

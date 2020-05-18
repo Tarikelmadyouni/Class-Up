@@ -32,12 +32,12 @@ class ChoixClasseEleve extends Model
 
     public function classeToQuestionnaire()
     {
-        return $this->belongsToMany(\App\Questionnaire::class);
+        return $this->hasMany(\App\Questionnaire::class,'user_id');
     }
 
-    public function eleveToPro()
+    public function eleveToProf()
     {
-        return $this->hasMany(\App\ClasseMatiere::class);
+        return $this->hasMany(\App\ClasseMatiere::class,'user_id','classe');
     }
 
 

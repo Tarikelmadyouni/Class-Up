@@ -42,6 +42,20 @@ class ImageUpload extends Model
         return $this->hasMany(\App\Reception::class,'image_upload_user','image_upload_id');
     }
 
+    public function imageToProfClasse(){
+
+        return $this->hasMany(\App\ClasseMatiere::class,'user_id','id');
+    }
+
+    public function imageToClasseEleve()
+    {
+        return $this->hasMany(\App\ChoixClasseEleve::class,'user_id');
+    }
+
+
+
+
+
 
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMatieresTable extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateMatieresTable extends Migration
      */
     public function up()
     {
-        Schema::create('matieres', function (Blueprint $table) {
+        Schema::create('notes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('customers_id');
-            $table->unsignedBigInteger('matiere_customers_id');
-            $table->unsignedBigInteger('graphique_students_id');
-            $table->string('matiere');
+            $table->integer('note');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateMatieresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matieres');
+        Schema::dropIfExists('notes');
     }
 }

@@ -35,6 +35,7 @@
 
     </style>
 </head>
+
 @extends('layouts.app')
 
 @section('content')
@@ -42,6 +43,8 @@
 
 
 <div class="container">
+       
+
     <div class="row justify-content-center mt-5   pl-4 d-flex">
         <div class="col-3 p-5">
         <img src="{{$user->profile->profileImage()}}" style="max-height:200px;" alt="face" class="rounded-circle w-100"></<img>
@@ -100,7 +103,6 @@
 
 
         @endforeach
-
 
 
     </div>

@@ -27,17 +27,11 @@ class ClasseMatiere extends Model
 
     public function classeProftoClasseStudent()
     {
-        return $this->belongsToMany(\App\ChoixClasseEleve::class,'user_id','classe_eleve');
+        return $this->belongsToMany(\App\ChoixClasseEleve::class);
     }
 
     public function classeProfToQuestionnaire()
     {
         return $this->belongsToMany(\App\Questionnaire::class);
-    }
-
-    public function classeMatiereToGraph()
-    {
-        return $this->belongsTo(\App\GraphiqueStudent::class);
-
     }
 }

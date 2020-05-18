@@ -33,21 +33,22 @@
 
                      <ul class="list-group">
 
-                        @foreach($questionnaire as $questionnaires)
-
+                        @foreach($questionnaire as $questionnaire)
 
                            <li class="list-group-item">
-
-
-                           <a href="{{$questionnaires->path() }}">{{$questionnaires->title}}</a>
+                        @if($questionnaire)
+                           <a href="{{$questionnaire->path() }}">{{$questionnaire->title}}</a>
 
                            <div class="mt-2">
 
                             <small class="font-weight-bold">Partagez le lien</small>
                             <p>
-                                <a href="{{$questionnaires->publicPath()}}">{{$questionnaires->publicPath()}}</a>
+                                <a href="{{$questionnaire->publicPath()}}">{{$questionnaire->publicPath()}}</a>
                             </p>
+                        @else
+                            {{ $maj }}<p style="font-size:40px">&#x1F389</p>
 
+                        @endif
 
 
                            </div>
@@ -117,7 +118,7 @@
                             </p>
 
 
-
+                        {{ $maj }}<p style="font-size:40px">&#x1F389</p>
 
 
                            </div>

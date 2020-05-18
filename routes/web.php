@@ -88,10 +88,9 @@ Route::get('/message', 'MessageController@show')->name('message.show');
 
 
 
-Route::get('/graphs/create', 'GraphiqueStudentController@create')->name('graphs');
+Route::get('/graphs/create', 'GraphiqueStudentController@create');
 Route::post('/graphs', 'GraphiqueStudentController@store');
 Route::get('/graphs/{graph}','GraphiqueStudentController@show' );
-
 
 // Route Profile>
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');

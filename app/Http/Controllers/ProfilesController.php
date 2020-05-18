@@ -7,6 +7,7 @@ use App\ImageUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -19,18 +20,19 @@ class ProfilesController extends Controller
     }
 
 
-
     public function index(User $user)
     {
-    return view('profiles.index',compact('user'));
+        if(session('success_message')){
+             Alert::toast('Ton Profile est à jour &#128512','warning',session('success_message'));
+        }
+        return view('profiles.index',compact('user'));
 
     }
 
 
 
     public function edit(User $user)
-
-    {
+    {;
             $this->authorize('update',$user->profile);
 
             return view('profiles.edit', compact('user'));
@@ -38,8 +40,10 @@ class ProfilesController extends Controller
 
 
 
-    public function update(User $user)
+    public function update(User $user,Request $request)
     {
+
+
 
         $this->authorize('update', $user->profile ,);
           $data = request()->validate([
@@ -74,7 +78,8 @@ class ProfilesController extends Controller
 
              ));
 
-            return redirect("/profile/{$user->id}");
+
+            return redirect("/profile/{$user->id}")->withSuccessMessage('mise a jour');
       }
 
 

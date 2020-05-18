@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\ClasseMatiere;
-use App\GraphiqueStudent;
 use App\Questionnaire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

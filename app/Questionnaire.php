@@ -46,17 +46,17 @@ class Questionnaire extends Model
 
     public function accueilEleve(){
 
-        return $this->hasMany(AccueilEleve::class);
+        return $this->hasManyTo(AccueilEleve::class);
     }
 
     public function questionnaireToClasseProf()
     {
-        return $this->belongsTo(\App\ClasseMatiere::class,'user_id','classe');
+        return $this->belongsToMany(\App\ClasseMatiere::class,'user_id');
     }
 
     public function questionnaireToClasseEleve()
     {
-        return $this->hasMany(\App\ChoixClasseEleve::class,'user_id','classe_eleve');
+        return $this->belongsToMany(\App\ChoixClasseEleve::class);
     }
 
 }

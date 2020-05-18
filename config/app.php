@@ -163,12 +163,14 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+      
 
         /*
          * Package Service Providers...
          */
 
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+       
         //Spatie\MediaLibrary\ImageGenerators\FileTypes\Pdf::class,
         //Spatie\MediaLibrary\Models\Media::class,
 

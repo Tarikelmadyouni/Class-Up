@@ -2,59 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use App\ChoixClasseEleve;
-use App\Note;
-use App\User;
-use App\Customer;
-use App\ClasseMatiere;
-use App\GraphiqueStudent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Customer;
+use App\GraphiqueStudent;
 
 class GraphiqueStudentController extends Controller
-{
 
-    public function __construct()
-    {
-       $this->middleware('auth');
-    }
+  {
 
 
-    public function create(GraphiqueStudent $graph, User $user ){
+    public function create(GraphiqueStudent $graphs){
 
-        $id = Auth::user()->id;
+        $graphs=GraphiqueStudent::all();
 
-        $student = ChoixClasseEleve::with('eleveToProf','classeEleveToUser')
-                         ->where('choix_classe_eleves.user_id','classe_matieres.user_id')
-                         ->where('choix_classe_eleves.user_id','users.id')
-                         ->get();
-
-        $note = Note::all();
-
-        $matiere = ClasseMatiere::where('user_id',$id)->get();
-
-
-        return view('graph.create', compact('graph','student','note','matiere'));
+        return view('graph.graphique', compact('graphs'));
 
 
     }
 
 
 
-    public function store(GraphiqueStudent $graphs){
+
+
+    public function store(Customer $graphs){
 
         $data = request()->validate([
 
             'nom'=>'required',
+            'matiere'=>'required',
             'notes'=>'required',
             'date'=>'required',
+
 
 
         ]);
 
 
 
-        $graphs = auth()->user()->graphique()->create($data);
+
+        $graphique = $graphs->graphique()->create($data);
+        //$graphique->matiereCustomer()->createMany($data['matiere']['notes']);
 
 
          return redirect('/graphs/'.$graphs->id);
@@ -62,13 +49,7 @@ class GraphiqueStudentController extends Controller
 
 
 
-
-    public function show(GraphiqueStudent $graph ){
-
-        //$user = Auth::user()->id;
-
-
-        $graph = GraphiqueStudent::all();
+    public function show(GraphiqueStudent $graph){
 
 
 

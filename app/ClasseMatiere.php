@@ -34,4 +34,10 @@ class ClasseMatiere extends Model
     {
         return $this->belongsToMany(\App\Questionnaire::class);
     }
+
+    public function classeMatiereToGraph()
+    {
+        return $this->belongsTo(\App\GraphiqueStudent::class);
+
+    }
 }

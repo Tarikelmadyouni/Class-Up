@@ -29,6 +29,7 @@
 </div>
 
 
+
 @foreach($graph as $graphs)
 <script>
 
@@ -44,9 +45,9 @@ let massPopChart = new Chart(myChart,{
 type:'bar',
 
 data:{
-    labels:['debut','Janvier', 'Fevrier', 'Mars', 'Avril', 'mai', 'Juin'],
+    labels:[{{ $graphs->date }},'Janvier', 'Fevrier', 'Mars', 'Avril', 'mai', 'Juin'],
     datasets:[{
-        label:'note /40',
+        label:'note /20 - {{ $graphs->nom }}',
         data:[  {{ $graphs->notes }},  ],
         backgroundColor:['green','pink','grey','purple','blue','yellow','black'],
 
@@ -56,7 +57,7 @@ data:{
 options:{
     title:{
         display:true,
-        text:'évolution dans la matière de {{ $graphs->nom }}',
+        text:'évolution dans la matière de vos élèves',
         fontSize:25
     },
     legend:{
@@ -79,6 +80,8 @@ options:{
 
 </script>
 @endforeach
+
+
 
 
 

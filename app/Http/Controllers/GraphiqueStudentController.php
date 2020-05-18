@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\ChoixClasseEleve;
+use App\Note;
 use App\User;
 use App\Customer;
+use App\ClasseMatiere;
 use App\GraphiqueStudent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GraphiqueStudentController extends Controller
 {
@@ -16,17 +20,24 @@ class GraphiqueStudentController extends Controller
     }
 
 
-    public function create(GraphiqueStudent $graphs){
+    public function create(GraphiqueStudent $graph, User $user ){
+
+        $id = Auth::user()->id;
+
+        $student = ChoixClasseEleve::with('eleveToProf','classeEleveToUser')
+                         ->where('choix_classe_eleves.user_id','classe_matieres.user_id')
+                         ->where('choix_classe_eleves.user_id','users.id')
+                         ->get();
+
+        $note = Note::all();
+
+        $matiere = ClasseMatiere::where('user_id',$id)->get();
 
 
-        $student = User::where('role','student')->get();
-
-        return view('graph.create', compact('graphs','student'));
+        return view('graph.create', compact('graph','student','note','matiere'));
 
 
     }
-
-
 
 
 
@@ -35,7 +46,6 @@ class GraphiqueStudentController extends Controller
         $data = request()->validate([
 
             'nom'=>'required',
-            'matiere'=>'required',
             'notes'=>'required',
             'date'=>'required',
 
@@ -52,11 +62,15 @@ class GraphiqueStudentController extends Controller
 
 
 
-    public function show($graph, User $user){
 
+    public function show(GraphiqueStudent $graph ){
+
+        //$user = Auth::user()->id;
 
 
         $graph = GraphiqueStudent::all();
+
+
 
         return view('graph.graphique', compact('graph'));
 

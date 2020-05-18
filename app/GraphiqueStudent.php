@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GraphiqueStudent extends Model
 {
-    protected $fillable = ['user_id','notes','matiere','date'];
+    protected $fillable = ['user_id','note_id','nom','notes','matiere','date'];
 
 
 
@@ -31,4 +31,21 @@ class GraphiqueStudent extends Model
 
         return $this->hasMany(\App\User::class,'user_id');
     }
+
+    public function notes()
+    {
+        return $this->hasMany(\App\Note::class,'note_id');
+    }
+
+    public function matiereProf()
+    {
+        return $this->belongsTo(\App\ClasseMatiere::class);
+    }
+
+    public function graphToClasseEleve()
+    {
+        return $this->hasMany(\App\ChoixClasseEleve::class,'user_id');
+    }
+
+
 }

@@ -36,7 +36,7 @@
                         @foreach($questionnaire as $questionnaire)
 
                            <li class="list-group-item">
-                        @if($questionnaire)
+
                            <a href="{{$questionnaire->path() }}">{{$questionnaire->title}}</a>
 
                            <div class="mt-2">
@@ -45,10 +45,7 @@
                             <p>
                                 <a href="{{$questionnaire->publicPath()}}">{{$questionnaire->publicPath()}}</a>
                             </p>
-                        @else
-                            {{ $maj }}<p style="font-size:40px">&#x1F389</p>
 
-                        @endif
 
 
                            </div>
@@ -74,7 +71,7 @@
 
                            <div class="mt-2">
                         @foreach($path as $paths)
-                        @if ( $paths )
+
 
                                 <a href="">{{ Str::limit($paths->original, 35) }}</a>
 
@@ -84,10 +81,7 @@
                                 </button>
                             </a>
                             <hr>
-                        @else
-                        {{ $maj }}<p style="font-size:40px">&#x1F389</p>
 
-                        @endif
 
                         @endforeach
                            </div>
@@ -118,7 +112,7 @@
                             </p>
 
 
-                        {{ $maj }}<p style="font-size:40px">&#x1F389</p>
+                      
 
 
                            </div>

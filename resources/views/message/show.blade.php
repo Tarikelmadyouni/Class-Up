@@ -9,7 +9,7 @@
     server="706499274338336800"
     channel="706499274782933042"
     width="1000"
-    height="800"
+    height="740"
     shard="https://e.widgetbot.io"
 ></widgetbot>
 <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>

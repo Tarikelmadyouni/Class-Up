@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    @include('nav')
 
    @yield ('content')
 

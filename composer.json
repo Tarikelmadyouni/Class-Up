@@ -19,12 +19,7 @@
         "php-parallel-lint/php-console-color": "^0.3.0",
         "propaganistas/laravel-phone": "^4.2",
         "realrashid/sweet-alert": "^3.1",
-<<<<<<< HEAD
-        "spatie/laravel-medialibrary": "^8.0.0",
-        "thedevsaddam/lumen-route-list": "^2.0"
-=======
         "spatie/laravel-medialibrary": "^8.0.0"
->>>>>>> 51d83f1ab5d93d42537569ed27f8c3bb86861310
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

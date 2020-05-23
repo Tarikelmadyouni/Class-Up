@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "59cdcf116a8ba3f641449599dcb26734",
-=======
     "content-hash": "66a90acff4c576b251b00ece20dc1d9f",
->>>>>>> 51d83f1ab5d93d42537569ed27f8c3bb86861310
     "packages": [
         {
             "name": "caouecs/laravel-lang",
@@ -1115,11 +1111,7 @@
                     "type": "other"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2020-05-12T20:33:44+00:00"
-=======
             "time": "2020-05-18T15:13:39+00:00"
->>>>>>> 51d83f1ab5d93d42537569ed27f8c3bb86861310
         },
         {
             "name": "league/glide",
@@ -4234,7 +4226,6 @@
                 "dump"
             ],
             "funding": [
-<<<<<<< HEAD
                 {
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
@@ -4275,8 +4266,6 @@
                 "MIT"
             ],
             "authors": [
-=======
->>>>>>> 51d83f1ab5d93d42537569ed27f8c3bb86861310
                 {
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"

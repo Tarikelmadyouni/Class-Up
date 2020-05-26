@@ -8,7 +8,7 @@ class GraphiqueStudent extends Model
 {
     protected $guarded = [];
 
-   
+
 
 
     public function customer(){
@@ -30,5 +30,15 @@ class GraphiqueStudent extends Model
     public function user(){
 
         return $this->belongsTo(\App\User::class);
+    }
+
+    public function grapToProf()
+    {
+        return $this->hasMany(\App\ClasseMatiere::class,'user_id','id','classe');
+    }
+
+    public function graphToEleve()
+    {
+        return $this->hasMany(\App\ChoixClasseEleve::class,'user_id','id','classe_eleve');
     }
 }

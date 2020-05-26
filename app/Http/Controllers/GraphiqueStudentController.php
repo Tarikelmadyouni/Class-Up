@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\ChoixClasseEleve;
 use App\Note;
 use App\User;
 use App\Customer;
 use App\ClasseMatiere;
+use App\ChoixClasseEleve;
 use App\GraphiqueStudent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class GraphiqueStudentController extends Controller
@@ -20,18 +21,29 @@ class GraphiqueStudentController extends Controller
     }
 
 
-    public function create(GraphiqueStudent $graph, User $user ){
+    public function create(GraphiqueStudent $graph, User $user, ChoixClasseEleve $choix, ClasseMatiere $prof ){
 
         $id = Auth::user()->id;
 
-        $student = ChoixClasseEleve::with('eleveToProf','classeEleveToUser')
-                         ->where('choix_classe_eleves.user_id','classe_matieres.user_id')
-                         ->where('choix_classe_eleves.user_id','users.id')
-                         ->get();
+        //$eleve = ChoixClasseEleve::all();
+
+        $matiere = ClasseMatiere::where('user_id',$id)->get();
+
+
+        $student = DB::table('users')
+                    ->leftJoin('choix_classe_eleves','users.id','=','choix_classe_eleves.user_id')
+                    ->leftJoin('classe_matieres','choix_classe_eleves.id','=','classe_matieres.user_id')
+                    ->where('classe_eleve','!=',$id)
+                    ->select('users.name','users.surname')
+                    ->get();
+
 
         $note = Note::all();
 
-        $matiere = ClasseMatiere::where('user_id',$id)->get();
+
+
+        $eleve = ChoixClasseEleve::where('user_id',$choix)->get();
+
 
 
         return view('graph.create', compact('graph','student','note','matiere'));

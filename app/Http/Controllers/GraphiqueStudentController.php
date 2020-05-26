@@ -25,6 +25,7 @@ class GraphiqueStudentController extends Controller
 
         $id = Auth::user()->id;
 
+
         //$eleve = ChoixClasseEleve::all();
 
         $matiere = ClasseMatiere::where('user_id',$id)->get();
@@ -36,6 +37,7 @@ class GraphiqueStudentController extends Controller
                     ->where('classe_eleve','!=',$id)
                     ->select('users.name','users.surname')
                     ->get();
+
 
 
         $note = Note::all();

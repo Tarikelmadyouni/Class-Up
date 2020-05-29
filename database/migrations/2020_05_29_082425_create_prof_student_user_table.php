@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClasseMatiereUserTable extends Migration
+class CreateProfStudentUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateClasseMatiereUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('classe_matiere_user', function (Blueprint $table) {
+        Schema::create('prof_student_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('classe_matiere_id')->unsigned();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('classe_id')->unsigned();
+            $table->bigInteger('classe_eleve_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateClasseMatiereUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classe_matiere_user');
+        Schema::dropIfExists('prof_student_user');
     }
 }

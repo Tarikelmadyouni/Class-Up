@@ -15,7 +15,7 @@ class CreateChoixClasseElevesTable extends Migration
     {
         Schema::create('choix_classe_eleves', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('classe_eleve');
             $table->timestamps();
         });

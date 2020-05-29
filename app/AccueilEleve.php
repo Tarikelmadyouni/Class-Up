@@ -42,4 +42,9 @@ class AccueilEleve extends Model
     {
         return $this->belongsTo(\App\AccueilEleve::class);
     }
+
+    public function dashboardToUpload()
+    {
+        return $this->hasMany(\App\ImageUpload::class);
+    }
 }

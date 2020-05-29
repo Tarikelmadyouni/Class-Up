@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChoixClasseEleve extends Model
 {
-    protected $fillable= [];
+    protected $fillable= ['classe_eleve','user_id'];
 
 
     public function classeEleveToUser()
     {
 
-        return $this->belongsTo(\App\User::class);
+        return $this->hasMany(\App\User::class);
     }
 
     public function classeToProfClass()
     {
-        return $this->hasMany(\App\ClasseMatiere::class);
+        return $this->hasMany(\App\ClasseMatiere::class,'user_id');
     }
 
     public function classeToAdminProf()
@@ -33,11 +33,6 @@ class ChoixClasseEleve extends Model
     public function classeToQuestionnaire()
     {
         return $this->belongsToMany(\App\Questionnaire::class);
-    }
-
-    public function eleveToProf()
-    {
-        return $this->hasMany(\App\ClasseMatiere::class);
     }
 
     public function eleveToGraph()

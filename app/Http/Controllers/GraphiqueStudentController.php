@@ -26,25 +26,37 @@ class GraphiqueStudentController extends Controller
         $id = Auth::user()->id;
 
 
-        //$eleve = ChoixClasseEleve::all();
+        $eleve = ChoixClasseEleve::all();
 
         $matiere = ClasseMatiere::where('user_id',$id)->get();
 
+        //$eleve = User::where('role','student');
 
+        /*
         $student = DB::table('users')
                     ->leftJoin('choix_classe_eleves','users.id','=','choix_classe_eleves.user_id')
                     ->leftJoin('classe_matieres','choix_classe_eleves.id','=','classe_matieres.user_id')
                     ->where('classe_eleve','!=',$id)
                     ->select('users.name','users.surname')
                     ->get();
+        */
+
+        $student = ChoixClasseEleve::with('classeToProfClass')
+                                      ->whereColumn('classe','user_id');
 
 
+
+
+
+
+
+
+
+
+
+                        //dd($student);
 
         $note = Note::all();
-
-
-
-        $eleve = ChoixClasseEleve::where('user_id',$choix)->get();
 
 
 

@@ -24,6 +24,7 @@
 
         <select class="form-control" name="nom" id="nom">
 @foreach ($student as $students)
+
         <option>{{$students->name}} {{ $students->surname }}</option>
 @endforeach
             </select>

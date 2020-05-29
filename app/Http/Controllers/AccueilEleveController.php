@@ -50,11 +50,9 @@ class AccueilEleveController extends Controller
         $student = ChoixClasseEleve::first();
         $user = User::first();
 
-        $questionnaire = Questionnaire::with('questionnaireToClasseProf','questionnaireToClasseEleve')
-                                        ->where('user_id',$prof)
-                                        ->where('user_id', $student)
+        $questionnaire = Questionnaire::all();
 
-                                         ->get();
+
 
 
                                          //dd($prof);
@@ -65,7 +63,7 @@ class AccueilEleveController extends Controller
         $survey = Survey::all();
 
         //$path = imageUpload::all();
-        $path = ImageUpload::with('imageToProfClasse','imageToClasseEleve')->find($prof);
+        $path = ImageUpload::all();
 
         //$video = Video::all();
 

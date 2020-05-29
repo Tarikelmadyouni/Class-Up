@@ -29,7 +29,7 @@ class GraphiqueStudent extends Model
 
     public function user(){
 
-        return $this->belongsTo(\App\User::class);
+        return $this->hasMany(\App\User::class);
     }
 
     public function grapToProf()

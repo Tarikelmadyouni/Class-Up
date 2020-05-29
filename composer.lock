@@ -1609,7 +1609,10 @@
                 "serialization",
                 "serialize"
             ],
+
+
             "time": "2020-05-25T09:32:45+00:00"
+
         },
         {
             "name": "paragonie/random_compat",

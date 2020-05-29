@@ -155,13 +155,13 @@ class User extends Authenticatable
 
     public function usertoClasseMatiere()
     {
-        return $this->hasMany(\App\ClasseMatiere::class);
+        return $this->hasOne(\App\ClasseMatiere::class);
     }
 
 
     public function userToClasseEleve()
     {
-        return $this->hasMany(\App\ChoixClasseEleve::class);
+        return $this->hasOne(\App\ChoixClasseEleve::class);
     }
 
 
